@@ -17,7 +17,7 @@ const resolvers = {
         return Profile.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
-    },
+    }
   },
 
   Mutation: {
@@ -51,11 +51,11 @@ const resolvers = {
         return Profile.findOneAndUpdate(
           { _id: profileId },
           {
-            $addToSet: { skills: skill },
+            $addToSet: { skills: skill }
           },
           {
             new: true,
-            runValidators: true,
+            runValidators: true
           }
         );
       }
@@ -79,8 +79,8 @@ const resolvers = {
         );
       }
       throw new AuthenticationError('You need to be logged in!');
-    },
-  },
+    }
+  }
 };
 
 module.exports = resolvers;

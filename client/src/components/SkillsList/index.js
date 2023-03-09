@@ -10,18 +10,19 @@ const SkillsList = ({ skills, isLoggedInUser = false }) => {
       try {
         cache.writeQuery({
           query: QUERY_ME,
-          data: { me: removeSkill },
+          data: { me: removeSkill }
         });
       } catch (e) {
         console.error(e);
       }
-    },
+    }
   });
 
   const handleRemoveSkill = async (skill) => {
     try {
+      // eslint-disable-next-line no-unused-vars
       const { data } = await removeSkill({
-        variables: { skill },
+        variables: { skill }
       });
     } catch (err) {
       console.error(err);
@@ -54,9 +55,7 @@ const SkillsList = ({ skills, isLoggedInUser = false }) => {
             </div>
           ))}
       </div>
-      {error && (
-        <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
-      )}
+      {error && <div className="my-3 p-3 bg-danger text-white">{error.message}</div>}
     </div>
   );
 };

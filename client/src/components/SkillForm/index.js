@@ -15,8 +15,9 @@ const SkillForm = ({ profileId }) => {
     event.preventDefault();
 
     try {
+      // eslint-disable-next-line no-unused-vars
       const data = await addSkill({
-        variables: { profileId, skill },
+        variables: { profileId, skill }
       });
 
       setSkill('');
@@ -48,16 +49,12 @@ const SkillForm = ({ profileId }) => {
               Endorse Skill
             </button>
           </div>
-          {error && (
-            <div className="col-12 my-3 bg-danger text-white p-3">
-              {error.message}
-            </div>
-          )}
+          {error && <div className="col-12 my-3 bg-danger text-white p-3">{error.message}</div>}
         </form>
       ) : (
         <p>
-          You need to be logged in to endorse skills. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+          You need to be logged in to endorse skills. Please <Link to="/login">login</Link> or{' '}
+          <Link to="/signup">signup.</Link>
         </p>
       )}
     </div>

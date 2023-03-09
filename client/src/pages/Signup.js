@@ -10,7 +10,7 @@ const Signup = () => {
   const [formState, setFormState] = useState({
     name: '',
     email: '',
-    password: '',
+    password: ''
   });
   const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
 
@@ -20,7 +20,7 @@ const Signup = () => {
 
     setFormState({
       ...formState,
-      [name]: value,
+      [name]: value
     });
   };
 
@@ -31,7 +31,7 @@ const Signup = () => {
 
     try {
       const { data } = await addProfile({
-        variables: { ...formState },
+        variables: { ...formState }
       });
 
       Auth.login(data.addProfile.token);
@@ -48,8 +48,7 @@ const Signup = () => {
           <div className="card-body">
             {data ? (
               <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
+                Success! You may now head <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
@@ -87,11 +86,7 @@ const Signup = () => {
               </form>
             )}
 
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
+            {error && <div className="my-3 p-3 bg-danger text-white">{error.message}</div>}
           </div>
         </div>
       </div>

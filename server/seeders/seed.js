@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-catch */
 const db = require('../config/connection');
 const { Profile } = require('../models');
 const profileSeeds = require('./profileSeeds.json');

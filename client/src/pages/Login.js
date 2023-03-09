@@ -15,7 +15,7 @@ const Login = (props) => {
 
     setFormState({
       ...formState,
-      [name]: value,
+      [name]: value
     });
   };
 
@@ -25,7 +25,7 @@ const Login = (props) => {
     console.log(formState);
     try {
       const { data } = await login({
-        variables: { ...formState },
+        variables: { ...formState }
       });
 
       Auth.login(data.login.token);
@@ -36,7 +36,7 @@ const Login = (props) => {
     // clear form values
     setFormState({
       email: '',
-      password: '',
+      password: ''
     });
   };
 
@@ -48,8 +48,7 @@ const Login = (props) => {
           <div className="card-body">
             {data ? (
               <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
+                Success! You may now head <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
@@ -79,11 +78,7 @@ const Login = (props) => {
               </form>
             )}
 
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
+            {error && <div className="my-3 p-3 bg-danger text-white">{error.message}</div>}
           </div>
         </div>
       </div>
