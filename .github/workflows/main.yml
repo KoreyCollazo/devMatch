@@ -1,0 +1,25 @@
+name: Format
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  test:
+    runs-on: ubuntu-latest
+     # Steps in job
+    steps:
+        # Get code from repo
+        - name: Checkout code
+          uses: actions/checkout@v1
+        # Install NodeJS
+        - name: Use Node.js 12.x
+          uses: actions/setup-node@v1
+          with:
+              node-version: 12.x
+        # Build the app
+        - name: install deps
+          run: npm install
+        - name: Run lint
+          run: npm run eslint
+        - name: Prettier
+          run: npm run format

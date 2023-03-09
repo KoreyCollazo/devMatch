@@ -38,11 +38,7 @@
     "name": "Alan Kay",
     "email": "akay@techfriends.dev",
     "password": "password06",
-    "skills": [
-      "Graphical User Interface (GUI) Design",
-      "Jazz Guitar",
-      "Education"
-    ]
+    "skills": ["Graphical User Interface (GUI) Design", "Jazz Guitar", "Education"]
   },
   {
     "name": "C.A.R. Hoare",
@@ -66,13 +62,6 @@
     "name": "Lernantino",
     "email": "lernantino@techfriends.dev",
     "password": "password10",
-    "skills": [
-      "JavaScript",
-      "CSS",
-      "HTML",
-      "Design Systems",
-      "Typescript",
-      "PWAs"
-    ]
+    "skills": ["JavaScript", "CSS", "HTML", "Design Systems", "Typescript", "PWAs"]
   }
 ]
