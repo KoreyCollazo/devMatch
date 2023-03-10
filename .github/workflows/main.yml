@@ -25,4 +25,4 @@ jobs:
             - name: 🧰 install deps
               run: npm install
             - name: Run lint
-              run: npm run eslint
+              run: npm run lint
