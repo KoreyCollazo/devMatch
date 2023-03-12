@@ -1,13 +1,14 @@
 import React from 'react';
+import 'materialize-css/dist/css/materialize.min.css';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Home from './pages/Home';
-import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Header from './components/Header';
+import Banner from './components/Banner';
+import Cards from './components/Cards';
 import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
@@ -37,13 +38,12 @@ function App() {
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
+          <Banner />
+          <Cards />
           <div className="container">
             <Routes>
-              <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              <Route path="/me" element={<Profile />} />
-              <Route path="/profiles/:profileId" element={<Profile />} />
             </Routes>
           </div>
           <Footer />

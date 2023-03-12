@@ -1,0 +1,32 @@
+#logo {
+    margin-left: 50px;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+#login {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.image {
+    height: 60%;
+    width: 50%;
+}
+
+.card-panel {
+    height: 60%;
+    width: 50%;
+}
+
+#float-right {
+    align-items: flex-start;
+}
+
+#float-left {
+    align-items: flex-end;
+}
