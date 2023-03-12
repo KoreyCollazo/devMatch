@@ -36,12 +36,16 @@ class Cards extends Component {
               <div class="icon-block">
                 <h2 class="center">💖</h2>
 
-                <h6 class="light">So why wait? Sign up now and start connecting with other software engineers who share your interests, goals, and values. Who knows, you might just find your perfect match!</h6>
+                <h6 class="light">So why wait? Sign up now and start connecting with other software engineers who share your interests, goals, and values.</h6>
               </div>
             </div>
           </div>
         </div>
-      </div><button class="waves-effect waves-light btn-large" href="#">Sign up now</button></>
+      </div>
+      <div class="center-align">
+        <button class="waves-effect waves-light btn-large" href="#">Sign up now</button>
+      </div>
+      </>
     );
   }
 };

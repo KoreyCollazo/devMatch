@@ -30,3 +30,7 @@
 #float-left {
     align-items: flex-end;
 }
+
+.icon-block {
+    margin: 50px;
+}
