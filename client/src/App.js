@@ -2,6 +2,7 @@ import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Auth from './utils/auth';
 
 import Home from './pages/Home';
 import Profile from './pages/Profile';
@@ -9,6 +10,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import VideoCall from './components/VideoCall';
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -46,6 +48,7 @@ function App() {
               <Route path="/profiles/:profileId" element={<Profile />} />
             </Routes>
           </div>
+          {Auth.loggedIn() ? (<VideoCall />):(null)}
           <Footer />
         </div>
       </Router>
