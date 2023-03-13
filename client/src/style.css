@@ -1,3 +1,12 @@
+:root {
+    --coral: #DE4E45;
+    --orange: #F47155;
+    --pink: #FBA37D;
+    --beige: #E8CDB8;
+    --light-gret: #c7beaf;
+    --grey: #a29b93;
+}
+
 #logo {
     margin-left: 50px;
     font-size: 48px;

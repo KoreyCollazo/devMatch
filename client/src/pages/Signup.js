@@ -1,97 +1,78 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import M from "materialize-css";
 
-import { useMutation } from '@apollo/client';
-import { ADD_PROFILE } from '../utils/mutations';
+class Signup extends Component {
 
-import Auth from '../utils/auth';
+  componentDidMount() {
+    M.AutoInit();
+  }
 
-const Signup = () => {
-  const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    password: ''
-  });
-  const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
-
-  // update state based on form input changes
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value
-    });
-  };
-
-  // submit form
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formState);
-
-    try {
-      const { data } = await addProfile({
-        variables: { ...formState }
-      });
-
-      Auth.login(data.addProfile.token);
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
-  return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-          <div className="card-body">
-            {data ? (
-              <p>
-                Success! You may now head <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Your username"
-                  name="name"
-                  type="text"
-                  value={formState.name}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  className="btn btn-block btn-info"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            )}
-
-            {error && <div className="my-3 p-3 bg-danger text-white">{error.message}</div>}
-          </div>
+  render() {
+    return (
+      <div class="container col s8">
+        <div class="row">
+          <nav>
+            <div class="nav-wrapper">
+              <div class="col s8">
+                <h3 class="brand-logo col s8">Sign up</h3>
+              </div>
+            </div>
+          </nav>
+  
         </div>
+        <form class="col s14">
+          <div class="row">
+            <div class="input-field hoverable col s6">
+              <i class="material-icons prefix">contacts</i>
+              <input 
+              id="first_name" 
+              type="text"  
+              class="validate" 
+              />
+              <label for="first_name">Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field hoverable col s6">
+              <i class="material-icons prefix">account_circle</i>
+              <input 
+              id="username" 
+              type="text" 
+              class="validate"
+              />
+              <label for="username">Username</label>
+            </div>
+            <div class="input-field hoverable col s6">
+              <i class="material-icons prefix">email</i>
+              <input 
+              id="email" 
+              type="email" 
+              class="validate"
+              />
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field hoverable col s6">
+              <i class="material-icons prefix">vpn_key</i>
+              <input 
+              id="password" 
+              type="password" 
+              class="validate"
+              />
+              <label for="password">Password</label>
+            </div>
+            <div class="input-field hoverable col s6">
+              <i class="material-icons prefix">replay</i>
+              <input id="password2" type="password" class="validate"/>
+              <label for="password2">Retype Password</label>
+            </div>
+          </div>
+          <a class="waves-effect waves-light btn right hoverable" href="/"><i class="large material-icons right">done</i>register</a>
+        </form>
       </div>
-    </main>
-  );
+    );
+  }
 };
 
 export default Signup;

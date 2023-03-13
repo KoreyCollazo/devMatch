@@ -19,7 +19,7 @@ class Header extends Component {
             <h5 class="header col s12 light">Dating app for software developers</h5>
           </div>
           <div class="center-align">
-            <button class="waves-effect waves-light btn-large" href="#">Get Started</button>
+            <button class="waves-effect waves-light btn-large" href="./pa">Get Started</button>
           </div>
         
       </div>
