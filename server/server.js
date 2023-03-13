@@ -5,6 +5,8 @@ const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
 const cors = require('cors');
+// eslint-disable-next-line no-unused-vars
+let onlineUsers = [];
 
 const io = require('socket.io')(httpServer, {
   cors: {

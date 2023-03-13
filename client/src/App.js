@@ -48,7 +48,7 @@ function App() {
               <Route path="/profiles/:profileId" element={<Profile />} />
             </Routes>
           </div>
-          {Auth.loggedIn() ? (<VideoCall />):(null)}
+          {/* {Auth.loggedIn() ? (<VideoCall />):(null)} */}
           <Footer />
         </div>
       </Router>
