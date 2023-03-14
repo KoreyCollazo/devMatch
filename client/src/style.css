@@ -5,6 +5,7 @@
     --beige: #E8CDB8;
     --light-grey: #c7beaf;
     --grey: #a29b93;
+    --green: #26a69a;
 }
 
 #logo {
@@ -47,3 +48,20 @@
 .signup {
     background-color: #F47155;
 }
+
+.signup-modal {
+    padding: 10px;
+    margin: auto;
+    background-color: #fff;
+    width: 60%;
+    color: var(--coral);
+}
+
+.signup-modal h4 {
+    color: var(--green)
+}
+
+.register {
+   margin: auto;
+}
+ 

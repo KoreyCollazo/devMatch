@@ -17,20 +17,52 @@ export default function Main() {
         </div>
         <div className="center-align">
        
-          {/* <Button onClick={() => setOpen(true)}>Get Started</Button> */}
+          <Button class="waves-effect waves-light btn-large" onClick={() => setOpen(true)}>Get Started</Button>
           <Modal
             open={isOpen}
             onClose={() => setOpen(false)}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description">
-            <Box>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                Text in a modal
-              </Typography>
-              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-              </Typography>
-            </Box>
+         
+            
+                <form class="col s14 signup-modal">
+                <h4>Sign up</h4>
+                <div class="row">
+                  <div class="input-field hoverable col s6">
+                    <input 
+                    id="username" 
+                    type="text" 
+                    class="validate"
+                    />
+                    <label for="username">Username</label>
+                  </div>
+                  <div class="input-field hoverable col s6">
+                    <input 
+                    id="email" 
+                    type="email" 
+                    class="validate"
+                    />
+                    <label for="email">Email</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field hoverable col s6">
+                    <input 
+                    id="password" 
+                    type="password" 
+                    class="validate"
+                    />
+                    <label for="password">Password</label>
+                  </div>
+                  <div class="input-field hoverable col s6">
+                    <input id="password2" type="password" class="validate"/>
+                    <label for="password2">Retype Password</label>
+                  </div>
+                  <a class="waves-effect waves-light btn right hoverable register" href="/">register</a>
+                </div>
+              </form>
+       
+         
           </Modal>
         </div>
       </div>
