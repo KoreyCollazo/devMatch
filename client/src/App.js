@@ -4,11 +4,12 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-
+import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Header from './components/Header';
 import Main from './pages/Main';
 import Footer from './components/Footer';
+import VideoCall from './components/VideoCall';
 
 const httpLink = createHttpLink({
   uri: '/graphql'
