@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 // import M from "materialize-css";
 
@@ -17,7 +14,7 @@ export default function Main() {
         </div>
         <div className="center-align">
        
-          <Button class="waves-effect waves-light btn-large" onClick={() => setOpen(true)}>Get Started</Button>
+          <button class="waves-effect waves-light btn-large" onClick={() => setOpen(true)}>Get Started</button>
           <Modal
             open={isOpen}
             onClose={() => setOpen(false)}
