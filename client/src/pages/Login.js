@@ -44,7 +44,7 @@ const Login = (props) => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
+          <h4 className="card-header p-2">Login</h4>
           <div className="card-body">
             {data ? (
               <p>
@@ -71,10 +71,17 @@ const Login = (props) => {
                 <button
                   className="btn btn-block btn-info"
                   style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
+                  type="submit">
                   Submit
                 </button>
+                <div className="row">
+                  <div className="col s12 m4">
+                    <Link> Forgot password?</Link>
+                  </div>
+                  <div className="col s12 m4">
+                    <Link> Register here </Link>
+                  </div>
+                </div>
               </form>
             )}
 

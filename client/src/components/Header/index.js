@@ -13,7 +13,7 @@ class Header extends Component {
     return (
       <nav>
         <div className="nav-wrapper">
-          <Link id="logo" to={`/home}`}>DevMatch</Link>
+          <Link id="logo" to={`/`}>DevMatch</Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <Link id="login"  to={`/login`}>Login</Link>
           </ul>

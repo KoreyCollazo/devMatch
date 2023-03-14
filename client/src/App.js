@@ -4,8 +4,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// import Signup from './pages/Signup';
-// import Login from './pages/Login';
+import Login from './pages/Login';
 import Header from './components/Header';
 import Main from './pages/Main';
 import Footer from './components/Footer';
@@ -40,8 +39,7 @@ function App() {
           <Header />
           <Routes>
               <Route path="/" element={<Main />} />
-              {/* <Route path="/login" element={<Login />} />
-               <Route path="/signup" element={<Signup />} />  */}
+              <Route path="/login" element={<Login />} />
             </Routes>
            {/* <Banner /> 
            <Cards />  */}
