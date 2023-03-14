@@ -1,67 +1,62 @@
 [
   {
     "name": "Brian Kernighan",
+    "age": "34",
     "email": "bkernighan@techfriends.dev",
-    "password": "password01",
-    "skills": ["AWK", "AMPL", "Unix"]
+    "password": "password01"
   },
   {
     "name": "Max Kanat-Alexander",
+    "age": "34",
     "email": "mkanatalexander@techfriends.dev",
-    "password": "password02",
-    "skills": ["Java", "Perl", "Apache", "Python"]
+    "password": "password02"
   },
   {
     "name": "Amiko",
+    "age": "34",
     "email": "amiko@techfriends.dev",
-    "password": "password03",
-    "skills": ["NodeJS", "MySQL", "MongoDB", "React", "CSS-in-JS"]
+    "password": "password03"
   },
   {
     "name": "Kent Beck",
+    "age": "34",
     "email": "kbeck@techfriends.dev",
-    "password": "password04",
-    "skills": [
-      "Test-Driven Development",
-      "Extreme Programming",
-      "Software Design Patterns",
-      "JUnit"
-    ]
+    "password": "password04"
   },
   {
     "name": "Edward V. Berard",
+    "age": "34",
     "email": "evberard@techfriends.dev",
-    "password": "password05",
-    "skills": ["Object-Oriented Design"]
+    "password": "password05"
   },
   {
     "name": "Alan Kay",
+    "age": "34",
     "email": "akay@techfriends.dev",
-    "password": "password06",
-    "skills": ["Graphical User Interface (GUI) Design", "Jazz Guitar", "Education"]
+    "password": "password06"
   },
   {
     "name": "C.A.R. Hoare",
+    "age": "34",
     "email": "choare@techfriends.dev",
-    "password": "password07",
-    "skills": ["Algorithms", "Quicksort", "Hoare Logic"]
+    "password": "password07"
   },
   {
     "name": "David Thomas",
+    "age": "34",
     "email": "dthomas@techfriends.dev",
-    "password": "password08",
-    "skills": ["Author", "Code Kata", "Ruby", "Pragmatic Programming"]
+    "password": "password08"
   },
   {
     "name": "Donald Knuth",
+    "age": "34",
     "email": "dknuth@techfriends.dev",
-    "password": "password09",
-    "skills": ["TeX Computer Typesetting", "Algorithms", "Author"]
+    "password": "password09"
   },
   {
     "name": "Lernantino",
+    "age": "34",
     "email": "lernantino@techfriends.dev",
-    "password": "password10",
-    "skills": ["JavaScript", "CSS", "HTML", "Design Systems", "Typescript", "PWAs"]
+    "password": "password10"
   }
 ]

@@ -8,6 +8,12 @@ const profileSchema = new Schema({
     unique: true,
     trim: true
   },
+  age: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true
+  },
   email: {
     type: String,
     required: true,
@@ -19,12 +25,6 @@ const profileSchema = new Schema({
     required: true,
     minlength: 5
   },
-  skills: [
-    {
-      type: String,
-      trim: true
-    }
-  ]
 });
 
 // set up pre-save middleware to create password
