@@ -3,7 +3,7 @@
     --orange: #F47155;
     --pink: #FBA37D;
     --beige: #E8CDB8;
-    --light-gret: #c7beaf;
+    --light-grey: #c7beaf;
     --grey: #a29b93;
 }
 
@@ -41,5 +41,9 @@
 }
 
 .icon-block {
-    margin: 50px;
+    margin: 5px;
+}
+
+.signup {
+    background-color: #F47155;
 }

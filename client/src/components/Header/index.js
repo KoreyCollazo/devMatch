@@ -3,8 +3,6 @@ import M from "materialize-css";
 
 import { Link } from 'react-router-dom';
 
-import Auth from '../../utils/auth';
-
 class Header extends Component {
 
   componentDidMount() {
@@ -14,10 +12,10 @@ class Header extends Component {
   render() {
     return (
       <nav>
-        <div class="nav-wrapper">
+        <div className="nav-wrapper">
           <Link id="logo" to={`/home}`}>DevMatch</Link>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <Link id="login"  to={`/login}`}>Login</Link>
+          <ul id="nav-mobile" className="right hide-on-med-and-down">
+            <Link id="login"  to={`/login`}>Login</Link>
           </ul>
         </div>
       </nav>

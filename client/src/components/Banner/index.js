@@ -19,9 +19,8 @@ class Header extends Component {
             <h5 class="header col s12 light">Dating app for software developers</h5>
           </div>
           <div class="center-align">
-            <button class="waves-effect waves-light btn-large" href="./pa">Get Started</button>
+           <Link id="signup"  onClick={() => this.setState({Signup: true})}><button class="waves-effect waves-light btn-large">Get Started</button></Link>
           </div>
-        
       </div>
     </div>
     );
