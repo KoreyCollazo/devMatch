@@ -40,7 +40,7 @@ const Profile = () => {
               </h4>
             </div>
             <div classNameName="card-action">
-              <Link id="login"  to={`/login`}>Login</Link>
+              <button lassName="waves-effect waves-light btn green"><Link id="login"  to={`/login`}>Login</Link></button>
             </div>
           </div>
         </div>
