@@ -30,15 +30,15 @@ const Profile = () => {
 
   if (!profile?.name) {
     return (
-      <div class="row">
-        <div class="col s2 m12">
-          <div class="card">
-            <div class="card-content">
+      <div className="row">
+        <div className="col s2 m12">
+          <div className="card">
+            <div className="card-content">
               <h4>
                 You need to be logged in to see your profile page.
               </h4>
             </div>
-            <div class="card-action">
+            <div className="card-action">
               <Link id="login"  to={`/login`}>Login</Link>
             </div>
           </div>

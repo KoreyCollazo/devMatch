@@ -75,11 +75,8 @@ const Login = (props) => {
                   Submit
                 </button>
                 <div className="row">
-                  <div className="col s12 m4">
+                  <div className="col s2">
                     <Link> Forgot password?</Link>
-                  </div>
-                  <div className="col s12 m4">
-                    <Link> Register here </Link>
                   </div>
                 </div>
               </form>
