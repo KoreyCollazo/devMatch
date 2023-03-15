@@ -1,15 +1,8 @@
-import React, { Component } from 'react';
-import M from "materialize-css";
+import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-class Header extends Component {
-
-  componentDidMount() {
-    M.AutoInit();
-  }
-
-  render() {
+export default function Header() {
     return (
       <nav>
         <div className="nav-wrapper">
@@ -20,7 +13,4 @@ class Header extends Component {
         </div>
       </nav>
     );
-  }
 };
-
-export default Header;
