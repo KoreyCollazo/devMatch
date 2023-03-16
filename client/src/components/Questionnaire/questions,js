@@ -1,0 +1,114 @@
+const questions = [
+  {
+      question: "I prefer single vs double quote.",
+      answers: [
+          {
+              type: "True",
+          },
+          {
+              type: "False",
+          },
+      ]
+  },
+  {
+      question: "I prefer to spend your free time inside vs outside.",
+      answers: [
+          {
+            type: "True",
+          },
+          {
+            type: "False",
+          },
+      ]
+  },
+  {
+      question: "I prefer debugging vs console.log.",
+      answers: [
+          {
+            type: "True",
+          },
+          {
+            type: "False",
+          },
+      ]
+  },
+  {
+      question: "I enjoy attending hackathons or other tech-related events.",
+      answers: [
+        {
+          type: "True",
+        },
+        {
+          type: "False",
+        },
+      ]
+  },
+  {
+      question: "I am open to long distance.",
+      answers: [
+        {
+          type: "True",
+        },
+        {
+          type: "False",
+        },
+      ]
+  },
+  {
+    question: "I am looking for a long-term relationship.",
+    answers: [
+      {
+        type: "True",
+      },
+      {
+        type: "False",
+      },
+    ]
+},
+{
+  question: "I like pets.",
+  answers: [
+    {
+      type: "True",
+    },
+    {
+      type: "False",
+    },
+  ]
+},
+{
+  question: "I like drinking.",
+  answers: [
+    {
+      type: "True",
+    },
+    {
+      type: "False",
+    },
+  ]
+},
+{
+  question: "I smoke.",
+  answers: [
+    {
+      type: "True",
+    },
+    {
+      type: "False",
+    },
+  ]
+},
+{
+  question: "I use EsLint.",
+  answers: [
+    {
+      type: "True",
+    },
+    {
+      type: "False",
+    },
+  ]
+}
+];
+
+export default questions;
