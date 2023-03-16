@@ -79,3 +79,13 @@
     display: flex;
     justify-content: space-between;
 }
+
+.login {
+    width: 50%;
+    margin: auto;
+}
+
+#modal {
+    width: 60%;
+    margin: auto;
+}

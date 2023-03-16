@@ -26,7 +26,21 @@ const Profile = () => {
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   if (!profile?.name) {
@@ -35,12 +49,14 @@ const Profile = () => {
         <div classNameName="col s2 m12">
           <div classNameName="card">
             <div classNameName="card-content">
-              <h4>
-                You need to be logged in to see your profile page.
-              </h4>
+              <h4>You need to be logged in to see your profile page.</h4>
             </div>
             <div classNameName="card-action">
-              <button lassName="waves-effect waves-light btn greengit"><Link id="login"  to={`/login`}>Login</Link></button>
+              <button lassName="waves-effect waves-light btn greengit">
+                <Link id="login" to={`/login`}>
+                  Login
+                </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -53,12 +69,21 @@ const Profile = () => {
       <div className="col s12 m6">
         <div className="card">
           <div className="card-image">
-            <img id="profile-picture" alt="headshot" src="https://gyazo.com/db9f7075f60979081a9da8ec47453bec.png" />
+            <img
+              id="profile-picture"
+              alt="headshot"
+              src="https://img.icons8.com/plasticine/12x/morty-smith.png"
+            />
             <span className="card-title">John Smith, 20 Y/O</span>
-            <div className="btn-floating halfway-fab waves-effect waves-light green"><i className="material-icons"></i></div>
+            <div className="btn-floating halfway-fab waves-effect waves-light green">
+              <i className="material-icons"></i>
+            </div>
           </div>
           <div className="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            <p>
+              I am a very simple card. I am good at containing small bits of information. I am
+              convenient because I require little markup to use effectively.
+            </p>
           </div>
           <div id="row">
             <div id="buttons">
@@ -68,7 +93,7 @@ const Profile = () => {
               <button id="letter" className="waves-effect waves-light btn orange" tab-index="2">
                 <span classNameName="fa fa-instagram">Message</span>
               </button>
-              <button id="like" className="waves-effect waves-light btn green"  tab-index="1">
+              <button id="like" className="waves-effect waves-light btn green" tab-index="1">
                 <span classNameName="like-emoji">Yep</span>
               </button>
             </div>
