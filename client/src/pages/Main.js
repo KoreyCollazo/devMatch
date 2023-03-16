@@ -51,6 +51,7 @@ export default function Main() {
             Get Started
           </button>
           <Modal
+            id="modal"
             open={isOpen}
             onClose={() => setOpen(false)}
             aria-labelledby="modal-modal-title"

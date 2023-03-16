@@ -41,7 +41,7 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
+    <main className="flex-row justify-center mb-4 login">
       <div className="col-12 col-lg-10">
         <div className="card">
           <h4 className="card-header p-2">Login</h4>
@@ -75,7 +75,7 @@ const Login = (props) => {
                   Submit
                 </button>
                 <div className="row">
-                  <div className="col s2">
+                  <div className="col s4">
                     <Link> Forgot password?</Link>
                   </div>
                 </div>
