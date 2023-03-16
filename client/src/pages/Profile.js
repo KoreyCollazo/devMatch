@@ -1,10 +1,9 @@
 import React from 'react';
-
+import 'materialize-css/dist/css/materialize.min.css';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import SkillsList from '../components/SkillsList';
-import SkillForm from '../components/SkillForm';
+import { Link } from 'react-router-dom';
 
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
@@ -14,12 +13,9 @@ const Profile = () => {
   const { profileId } = useParams();
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
-  const { loading, data } = useQuery(
-    profileId ? QUERY_SINGLE_PROFILE : QUERY_ME,
-    {
-      variables: { profileId: profileId },
-    }
-  );
+  const { loading, data } = useQuery(profileId ? QUERY_SINGLE_PROFILE : QUERY_ME, {
+    variables: { profileId: profileId }
+  });
 
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
   const profile = data?.me || data?.profile || {};
@@ -30,34 +26,79 @@ const Profile = () => {
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   if (!profile?.name) {
     return (
-      <h4>
-        You need to be logged in to see your profile page. Use the navigation
-        links above to sign up or log in!
-      </h4>
+      <div classNameName="row">
+        <div classNameName="col s2 m12">
+          <div classNameName="card">
+            <div classNameName="card-content">
+              <h4>You need to be logged in to see your profile page.</h4>
+            </div>
+            <div classNameName="card-action">
+              <button lassName="waves-effect waves-light btn greengit">
+                <Link id="login" to={`/login`}>
+                  Login
+                </Link>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 
   return (
-    <div>
-      <h2 className="card-header">
-        {profileId ? `${profile.name}'s` : 'Your'} friends have endorsed these
-        skills...
-      </h2>
-
-      {profile.skills?.length > 0 && (
-        <SkillsList
-          skills={profile.skills}
-          isLoggedInUser={!profileId && true}
-        />
-      )}
-
-      <div className="my-4 p-4" style={{ border: '1px dotted #1a1a1a' }}>
-        <SkillForm profileId={profile._id} />
+    <div className="row">
+      <div className="col s12 m6">
+        <div className="card">
+          <div className="card-image">
+            <img
+              id="profile-picture"
+              alt="headshot"
+              src="https://img.icons8.com/plasticine/12x/morty-smith.png"
+            />
+            <span className="card-title">John Smith, 20 Y/O</span>
+            <div className="btn-floating halfway-fab waves-effect waves-light green">
+              <i className="material-icons"></i>
+            </div>
+          </div>
+          <div className="card-content">
+            <p>
+              I am a very simple card. I am good at containing small bits of information. I am
+              convenient because I require little markup to use effectively.
+            </p>
+          </div>
+          <div id="row">
+            <div id="buttons">
+              <button id="dislike" className="waves-effect waves-light btn red" tab-index="1">
+                <span classNameName="dislike-emoji">Nope</span>
+              </button>
+              <button id="letter" className="waves-effect waves-light btn orange" tab-index="2">
+                <span classNameName="fa fa-instagram">Message</span>
+              </button>
+              <button id="like" className="waves-effect waves-light btn green" tab-index="1">
+                <span classNameName="like-emoji">Yep</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
