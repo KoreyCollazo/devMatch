@@ -1,19 +1,19 @@
 [
   {
     "name": "Brian Kernighan",
-    "age": "34",
+    "age": "31",
     "email": "bkernighan@techfriends.dev",
     "password": "password01"
   },
   {
     "name": "Max Kanat-Alexander",
-    "age": "34",
+    "age": "32",
     "email": "mkanatalexander@techfriends.dev",
     "password": "password02"
   },
   {
     "name": "Amiko",
-    "age": "34",
+    "age": "33",
     "email": "amiko@techfriends.dev",
     "password": "password03"
   },
@@ -25,37 +25,37 @@
   },
   {
     "name": "Edward V. Berard",
-    "age": "34",
+    "age": "35",
     "email": "evberard@techfriends.dev",
     "password": "password05"
   },
   {
     "name": "Alan Kay",
-    "age": "34",
+    "age": "36",
     "email": "akay@techfriends.dev",
     "password": "password06"
   },
   {
     "name": "C.A.R. Hoare",
-    "age": "34",
+    "age": "37",
     "email": "choare@techfriends.dev",
     "password": "password07"
   },
   {
     "name": "David Thomas",
-    "age": "34",
+    "age": "38",
     "email": "dthomas@techfriends.dev",
     "password": "password08"
   },
   {
     "name": "Donald Knuth",
-    "age": "34",
+    "age": "39",
     "email": "dknuth@techfriends.dev",
     "password": "password09"
   },
   {
     "name": "Lernantino",
-    "age": "34",
+    "age": "40",
     "email": "lernantino@techfriends.dev",
     "password": "password10"
   }
