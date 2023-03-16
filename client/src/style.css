@@ -1,10 +1,11 @@
 :root {
     --coral: #DE4E45;
     --orange: #F47155;
-    --pink: #FBA37D;
+    --pink: #ee6e73;
     --beige: #E8CDB8;
-    --light-gret: #c7beaf;
+    --light-grey: #c7beaf;
     --grey: #a29b93;
+    --green: #26a69a;
 }
 
 #logo {
@@ -41,5 +42,40 @@
 }
 
 .icon-block {
-    margin: 50px;
+    margin: 5px;
+}
+
+.signup {
+    background-color: #F47155;
+}
+
+.signup-modal {
+    padding: 10px;
+    margin: auto;
+    background-color: #fff;
+    width: 60%;
+    color: var(--coral);
+}
+
+.signup-modal h4 {
+    background-color: var(--pink);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+.register {
+   margin: auto;
+}
+
+.card-header {
+    color: #fff!important;
+    background-color: var(--pink)!important;
+    text-align: center;
+}
+ 
+#buttons {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
 }
