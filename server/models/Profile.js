@@ -1,9 +1,17 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+// const userSchema =('./User')
+
 const profileSchema = new Schema({
   name: {
     type: String,
+    required: true,
+    unique: true,
+    trim: true
+  },
+  age: {
+    type: Number,
     required: true,
     unique: true,
     trim: true
@@ -19,13 +27,26 @@ const profileSchema = new Schema({
     required: true,
     minlength: 5
   },
-  skills: [
-    {
-      type: String,
-      trim: true
-    }
-  ]
-});
+  // matches: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "userSchema",
+  //   },
+  // ],
+  // savedMatches: [userSchema],
+  // messages: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'Message',
+  //   },
+  // ],
+},
+{
+  toJSON: {
+    virtuals: true,
+  },
+}
+);
 
 // set up pre-save middleware to create password
 profileSchema.pre('save', async function (next) {
@@ -41,6 +62,10 @@ profileSchema.pre('save', async function (next) {
 profileSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
+
+// userSchema.virtual('matchCount').get(function () {
+//   return this.savedMatches.length;
+// });
 
 const Profile = model('Profile', profileSchema);
 
