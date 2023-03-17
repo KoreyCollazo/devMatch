@@ -1,4 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
+// eslint-disable-next-line no-unused-vars
 const { Profile, User, Message } = require('../models');
 const { signToken } = require('../utils/auth');
 
@@ -54,7 +55,7 @@ const resolvers = {
 
       const token = signToken(profile);
       return { token, profile };
-    },
+    }
 
     // Add a third argument to the resolver to access data in our `context`
     // addSkill: async (parent, { profileId, skill }, context) => {
@@ -82,16 +83,16 @@ const resolvers = {
     //   throw new AuthenticationError('You need to be logged in!');
     // },
     // Make it so a logged in user can only remove a skill from their own profile
-  //   removeSkill: async (parent, { skill }, context) => {
-  //     if (context.user) {
-  //       return Profile.findOneAndUpdate(
-  //         { _id: context.user._id },
-  //         { $pull: { skills: skill } },
-  //         { new: true }
-  //       );
-  //     }
-  //     throw new AuthenticationError('You need to be logged in!');
-  //   }
+    //   removeSkill: async (parent, { skill }, context) => {
+    //     if (context.user) {
+    //       return Profile.findOneAndUpdate(
+    //         { _id: context.user._id },
+    //         { $pull: { skills: skill } },
+    //         { new: true }
+    //       );
+    //     }
+    //     throw new AuthenticationError('You need to be logged in!');
+    //   }
   }
 };
 

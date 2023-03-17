@@ -15,12 +15,12 @@ const typeDefs = gql`
     age: Int
     bio: String
     gender: String
-    image: String 
-  }  
+    image: String
+  }
 
   type Message {
     _id: ID
-    message: String 
+    message: String
     messageAuthor: String
   }
 

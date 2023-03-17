@@ -3,15 +3,14 @@ const db = require('../config/connection');
 const { Profile, User } = require('../models');
 const profileSeeds = require('./profileSeeds.json');
 const userSeeds = require('./userSeeds.json');
+// eslint-disable-next-line no-unused-vars
 const messageSeeds = require('./messageSeeds.json');
-
-
 
 db.once('open', async () => {
   try {
     await Profile.deleteMany({});
     await User.deleteMany({});
-    awai.deleteMany({});
+    // awai.deleteMany({});
 
     await Profile.create(profileSeeds);
     await User.create(userSeeds);
@@ -22,4 +21,3 @@ db.once('open', async () => {
     throw err;
   }
 });
-
