@@ -1,91 +1,91 @@
 :root {
-    --coral: #DE4E45;
-    --orange: #F47155;
-    --pink: #ee6e73;
-    --beige: #E8CDB8;
-    --light-grey: #c7beaf;
-    --grey: #a29b93;
-    --green: #26a69a;
+  --coral: #de4e45;
+  --orange: #f47155;
+  --pink: #ee6e73;
+  --beige: #e8cdb8;
+  --light-grey: #c7beaf;
+  --grey: #a29b93;
+  --green: #26a69a;
 }
 
 #logo {
-    margin-left: 50px;
-    font-size: 48px;
-    font-weight: bold;
+  margin-left: 50px;
+  font-size: 48px;
+  font-weight: bold;
 }
 
 #login {
-    font-size: 24px;
-    font-weight: bold;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .flex-container {
-    display: flex;
+  display: flex;
 }
 
 .image {
-    height: 60%;
-    width: 50%;
+  height: 60%;
+  width: 50%;
 }
 
 .card-panel {
-    height: 60%;
-    width: 50%;
+  height: 60%;
+  width: 50%;
 }
 
 #float-right {
-    align-items: flex-start;
+  align-items: flex-start;
 }
 
 #float-left {
-    align-items: flex-end;
+  align-items: flex-end;
 }
 
 .icon-block {
-    margin: 5px;
+  margin: 5px;
 }
 
 .signup {
-    background-color: #F47155;
+  background-color: #f47155;
 }
 
 .signup-modal {
-    padding: 10px;
-    margin: auto;
-    background-color: #fff;
-    width: 60%;
-    color: var(--coral);
+  padding: 10px;
+  margin: auto;
+  background-color: #fff;
+  width: 60%;
+  color: var(--coral);
 }
 
 .signup-modal h4 {
-    background-color: var(--pink);
-    color: #fff;
-    text-align: center;
-    padding: 10px;
+  background-color: var(--pink);
+  color: #fff;
+  text-align: center;
+  padding: 10px;
 }
 
 .register {
-   margin: auto;
+  margin: auto;
 }
 
 .card-header {
-    color: #fff!important;
-    background-color: var(--pink)!important;
-    text-align: center;
+  color: #fff !important;
+  background-color: var(--pink) !important;
+  text-align: center;
 }
- 
+
 #buttons {
-    margin: 10px;
-    display: flex;
-    justify-content: space-between;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .login {
-    width: 50%;
-    margin: auto;
+  width: 50%;
+  margin: auto;
 }
 
 #modal {
-    width: 60%;
-    margin: auto;
+  width: 60%;
+  margin: auto;
 }

@@ -55,7 +55,8 @@ export default function Main() {
             open={isOpen}
             onClose={() => setOpen(false)}
             aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description">
+            aria-describedby="modal-modal-description"
+          >
             <form class="col s14 signup-modal">
               <h4>Sign up</h4>
               <div class="row">

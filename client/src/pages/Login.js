@@ -71,7 +71,8 @@ const Login = (props) => {
                 <button
                   className="btn btn-block btn-info"
                   style={{ cursor: 'pointer' }}
-                  type="submit">
+                  type="submit"
+                >
                   Submit
                 </button>
                 <div className="row">
