@@ -6,9 +6,11 @@ import { Link } from 'react-router-dom';
 class Header extends Component {
 
   componentDidMount() {
-    M.AutoInit();
+    M.AutoInit();``
   }
 
+
+  // Where is the get started button going bring us?
   render() {
     return (
       <div class="section no-pad-bot" id="index-banner">
@@ -19,7 +21,7 @@ class Header extends Component {
             <h5 class="header col s12 light">Dating app for software developers</h5>
           </div>
           <div class="center-align">
-            <button class="waves-effect waves-light btn-large" href="#">Get Started</button>
+            <Link class="waves-effect waves-light btn-large" to="/signup">Get Started</Link>
           </div>
         
       </div>
