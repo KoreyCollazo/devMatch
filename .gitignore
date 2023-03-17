@@ -6,8 +6,11 @@
 .pnp.js
 /vscode
 
+
 # testing
 /coverage
+launch.json
+settings.json
 
 
 # production
