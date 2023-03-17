@@ -1,8 +1,24 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { SocketContext } from '../SocketContext';
 
+
+
 const VideoPlayer = () => {
-    const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
+    const { name, callAccepted, myVideo, userVideo, callEnded, stream, setStream, call } = useContext(SocketContext);
+    
+
+    useEffect(() => {
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+            .then((currentStream) => {
+                setStream(currentStream);
+
+                myVideo.current.srcObject = currentStream
+            });
+    }, [callEnded])
+    
+
+    
+    
 
     return (
         <div>

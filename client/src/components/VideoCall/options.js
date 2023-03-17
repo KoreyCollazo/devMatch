@@ -2,17 +2,18 @@ import React, { useContext, useState } from 'react'
 import { SocketContext } from '../SocketContext';
 
 const Options = ( { children }) => {
-const { me, callAccepted, name, setName, callEnded, leaveCall, callUser, stream } = useContext(SocketContext);
+const { me, callAccepted, name, callEnded, endCall, callUser, stream, onlineUsers } = useContext(SocketContext);
 const [idToCall, setIdToCall] = useState('');
+console.log(onlineUsers)
     return (
         <div>
             <div>
-                <input label="Name" value={name} onChange={(e) => setName(e.target.value)}/>
+                <h2>{name}</h2>
                 <input defaultValue={me}/>
                 <input placeholder='id to call' value={idToCall} onChange={(e) => setIdToCall(e.target.value)}/>
                 {callAccepted && !callEnded ? (
                     <div>
-                        <button onClick={leaveCall}>
+                        <button onClick={endCall}>
                             hang up
                         </button>
                         <button onClick={(e) => {
