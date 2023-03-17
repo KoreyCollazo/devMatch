@@ -43,3 +43,4 @@ export const REMOVE_SKILL = gql`
     }
   }
 `;
+
