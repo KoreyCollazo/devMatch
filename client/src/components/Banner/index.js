@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 class Header extends Component {
 
   componentDidMount() {
-    M.AutoInit();``
+    M.AutoInit();
   }
 
 
