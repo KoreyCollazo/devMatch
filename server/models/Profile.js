@@ -49,6 +49,7 @@ const profileSchema = new Schema({
   // ]
 });
 
+
 // set up pre-save middleware to create password
 profileSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {

@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import "./ChatRoom.css";
-import useChat from "../useChat";
+import './ChatRoom.css';
+import useChat from '../useChat';
 
 const ChatRoom = (props) => {
   const { roomId } = props.match.params; // Gets roomId from URL
   const { messages, sendMessage } = useChat(roomId); // Creates a websocket and manages messaging
-  const [newMessage, setNewMessage] = React.useState(""); // Message to be sent
+  const [newMessage, setNewMessage] = React.useState(''); // Message to be sent
 
   const handleNewMessageChange = (event) => {
     setNewMessage(event.target.value);
@@ -14,7 +14,7 @@ const ChatRoom = (props) => {
 
   const handleSendMessage = () => {
     sendMessage(newMessage);
-    setNewMessage("");
+    setNewMessage('');
   };
 
   return (
@@ -26,7 +26,7 @@ const ChatRoom = (props) => {
             <li
               key={i}
               className={`message-item ${
-                message.ownedByCurrentUser ? "my-message" : "received-message"
+                message.ownedByCurrentUser ? 'my-message' : 'received-message'
               }`}
             >
               {message.body}

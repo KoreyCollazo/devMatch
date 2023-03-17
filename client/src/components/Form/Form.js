@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { CREATE_USER_MUTATION } from "../../utils/mutations";
-import { useMutation } from "@apollo/client";
+import React, { useState } from 'react';
+import { CREATE_USER_MUTATION } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
 
 function Form() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const [createUser, { error }] = useMutation(CREATE_USER_MUTATION);
 
@@ -16,8 +16,8 @@ function Form() {
         firstName: firstName,
         lastName: lastName,
         email: email,
-        password: password,
-      },
+        password: password
+      }
     });
 
     if (error) {

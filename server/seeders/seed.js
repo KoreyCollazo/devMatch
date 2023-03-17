@@ -2,12 +2,16 @@
 const db = require('../config/connection');
 const { Profile } = require('../models');
 const profileSeeds = require('./profileSeeds.json');
+
 // const userSeeds = require('./userSeeds.json');
 // const messageSeeds = require('./messageSeeds.json');
+
+
 
 db.once('open', async () => {
   try {
     await Profile.deleteMany({});
+
     // await User.deleteMany({});
     // await messageSeeds.deleteMany({});
 

@@ -11,6 +11,7 @@ const typeDefs = gql`
     password: String
   }
 
+
   # type User {
   #   _id: ID
   #   name: String

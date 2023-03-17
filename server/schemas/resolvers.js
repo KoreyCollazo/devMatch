@@ -1,5 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
+
 const { Profile } = require('../models');
+
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -58,7 +60,8 @@ const resolvers = {
 
       const token = signToken(profile);
       return { token, profile };
-    },
+    }
+
 
     removeProfile: async (parent, args, context) => {
       if (context.user) {
@@ -66,6 +69,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     }
+
   }
 };
 
