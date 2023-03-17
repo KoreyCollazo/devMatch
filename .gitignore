@@ -4,13 +4,12 @@
 /node_modules
 /.pnp
 .pnp.js
-/vscode
+.vscode/
 
 
 # testing
 /coverage
-launch.json
-settings.json
+
 
 
 # production
