@@ -12,38 +12,38 @@ class Cards extends Component {
   render() {
     return (
 
-      <><div class="container">
-        <div class="section">
+      <><div className="container">
+        <div className="section">
 
-          <div class="row">
-            <div class="col s12 m4">
-              <div class="icon-block">
-                <h2 class="center"> 😴</h2>
+          <div className="row">
+            <div className="col s12 m4">
+              <div className="icon-block">
+                <h2 className="center"> 😴</h2>
 
-                <h6 class="light">Are you tired of swiping through countless profiles of people who don't share your passion for coding and tech?</h6>
+                <h6 className="light">Are you tired of swiping through countless profiles of people who don't share your passion for coding and tech?</h6>
               </div>
             </div>
 
-            <div class="col s12 m4">
-              <div class="icon-block">
-                <h2 class="center">👥</h2>
+            <div className="col s12 m4">
+              <div className="icon-block">
+                <h2 className="center">👥</h2>
 
-                <h6 class="light">Join our community of like-minded individuals who understand the joys and challenges of working in the tech industry.</h6>
+                <h6 className="light">Join our community of like-minded individuals who understand the joys and challenges of working in the tech industry.</h6>
               </div>
             </div>
 
-            <div class="col s12 m4">
-              <div class="icon-block">
-                <h2 class="center">💖</h2>
+            <div className="col s12 m4">
+              <div className="icon-block">
+                <h2 className="center">💖</h2>
 
-                <h6 class="light">So why wait? Sign up now and start connecting with other software engineers who share your interests, goals, and values.</h6>
+                <h6 className="light">So why wait? Sign up now and start connecting with other software engineers who share your interests, goals, and values.</h6>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="center-align">
-        <button class="waves-effect waves-light btn-large" href="#">Sign up now</button>
+      <div className="center-align">
+        <Link className="waves-effect waves-light btn-large" to="/signup">Sign up now</Link>
       </div>
       </>
     );

@@ -3,16 +3,23 @@ import 'materialize-css/dist/css/materialize.min.css';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+<<<<<<< HEAD
 import Auth from './utils/auth';
 import { ContextProvider } from './components/SocketContext';
+=======
+>>>>>>> main
 
-import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Header from './components/Header';
-import Banner from './components/Banner';
-import Cards from './components/Cards';
+import Main from './pages/Main';
 import Footer from './components/Footer';
+<<<<<<< HEAD
 import UserWrapper from './components/VideoCall/userWrapper';
+=======
+import Profile from './pages/Profile';
+import Settings from './pages/Settings';
+// import VideoCall from './components/VideoCall';
+>>>>>>> main
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -41,17 +48,20 @@ function App() {
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
-          <Banner />
-          <Cards />
-          <div className="container">
-            <Routes>
+          <Routes>
+              <Route path="/" element={<Main />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/settings" element={<Settings />} />
             </Routes>
+          <Footer /> 
           </div>
+<<<<<<< HEAD
           {/* {Auth.loggedIn() ? (<UserWrapper />):(null)} */}
           <Footer />
         </div>
+=======
+>>>>>>> main
       </Router>
     </ApolloProvider>
   );
