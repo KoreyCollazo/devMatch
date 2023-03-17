@@ -1,72 +1,72 @@
-[
-  {
-    "name": "Brian Kernighan",
-    "age": "34",
-    "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
-    "gender": "male",
-    "image": "no image"
-  },
-  {
-    "name": "Max Kanat-Alexander",
-    "age": "35",
-    "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
-    "gender": "male",
-    "image": "no image"
-  },
-  {
-    "name": "Amiko",
-    "age": "36",
-    "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
-    "gender": "female",
-    "image": "no image"
-  },
-  {
-    "name": "Kent Beck",
-    "age": "37",
-    "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
-    "gender": "male",
-    "image": "no image"
-  },
-  {
-    "name": "Edward V. Berard",
-    "age": "38",
-    "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
-    "gender": "male",
-    "image": "no image"
-  },
-  {
-    "name": "Alan Kay",
-    "age": "39",
-    "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
-    "gender": "male",
-    "image": "no image"
-  },
-  {
-    "name": "C.A.R. Hoare",
-    "age": "31",
-    "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
-    "gender": "male",
-    "image": "no image"
-  },
-  {
-    "name": "David Thomas",
-    "age": "32",
-    "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
-    "gender": "male",
-    "image": "no image"
-  },
-  {
-    "name": "Donald Knuth",
-    "age": "33",
-    "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
-    "gender": "male",
-    "image": "no image"
-  },
-  {
-    "name": "Lernantino",
-    "age": "20",
-    "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
-    "gender": "male",
-    "image": "no image"
-  }
-]
+// [
+//   {
+//     "name": "Brian Kernighan",
+//     "age": "34",
+//     "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
+//     "gender": "male",
+//     "image": "no image"
+//   },
+//   {
+//     "name": "Max Kanat-Alexander",
+//     "age": "35",
+//     "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
+//     "gender": "male",
+//     "image": "no image"
+//   },
+//   {
+//     "name": "Amiko",
+//     "age": "36",
+//     "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
+//     "gender": "female",
+//     "image": "no image"
+//   },
+//   {
+//     "name": "Kent Beck",
+//     "age": "37",
+//     "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
+//     "gender": "male",
+//     "image": "no image"
+//   },
+//   {
+//     "name": "Edward V. Berard",
+//     "age": "38",
+//     "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
+//     "gender": "male",
+//     "image": "no image"
+//   },
+//   {
+//     "name": "Alan Kay",
+//     "age": "39",
+//     "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
+//     "gender": "male",
+//     "image": "no image"
+//   },
+//   {
+//     "name": "C.A.R. Hoare",
+//     "age": "31",
+//     "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
+//     "gender": "male",
+//     "image": "no image"
+//   },
+//   {
+//     "name": "David Thomas",
+//     "age": "32",
+//     "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
+//     "gender": "male",
+//     "image": "no image"
+//   },
+//   {
+//     "name": "Donald Knuth",
+//     "age": "33",
+//     "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
+//     "gender": "male",
+//     "image": "no image"
+//   },
+//   {
+//     "name": "Lernantino",
+//     "age": "20",
+//     "bio": "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
+//     "gender": "male",
+//     "image": "no image"
+//   }
+// ]

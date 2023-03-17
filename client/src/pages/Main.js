@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from '@mui/material/Modal';
+import { Link } from 'react-router-dom';
 
 export default function Main() {
   const [isOpen, setOpen] = useState(false);
@@ -60,8 +61,24 @@ export default function Main() {
               <h4>Sign up</h4>
               <div class="row">
                 <div class="input-field hoverable col s6">
-                  <input id="username" type="text" class="validate" />
-                  <label for="username">Username</label>
+                  <input id="firstName" type="text" class="validate" />
+                  <label for="firstName">First Name</label>
+                </div>
+                <div class="input-field hoverable col s6">
+                  <input id="lastName" type="text" class="validate" />
+                  <label for="lastName">Last Name</label>
+                </div>
+                <div class="input-field hoverable col s6">
+                  <input id="age" type="text" class="validate" />
+                  <label for="age">Age</label>
+                </div>
+                <div class="input-field hoverable col s6">
+                  <input id="gender" type="text" class="validate" />
+                  <label for="gender">Gender</label>
+                </div>
+                <div class="input-field hoverable col s6">
+                  <input id="preference" type="text" class="validate" />
+                  <label for="preference">Preference</label>
                 </div>
                 <div class="input-field hoverable col s6">
                   <input id="email" type="email" class="validate" />
@@ -77,9 +94,9 @@ export default function Main() {
                   <input id="password2" type="password" class="validate" />
                   <label for="password2">Retype Password</label>
                 </div>
-                <a class="waves-effect waves-light btn right hoverable register" href="/">
+                <Link class="waves-effect waves-light btn right hoverable register" to="/about">
                   register
-                </a>
+                </Link>
               </div>
             </form>
           </Modal>
