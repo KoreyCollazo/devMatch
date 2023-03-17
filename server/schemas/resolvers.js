@@ -1,4 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
+const { default: mongoose } = require('mongoose');
 // eslint-disable-next-line no-unused-vars
 const { Profile, User, Message } = require('../models');
 const { signToken } = require('../utils/auth');
@@ -13,9 +14,9 @@ const resolvers = {
       return User.find();
     },
 
-    message: async (parent, { messageId }) => {
-      return Message.findOne({ _id: messageId });
-    },
+    //    message: async (parent, { messageId }) => {
+    //      return Message.findOne({ _id: messageId });
+    //    },
 
     profile: async (parent, { profileId }) => {
       return Profile.findOne({ _id: profileId });
@@ -30,6 +31,30 @@ const resolvers = {
         return Profile.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+
+    getMatches: async (parent, args, context) => {
+      if (context.user) {
+        const myProfile = await Profile.findById(context.user._id);
+        const allProfiles = await Profile.find({
+          $ne: {
+            _id: mongoose.ObjectId(context.user._id)
+          },
+          answers: { $exists: true }
+        });
+
+        const allProfilesWithMatches = allProfiles
+          .map((profile) => ({
+            ...profile,
+            matchScore: profile.answers.reduce(
+              (totalScore, currAnswer, i) => totalScore + (currAnswer === myProfile.answers[i]),
+              0
+            )
+          }))
+          .sort((a, b) => b.matchScore - a.matchScore);
+
+        return allProfilesWithMatches;
+      }
     }
   },
 
@@ -55,6 +80,23 @@ const resolvers = {
 
       const token = signToken(profile);
       return { token, profile };
+    },
+
+    saveAnswers: async (parent, { answers }, context) => {
+      if (context.user) {
+        await Profile.updateOne(
+          {
+            where: {
+              _id: context.user._id
+            }
+          },
+          {
+            answers
+          }
+        );
+
+        return true;
+      }
     }
 
     // Add a third argument to the resolver to access data in our `context`

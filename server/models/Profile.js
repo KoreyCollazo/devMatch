@@ -27,6 +27,9 @@ const profileSchema = new Schema(
       type: String,
       required: true,
       minlength: 5
+    },
+    answers: {
+      type: Array
     }
     // matches: [
     //   {
