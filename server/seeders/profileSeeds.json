@@ -1,61 +1,81 @@
 [
   {
-    "name": "Brian Kernighan",
+    "firstName": "Brian Kernighan",
+    "lastName": "lastq name",
     "age": "31",
+    "gender": "male",
     "email": "bkernighan@techfriends.dev",
     "password": "password01"
   },
   {
-    "name": "Max Kanat-Alexander",
+    "firstName": "Max Kanat-Alexander",
+    "lastName": "lastw name",
     "age": "32",
+    "gender": "male",
     "email": "mkanatalexander@techfriends.dev",
     "password": "password02"
   },
   {
-    "name": "Amiko",
+    "firstName": "Amiko",
+    "lastName": "lase name",
     "age": "33",
+    "gender": "female",
     "email": "amiko@techfriends.dev",
     "password": "password03"
   },
   {
-    "name": "Kent Beck",
+    "firstName": "Kent Beck",
+    "lastName": "last name",
     "age": "34",
+    "gender": "male",
     "email": "kbeck@techfriends.dev",
     "password": "password04"
   },
   {
-    "name": "Edward V. Berard",
+    "firstName": "Edward V. Berard",
+    "lastName": "last name",
     "age": "35",
+    "gender": "male",
     "email": "evberard@techfriends.dev",
     "password": "password05"
   },
   {
-    "name": "Alan Kay",
+    "firstName": "Alan Kay",
+    "lastName": "last name",
     "age": "36",
+    "gender": "male",
     "email": "akay@techfriends.dev",
     "password": "password06"
   },
   {
-    "name": "C.A.R. Hoare",
+    "firstName": "C.A.R. Hoare",
+    "lastName": "last name",
     "age": "37",
+    "gender": "male",
     "email": "choare@techfriends.dev",
     "password": "password07"
   },
   {
-    "name": "David Thomas",
+    "firstName": "David Thomas",
+    "lastName": "last name",
     "age": "38",
+    "gender": "male",
     "email": "dthomas@techfriends.dev",
     "password": "password08"
   },
   {
-    "name": "Donald Knuth",
+    "firstName": "Donald Knuth",
+    "lastName": "last name",
     "age": "39",
+    "gender": "male",
     "email": "dknuth@techfriends.dev",
     "password": "password09"
   },
   {
-    "name": "Lernantino",
+    "firstName": "Lernantino",
+    "lastName": "last name",
     "age": "40",
+    "gender": "male",
     "email": "lernantino@techfriends.dev",
     "password": "password10"
   }
