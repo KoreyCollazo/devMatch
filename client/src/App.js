@@ -3,23 +3,14 @@ import 'materialize-css/dist/css/materialize.min.css';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-<<<<<<< HEAD
-import Auth from './utils/auth';
-import { ContextProvider } from './components/SocketContext';
-=======
->>>>>>> main
 
 import Login from './pages/Login';
 import Header from './components/Header';
 import Main from './pages/Main';
 import Footer from './components/Footer';
-<<<<<<< HEAD
-import UserWrapper from './components/VideoCall/userWrapper';
-=======
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 // import VideoCall from './components/VideoCall';
->>>>>>> main
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -56,12 +47,6 @@ function App() {
             </Routes>
           <Footer /> 
           </div>
-<<<<<<< HEAD
-          {/* {Auth.loggedIn() ? (<UserWrapper />):(null)} */}
-          <Footer />
-        </div>
-=======
->>>>>>> main
       </Router>
     </ApolloProvider>
   );
