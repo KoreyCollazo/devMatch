@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/heading-has-content */
 import React, { useContext, useEffect } from 'react'
 import { SocketContext } from '../SocketContext';
 
@@ -14,6 +15,7 @@ const VideoPlayer = () => {
 
                 myVideo.current.srcObject = currentStream
             });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [callEnded])
     
 
