@@ -53,11 +53,42 @@ const startApolloServer = async (typeDefs, resolvers) => {
 };
 
 io.on('connection', (socket) => {
+  // send all active users to new user
+  io.emit('get-users', onlineUsers);
   socket.emit('me', socket.id);
 
-  socket.on('disconnect', () => {
-    socket.broadcast.emit('callEnded');
+  // add new user
+  socket.on('new-user-add', (newUserId) => {
+    if (!onlineUsers.some((user) => user.userId === newUserId)) {
+      // if user is not added before
+      onlineUsers.push({ userId: newUserId, socketId: socket.id });
+      console.log('new user is here!', onlineUsers);
+    }
+    // send all active users to new user
+    io.emit('get-users', onlineUsers);
   });
+
+  // end call for both users
+  socket.on('endCall', ({ partnerId, userId }) => {
+    io.to(partnerId).emit('callEnded');
+    io.to(userId).emit('callEnded');
+    console.log({ partnerId, userId }, 'end call');
+  });
+
+  socket.on('disconnect', () => {
+    onlineUsers = onlineUsers.filter((user) => user.socketId !== socket.id);
+    console.log('user disconnected', onlineUsers);
+    // send all online users to all users
+    io.emit('get-users', onlineUsers);
+  });
+
+  // socket.on('offline', () => {
+  //   // remove user from active users
+  //   onlineUsers = onlineUsers.filter((user) => user.socketId !== socket.id);
+  //   console.log('user is offline', onlineUsers);
+  //   // send all online users to all users
+  //   io.emit('get-users', onlineUsers);
+  // });
 
   socket.on('callUser', ({ userToCall, signalData, from, name }) => {
     io.to(userToCall).emit('callUser', { signal: signalData, from, name });

@@ -11,6 +11,7 @@ const typeDefs = gql`
     password: String
   }
 
+<<<<<<< HEAD
   # type User {
   #   _id: ID
   #   name: String
@@ -26,6 +27,22 @@ const typeDefs = gql`
   #   messageAuthor: String
   #   createdAt: String
   # }
+=======
+  type User {
+    _id: ID
+    name: String
+    age: Int
+    bio: String
+    gender: String
+    image: String
+  }
+
+  type Message {
+    _id: ID
+    message: String
+    messageAuthor: String
+  }
+>>>>>>> origin/main
 
   type Auth {
     token: ID!
