@@ -18,6 +18,16 @@ const typeDefs = gql`
     image: String
   }
 
+  type Questionnaire {
+    questions: [Question!]!
+  }
+
+  type Question {
+    question: String
+    choices: [String!]!
+    answer: Int
+  }
+
   type Message {
     _id: ID
     message: String
@@ -31,6 +41,7 @@ const typeDefs = gql`
 
   type Query {
     profiles: [Profile]!
+    questionnaire: Questionnaire!
     users: [User]
     profile(profileId: ID!): Profile
     user(userId: ID!): User

@@ -52,3 +52,5 @@ const Questionnaire = (props) => {
     </ul>
   );
 };
+
+export default Questionnaire;

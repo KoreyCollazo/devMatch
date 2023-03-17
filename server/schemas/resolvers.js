@@ -13,9 +13,9 @@ const resolvers = {
       return User.find();
     },
 
-    // message: async (parent, { messageId }) => {
-    //   return Message.findOne({ _id: messageId });
-    // },
+    message: async (parent, { messageId }) => {
+      return Message.findOne({ _id: messageId });
+    },
 
     profile: async (parent, { profileId }) => {
       return Profile.findOne({ _id: profileId });
