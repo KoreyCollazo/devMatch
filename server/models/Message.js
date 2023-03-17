@@ -6,18 +6,18 @@ const messageSchema = new Schema({
     type: String,
     minlength: 2,
     maxlength: 280,
-    trim: true,
+    trim: true
   },
   messageAuthor: {
     type: String,
     required: true,
-    trim: true,
+    trim: true
   },
   createdAt: {
     type: Date,
     default: Date.now,
-    get: (timestamp) => dateFormat(timestamp),
-  },
+    get: (timestamp) => dateFormat(timestamp)
+  }
 });
 
 const Message = model('Message', messageSchema);

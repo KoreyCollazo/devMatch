@@ -23,4 +23,3 @@ export const LOGIN_USER = gql`
     }
   }
 `;
-
