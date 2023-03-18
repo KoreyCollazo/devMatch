@@ -5,24 +5,41 @@ const profileSchema = new Schema({
   firstName: {
     type: String,
     required: true,
-    unique: true,
     trim: true
   },
   lastName: {
     type: String,
     required: true,
-    unique: true,
     trim: true
   },
   age: {
     type: Number,
     required: true,
-    unique: true,
     trim: true
   },
   gender: {
     type: String,
     required: true
+  },
+  photos: {
+    type: String
+  },
+  bio: {
+    type: String,
+    minlength: 2,
+    maxlenght: 200
+  },
+  education: {
+    type: String
+  },
+  location: {
+    type: String
+  },
+  height: {
+    type: String
+  },
+  ethinicity: {
+    type: String
   },
   email: {
     type: String,
@@ -35,18 +52,6 @@ const profileSchema = new Schema({
     required: true,
     minlength: 5
   }
-  // matches: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'userSchema'
-  //   }
-  // ]
-  // messages: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'Message'
-  //   }
-  // ]
 });
 
 // set up pre-save middleware to create password
@@ -63,10 +68,6 @@ profileSchema.pre('save', async function (next) {
 profileSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
-
-// userSchema.virtual('matchCount').get(function () {
-//   return this.savedMatches.length;
-// });
 
 const Profile = model('Profile', profileSchema);
 

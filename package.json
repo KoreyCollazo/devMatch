@@ -2,7 +2,7 @@
   "name": "dev-match",
   "version": "1.0.0",
   "description": "",
-  "main": "server/server.js",
+  "main": "server/seederes/seed.js",
   "scripts": {
     "start": "node server --ignore client",
     "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
