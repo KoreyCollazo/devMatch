@@ -10,10 +10,10 @@ import Login from './pages/Login';
 import Header from './components/Header';
 import Main from './pages/Main';
 import Footer from './components/Footer';
-import Dashboard from './pages/Dashboard';
 import Settings from './pages/Settings';
-import VideoPlayer from './components/VideoCall/videoPlayer';
+// import VideoPlayer from './components/VideoCall/videoPlayer';
 import Form from './components/Form/Form';
+import AboutMe from './pages/AboutMe';
 
 // import VideoCall from './components/VideoCall';
 
@@ -47,9 +47,9 @@ function App() {
           <Routes>
               <Route path="/" element={<Main />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/about" element={<Form />} />
+              <Route path="/aboutme" element={<AboutMe />} />
             </Routes>
           <Footer /> 
           </div>
