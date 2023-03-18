@@ -2,44 +2,40 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
-import { ADD_PROFILE } from '../utils/mutations';
+import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
 // hey yulia added more parameters, names and gender
 const Signup = () => {
   const [formState, setFormState] = useState({
-    firstName: '',
-    lastName: '',
-    age: '',
-    gender: '',
     email: '',
     password: ''
   });
-  const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
   // update state based on form input changes
   const handleChange = (event) => {
-    const { firstName, value } = event.target;
+    const { name, value } = event.target;
 
     setFormState({
       ...formState,
-      [firstName]: value
+      [name]: value
     });
   };
 
   // submit form
   const handleFormSubmit = async (event) => {
+    console.log('look here!')
     event.preventDefault();
     console.log(formState);
 
     try {
-      const { data } = await addProfile({
-        variables: { ...formState } &&
-        console.log("Successfully created account")
+      const { data } = await addUser({
+        variables: { ...formState } && console.log('Successfully created account')
       });
 
-      Auth.login(data.addProfile.token);
+      Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
@@ -60,38 +56,6 @@ const Signup = () => {
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
-                  placeholder="Your first name"
-                  name="firstName"
-                  type="text"
-                  value={formState.firstName}
-                  onChange={handleChange}
-                />
-                 <input
-                  className="form-input"
-                  placeholder="Your last name"
-                  name="lastName"
-                  type="text"
-                  value={formState.lastName}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="Your age"
-                  name="age"
-                  type="text"
-                  value={formState.age}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="Gender"
-                  name="gender"
-                  type="text"
-                  value={formState.gender}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
                   placeholder="Your email"
                   name="email"
                   type="email"
@@ -109,8 +73,7 @@ const Signup = () => {
                 <button
                   className="btn btn-block btn-info"
                   style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
+                  type="submit">
                   Submit
                 </button>
               </form>

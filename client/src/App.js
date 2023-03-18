@@ -11,6 +11,7 @@ import Main from './pages/Main';
 import Footer from './components/Footer';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
+import Signup from './pages/Signup';
 import Form from './components/Form/Form';
 
 // import VideoCall from './components/VideoCall';
@@ -47,6 +48,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/signup" element={<Signup />} />
               <Route path="/about" element={<Form />} />
             </Routes>
           <Footer /> 
