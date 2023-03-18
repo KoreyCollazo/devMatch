@@ -4,6 +4,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+// imported form component to be routed to after sign up
 import Login from './pages/Login';
 import Header from './components/Header';
 import Main from './pages/Main';
@@ -11,6 +12,7 @@ import Footer from './components/Footer';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Questionnaire from './pages/Questionnaire';
+
 
 // import VideoCall from './components/VideoCall';
 

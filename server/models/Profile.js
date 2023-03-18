@@ -1,56 +1,58 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// const userSchema =('./User')
-
-const profileSchema = new Schema(
-  {
-    name: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true
-    },
-    age: {
-      type: Number,
-      required: true,
-      unique: true,
-      trim: true
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      match: [/.+@.+\..+/, 'Must match an email address!']
-    },
-    password: {
-      type: String,
-      required: true,
-      minlength: 5
-    },
-    answers: {
-      type: Array
-    }
-    // matches: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: "userSchema",
-    //   },
-    // ],
-    // savedMatches: [userSchema],
-    // messages: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Message',
-    //   },
-    // ],
+const profileSchema = new Schema({
+  firstName: {
+    type: String,
+    required: true,
+    trim: true
   },
-  {
-    toJSON: {
-      virtuals: true
-    }
+  lastName: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  age: {
+    type: Number,
+    required: true,
+    trim: true
+  },
+  gender: {
+    type: String,
+    required: true
+  },
+  photos: {
+    type: String
+  },
+  bio: {
+    type: String,
+    minlength: 2,
+    maxlenght: 200
+  },
+  education: {
+    type: String
+  },
+  location: {
+    type: String
+  },
+  height: {
+    type: String
+  },
+  ethinicity: {
+    type: String
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, 'Must match an email address!']
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 5
   }
-);
+});
 
 // set up pre-save middleware to create password
 profileSchema.pre('save', async function (next) {
@@ -66,10 +68,6 @@ profileSchema.pre('save', async function (next) {
 profileSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
-
-// userSchema.virtual('matchCount').get(function () {
-//   return this.savedMatches.length;
-// });
 
 const Profile = model('Profile', profileSchema);
 

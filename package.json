@@ -2,7 +2,7 @@
   "name": "dev-match",
   "version": "1.0.0",
   "description": "",
-  "main": "server/server.js",
+  "main": "server/seederes/seed.js",
   "scripts": {
     "start": "node server --ignore client",
     "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/eslint-parser": "^7.21.3",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
     "concurrently": "^5.1.0",

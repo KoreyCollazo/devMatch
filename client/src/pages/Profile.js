@@ -43,7 +43,7 @@ const Profile = () => {
     );
   }
 
-  if (!profile?.name) {
+  if (!profile?.firstName) {
     return (
       <div classNameName="row">
         <div classNameName="col s2 m12">
