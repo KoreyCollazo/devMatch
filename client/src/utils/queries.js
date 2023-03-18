@@ -4,13 +4,7 @@ export const QUERY_PROFILES = gql`
   query allProfiles {
     profiles {
       _id
-<<<<<<< HEAD
       firstName
-     
-    
-=======
-      name
->>>>>>> origin/main
     }
   }
 `;
