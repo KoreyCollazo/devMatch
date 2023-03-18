@@ -6,10 +6,13 @@ import { ADD_PROFILE } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
+// hey yulia added more parameters, names and gender
 const Signup = () => {
   const [formState, setFormState] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     age: '',
+    gender: '',
     email: '',
     password: ''
   });
@@ -17,11 +20,11 @@ const Signup = () => {
 
   // update state based on form input changes
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    const { firstName, value } = event.target;
 
     setFormState({
       ...formState,
-      [name]: value
+      [firstName]: value
     });
   };
 
@@ -32,7 +35,8 @@ const Signup = () => {
 
     try {
       const { data } = await addProfile({
-        variables: { ...formState }
+        variables: { ...formState } &&
+        console.log("Successfully created account")
       });
 
       Auth.login(data.addProfile.token);
@@ -52,13 +56,22 @@ const Signup = () => {
                 Success! You may now head <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
+              // added some fields to see if the sign up form would work
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
-                  placeholder="Your username"
-                  name="name"
+                  placeholder="Your first name"
+                  name="firstName"
                   type="text"
-                  value={formState.name}
+                  value={formState.firstName}
+                  onChange={handleChange}
+                />
+                 <input
+                  className="form-input"
+                  placeholder="Your last name"
+                  name="lastName"
+                  type="text"
+                  value={formState.lastName}
                   onChange={handleChange}
                 />
                 <input
@@ -67,6 +80,14 @@ const Signup = () => {
                   name="age"
                   type="text"
                   value={formState.age}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="Gender"
+                  name="gender"
+                  type="text"
+                  value={formState.gender}
                   onChange={handleChange}
                 />
                 <input

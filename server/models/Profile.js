@@ -1,53 +1,53 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// const userSchema =('./User')
-
-const profileSchema = new Schema(
-  {
-    name: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true
-    },
-    age: {
-      type: Number,
-      required: true,
-      unique: true,
-      trim: true
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      match: [/.+@.+\..+/, 'Must match an email address!']
-    },
-    password: {
-      type: String,
-      required: true,
-      minlength: 5
-    }
-    // matches: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: "userSchema",
-    //   },
-    // ],
-    // savedMatches: [userSchema],
-    // messages: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Message',
-    //   },
-    // ],
+const profileSchema = new Schema({
+  firstName: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true
   },
-  {
-    toJSON: {
-      virtuals: true
-    }
+  lastName: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true
+  },
+  age: {
+    type: Number,
+    required: true,
+    unique: true,
+    trim: true
+  },
+  gender: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, 'Must match an email address!']
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 5
   }
-);
+  // matches: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'userSchema'
+  //   }
+  // ]
+  // messages: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'Message'
+  //   }
+  // ]
+});
 
 // set up pre-save middleware to create password
 profileSchema.pre('save', async function (next) {
