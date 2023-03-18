@@ -1,55 +1,94 @@
 import React, { useState } from 'react';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import { SAVE_ANSWERS } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
 
-const Questionnaire = (props) => {
-  const [questions] = useState([
-    {
+const Questionnaire = () => {
+  const [questions, setQuestions] = useState({
+    1: {
       question: 'Do you like single quotes better than double quotes?',
-      choices: ['True', 'False'],
-      answer: ''
+      answer: false
     },
-    {
+    2: {
       question: 'Do you prefer to spend your free time inside instead of outside?',
-      choices: ['True', 'False'],
-      answer: ''
+      answer: false
     },
-    {
+    3: {
       question: 'Do you like to drink?',
-      choices: ['True', 'False'],
-      answer: ''
+      answer: false
     },
-    {
+    4: {
       question: 'Do you like using debugger better than console.log?',
-      choices: ['True', 'False'],
-      answer: ''
+      answer: false
     },
-    {
+    5: {
       question: 'Do you enjoy attending hackathons or other tech-related events?',
-      choices: ['True', 'False'],
-      answer: ''
+      answer: false
     },
-    {
-      question: 'Are you looking for in a relationship?',
-      choices: ['True', 'False'],
-      answer: ''
+    6: {
+      question: 'Are you looking for a long-term a relationship?',
+      answer: false
     },
-    {
+    7: {
       question: 'Do you like EsLint?',
-      choices: ['True', 'False'],
-      answer: ''
+      answer: false
     },
-    {
+    8: {
       question: 'Do you like to smoke?',
-      choices: ['True', 'False'],
-      answer: ''
+      answer: false
     }
-  ]);
+  });
+  const [saveAnswers, { error, data }] = useMutation(SAVE_ANSWERS);
+
+  const handleChange = (e) =>
+    setQuestions({
+      ...questions,
+      [e.target.parentElement.id]: {
+        ...questions[e.target.parentElement.id],
+        answer: e.target.value === 'true' ? true : false
+      }
+    });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const { data } = await saveAnswers({
+        variables: {
+          answers: Object.keys(questions).map((questionKey) => questions[questionKey].answer)
+        }
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
-    <ul>
-      {questions.map((question) => (
-        <li>{question.question}</li>
-      ))}
-    </ul>
+    <form onSubmit={handleSubmit}>
+      <ul>
+        {Object.keys(questions).map((questionKey, index) => {
+          const question = questions[questionKey];
+
+          return (
+            <li key={index}>
+              {question.question}{' '}
+              <ToggleButtonGroup
+                id={questionKey}
+                color="primary"
+                value={questions[questionKey].answer}
+                exclusive
+                onChange={handleChange}
+                aria-label="Platform">
+                <ToggleButton value={true}>Yes</ToggleButton>
+                <ToggleButton value={false}>No</ToggleButton>
+              </ToggleButtonGroup>
+            </li>
+          );
+        })}
+      </ul>
+      <button>Save</button>
+    </form>
   );
 };
 
