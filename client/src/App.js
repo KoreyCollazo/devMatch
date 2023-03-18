@@ -14,6 +14,8 @@ import Settings from './pages/Settings';
 import Questionnaire from './pages/Questionnaire';
 
 
+import Form from './components/Form/Form';
+// import ImageUpload from './components/ImageUpload';
 // import VideoCall from './components/VideoCall';
 
 const httpLink = createHttpLink({
