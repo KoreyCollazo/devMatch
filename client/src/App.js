@@ -11,6 +11,9 @@ import Main from './pages/Main';
 import Footer from './components/Footer';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
+import Questionnaire from './pages/Questionnaire';
+
+
 import Form from './components/Form/Form';
 // import ImageUpload from './components/ImageUpload';
 // import VideoCall from './components/VideoCall';
@@ -47,7 +50,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/settings" element={<Settings />} />
-              <Route path="/about" element={<Form />} />
+              <Route path="/questionnaire" element={<Questionnaire />} />
             </Routes>
           <Footer /> 
           </div>
