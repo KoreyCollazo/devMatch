@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Form from './components/Form/Form';
-
+// import ImageUpload from './components/ImageUpload';
 // import VideoCall from './components/VideoCall';
 
 const httpLink = createHttpLink({
