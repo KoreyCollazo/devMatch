@@ -15,8 +15,8 @@ const typeDefs = gql`
     height: String
     ethnicity: String
   }
-  
-    type ProfileWithMatch {
+
+  type ProfileWithMatch {
     _id: ID
     name: String
     age: String
