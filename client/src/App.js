@@ -14,6 +14,7 @@ import Settings from './pages/Settings';
 // import VideoPlayer from './components/VideoCall/videoPlayer';
 import Form from './components/Form/Form';
 import AboutMe from './pages/AboutMe';
+import Profile from './pages/Profile';
 
 // import VideoCall from './components/VideoCall';
 
