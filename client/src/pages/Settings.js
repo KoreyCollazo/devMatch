@@ -65,6 +65,9 @@ const Settings = () => {
             </div>
           </div>
         </form>
+        <div className="row">
+          <button className="waves-effect waves-light btn">Update</button>
+      </div>
       </div>
     </>
   );
