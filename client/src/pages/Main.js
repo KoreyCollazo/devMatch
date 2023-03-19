@@ -49,31 +49,31 @@ export default function Main() {
         </div>
         <div className="center-align">
           <>
-            <div class="container">
-              <div class="section">
-                <div class="row">
-                  <div class="col s12 m4">
-                    <div class="icon-block">
-                      <h2 class="center"> 😴</h2>
-                      <h6 class="light">
+            <div className="container">
+              <div className="section">
+                <div className="row">
+                  <div className="col s12 m4">
+                    <div className="icon-block">
+                      <h2 className="center"> 😴</h2>
+                      <h6 className="light">
                         Are you tired of swiping through countless profiles of people who don't
                         share your passion for coding and tech?
                       </h6>
                     </div>
                   </div>
-                  <div class="col s12 m4">
-                    <div class="icon-block">
-                      <h2 class="center">👥</h2>
-                      <h6 class="light">
+                  <div className="col s12 m4">
+                    <div className="icon-block">
+                      <h2 className="center">👥</h2>
+                      <h6 className="light">
                         Join our community of like-minded individuals who understand the joys and
                         challenges of working in the tech industry.
                       </h6>
                     </div>
                   </div>
-                  <div class="col s12 m4">
-                    <div class="icon-block">
-                      <h2 class="center">💖</h2>
-                      <h6 class="light">
+                  <div className="col s12 m4">
+                    <div className="icon-block">
+                      <h2 className="center">💖</h2>
+                      <h6 className="light">
                         So why wait? Sign up now and start connecting with other software engineers
                         who share your interests, goals, and values.
                       </h6>
@@ -84,7 +84,7 @@ export default function Main() {
             </div>
           </>
 
-          <button class="waves-effect waves-light btn-large" onClick={() => setOpen(true)}>
+          <button className="waves-effect waves-light btn-large" onClick={() => setOpen(true)}>
             Get Started
           </button>
           <Modal
@@ -94,13 +94,12 @@ export default function Main() {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description">
             <form onSubmit={handleFormSubmit}>
-              <div class="col s14 signup-modal">
+              <div className="col s14 signup-modal">
                 <h4>Sign up</h4>
-                <div class="row">
-                  <div class="input-field hoverable col s6">
+                <div className="row">
+                  <div className="input-field hoverable col s4">
                     <input
                       className="form-input"
-                      placeholder="Your email"
                       name="email"
                       type="email"
                       value={formState.email}
@@ -110,10 +109,9 @@ export default function Main() {
                   </div>
                 </div>
                 <div class="row">
-                  <div class="input-field hoverable col s6">
+                  <div class="input-field hoverable col s4">
                     <input
                       className="form-input"
-                      placeholder="******"
                       name="password"
                       type="password"
                       value={formState.password}
@@ -121,12 +119,16 @@ export default function Main() {
                     />
                     <label for="password">Password</label>
                   </div>
-                  <button
-                    className="btn btn-block btn-primary"
-                    style={{ cursor: 'pointer' }}
-                    type="submit">
-                    Submit
-                  </button>
+                </div>
+                <div className="row">
+                  <div className="col center-align">
+                    <button
+                      className="waves-effect waves-light btn-large"
+                      style={{ cursor: 'pointer' }}
+                      type="submit">
+                      Submit
+                    </button>
+                  </div>
                 </div>
               </div>
             </form>
