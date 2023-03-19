@@ -39,7 +39,7 @@ const Questionnaire = () => {
       answer: false
     }
   });
-  const [saveAnswers, { error, data }] = useMutation(SAVE_ANSWERS);
+  const [saveAnswers, ] = useMutation(SAVE_ANSWERS);
 
   const handleChange = (e) =>
     setQuestions({
@@ -54,7 +54,7 @@ const Questionnaire = () => {
     e.preventDefault();
 
     try {
-      const { data } = await saveAnswers({
+       await saveAnswers({
         variables: {
           answers: Object.keys(questions).map((questionKey) => questions[questionKey].answer)
         }
