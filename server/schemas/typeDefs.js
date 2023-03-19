@@ -15,6 +15,7 @@ const typeDefs = gql`
     location: String
     height: String
     ethnicity: String
+    match: [User!]
   }
 
   type ProfileWithMatch {
@@ -41,6 +42,7 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(email: String!, password: String!): Auth
+    addMatch(userId: ID!, matchId: ID!): User!
     login(email: String!, password: String!): Auth
 
     removeUser: User

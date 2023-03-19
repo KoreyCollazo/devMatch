@@ -18,11 +18,11 @@ const Login = (props) => {
       [name]: value
     });
   };
-
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
+    console.log("look here")
     try {
       const { data } = await login({
         variables: { ...formState }
@@ -68,6 +68,7 @@ const Login = (props) => {
                   value={formState.password}
                   onChange={handleChange}
                 />
+                
                 <button
                   className="btn btn-block btn-info"
                   style={{ cursor: 'pointer' }}
@@ -75,6 +76,7 @@ const Login = (props) => {
                 >
                   Submit
                 </button>
+          
                 <div className="row">
                   <div className="col s4">
                     <Link> Forgot password?</Link>

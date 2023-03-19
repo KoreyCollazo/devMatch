@@ -13,6 +13,7 @@ import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Form from './components/Form/Form';
 
+
 // import VideoCall from './components/VideoCall';
 
 const httpLink = createHttpLink({
@@ -46,6 +47,10 @@ function App() {
               <Route path="/" element={<Main />} />
               <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<Profile />} />
+              <Route 
+                path="/profile/:userId" 
+                element={<Profile />} 
+              />
               <Route path="/settings" element={<Settings />} />
               <Route path="/about" element={<Form />} />
             </Routes>
@@ -57,3 +62,5 @@ function App() {
 }
 
 export default App;
+
+

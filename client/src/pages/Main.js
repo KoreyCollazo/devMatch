@@ -35,7 +35,6 @@ export default function Main() {
       });
 
       Auth.login(data.addUser.token);
-      console.log('right herrrrr');
     } catch (e) {
       console.error(e);
     }
