@@ -2,6 +2,7 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type User {
+  type User {
     _id: ID
     firstName: String
     lastName: String
@@ -15,6 +16,15 @@ const typeDefs = gql`
     location: String
     height: String
     ethnicity: String
+  }
+
+  type ProfileWithMatch {
+    _id: ID
+    name: String
+    age: String
+    email: String
+    password: String
+    matchScore: Int
   }
 
   type Auth {
@@ -34,6 +44,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
 
     removeUser: User
+    saveAnswers(answers: [Boolean]): Boolean
   }
 `;
 
