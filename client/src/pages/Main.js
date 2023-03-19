@@ -1,9 +1,46 @@
 import React, { useState } from 'react';
 import Modal from '@mui/material/Modal';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 export default function Main() {
   const [isOpen, setOpen] = useState(false);
+  const [formState, setFormState] = useState({
+    email: '',
+    password: ''
+  });
+  const [addUser] = useMutation(ADD_USER);
+
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value
+    });
+  };
+
+  // submit form
+  const handleFormSubmit = async (event) => {
+    console.log('look here!');
+    event.preventDefault();
+    console.log(formState);
+
+    try {
+      const { data } = await addUser({
+        variables: { ...formState }
+      });
+
+      Auth.login(data.addUser.token);
+      console.log('right herrrrr');
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <div className="section no-pad-bot" id="index-banner">
       <div className="container">
@@ -56,48 +93,42 @@ export default function Main() {
             open={isOpen}
             onClose={() => setOpen(false)}
             aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <form class="col s14 signup-modal">
-              <h4>Sign up</h4>
-              <div class="row">
-                <div class="input-field hoverable col s6">
-                  <input id="firstName" type="text" class="validate" />
-                  <label for="firstName">First Name</label>
+            aria-describedby="modal-modal-description">
+            <form onSubmit={handleFormSubmit}>
+              <div class="col s14 signup-modal">
+                <h4>Sign up</h4>
+                <div class="row">
+                  <div class="input-field hoverable col s6">
+                    <input
+                      className="form-input"
+                      placeholder="Your email"
+                      name="email"
+                      type="email"
+                      value={formState.email}
+                      onChange={handleChange}
+                    />
+                    <label for="email">Email</label>
+                  </div>
                 </div>
-                <div class="input-field hoverable col s6">
-                  <input id="lastName" type="text" class="validate" />
-                  <label for="lastName">Last Name</label>
+                <div class="row">
+                  <div class="input-field hoverable col s6">
+                    <input
+                      className="form-input"
+                      placeholder="******"
+                      name="password"
+                      type="password"
+                      value={formState.password}
+                      onChange={handleChange}
+                    />
+                    <label for="password">Password</label>
+                  </div>
+                  <button
+                    className="btn btn-block btn-primary"
+                    style={{ cursor: 'pointer' }}
+                    type="submit">
+                    Submit
+                  </button>
                 </div>
-                <div class="input-field hoverable col s6">
-                  <input id="age" type="text" class="validate" />
-                  <label for="age">Age</label>
-                </div>
-                <div class="input-field hoverable col s6">
-                  <input id="gender" type="text" class="validate" />
-                  <label for="gender">Gender</label>
-                </div>
-                <div class="input-field hoverable col s6">
-                  <input id="preference" type="text" class="validate" />
-                  <label for="preference">Preference</label>
-                </div>
-                <div class="input-field hoverable col s6">
-                  <input id="email" type="email" class="validate" />
-                  <label for="email">Email</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field hoverable col s6">
-                  <input id="password" type="password" class="validate" />
-                  <label for="password">Password</label>
-                </div>
-                <div class="input-field hoverable col s6">
-                  <input id="password2" type="password" class="validate" />
-                  <label for="password2">Retype Password</label>
-                </div>
-                <Link class="waves-effect waves-light btn right hoverable register" to="/about">
-                  register
-                </Link>
               </div>
             </form>
           </Modal>

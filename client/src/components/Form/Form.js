@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CREATE_USER_MUTATION } from '../../utils/mutations';
+import { ADD_USER } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
 
 function Form() {
@@ -8,7 +8,7 @@ function Form() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [createUser, { error }] = useMutation(CREATE_USER_MUTATION);
+  const [createUser, { error }] = useMutation(ADD_USER);
 
   const addUser = () => {
     createUser({

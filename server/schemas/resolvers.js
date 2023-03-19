@@ -1,68 +1,94 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Profile } = require('../models');
+const { User } = require('../models');
 const { signToken } = require('../utils/auth');
+const mongoose = require('mongoose');
 
 const resolvers = {
   Query: {
-    profiles: async () => {
-      return Profile.find();
+    users: async () => {
+      return User.find();
     },
 
-    // users: async () => {
-    //   return User.find();
-    // },
-
-    // messages: async () => {
-    //   return User.find();
-    // },
-
-    profile: async (parent, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
+    user: async (parent, { userId }) => {
+      return User.findOne({ _id: userId });
     },
 
-    // user: async (parent, { userId }) => {
-    //   return User.findOne({ _id: userId });
-    // },
-
-    // message: async (parent, { messageId }) => {
-    //   return Message.findOne({ _id: messageId });
-    // },
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
     me: async (parent, args, context) => {
       if (context.user) {
-        return Profile.findOne({ _id: context.user._id });
+        return User.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+
+    getMatches: async (parent, args, context) => {
+      if (context.user) {
+        const myProfile = await User.findById(context.user._id);
+        const allProfiles = await User.find({
+          $ne: {
+            _id: mongoose.ObjectId(context.user._id)
+          },
+          answers: { $exists: true }
+        });
+
+        const allProfilesWithMatches = allProfiles
+          .map((profile) => ({
+            ...profile,
+            matchScore: profile.answers.reduce(
+              (totalScore, currAnswer, i) => totalScore + (currAnswer === myProfile.answers[i]),
+              0
+            )
+          }))
+          .sort((a, b) => b.matchScore - a.matchScore);
+
+        return allProfilesWithMatches;
+      }
     }
   },
 
   Mutation: {
-    addProfile: async (parent, { firstName, lastName, age, gender, email, password }) => {
-      const profile = await Profile.create({ firstName, lastName, age, gender, email, password });
-      const token = signToken(profile);
-
-      return { token, profile };
+    addUser: async (parent, { email, password }) => {
+      const user = await User.create({ email, password });
+      const token = signToken(user);
+      return { token, user };
     },
     login: async (parent, { email, password }) => {
-      const profile = await Profile.findOne({ email });
+      const user = await User.findOne({ email });
 
-      if (!profile) {
+      if (!user) {
         throw new AuthenticationError('No profile with this email found!');
       }
 
-      const correctPw = await profile.isCorrectPassword(password);
+      const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError('Incorrect password!');
       }
 
-      const token = signToken(profile);
-      return { token, profile };
+      const token = signToken(user);
+      return { token, user };
+    },
+
+    saveAnswers: async (parent, { answers }, context) => {
+      if (context.user) {
+        await User.updateOne(
+          {
+            where: {
+              _id: context.user._id
+            }
+          },
+          {
+            answers
+          }
+        );
+
+        return true;
+      }
     }
 
-    // removeProfile: async (parent, args, context) => {
+    // removeUser: async (parent, args, context) => {
     //   if (context.user) {
-    //     return Profile.findOneAndDelete({ _id: context.user._id });
+    //     return User.findOneAndDelete({ _id: context.user._id });
     //   }
     //   throw new AuthenticationError('You need to be logged in!');
     // }

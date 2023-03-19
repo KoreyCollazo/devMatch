@@ -3,7 +3,7 @@
   "name": "dev-match",
   "version": "1.0.0",
   "description": "",
-  "main": "server/server.js",
+  "main": "server/seederes/seed.js",
   "scripts": {
     "start": "node server --ignore client",
     "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
@@ -30,6 +30,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
+    "nodemon": "^2.0.21",
     "prettier": "^2.8.4",
     "typescript": "^4.9.5"
   },
@@ -45,7 +46,8 @@
     "react-router-dom": "^6.9.0",
     "socket.io": "^4.6.1",
     "socket.io-client": "^4.6.1",
-    "subscriptions-transport-ws": "^0.11.0"
+    "subscriptions-transport-ws": "^0.11.0",
+    "uploader": "^3.9.0"
   }
 =======
     "name": "dev-match",
