@@ -64,10 +64,6 @@
   padding: 10px;
 }
 
-.register {
-  margin: auto;
-}
-
 .card-header {
   color: #fff !important;
   background-color: var(--pink) !important;

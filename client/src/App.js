@@ -1,5 +1,6 @@
 import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -9,9 +10,10 @@ import Login from './pages/Login';
 import Header from './components/Header';
 import Main from './pages/Main';
 import Footer from './components/Footer';
-import Profile from './pages/Profile';
 import Settings from './pages/Settings';
+// import VideoPlayer from './components/VideoCall/videoPlayer';
 import Form from './components/Form/Form';
+import AboutMe from './pages/AboutMe';
 
 // import VideoCall from './components/VideoCall';
 
@@ -45,9 +47,9 @@ function App() {
           <Routes>
               <Route path="/" element={<Main />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/profile" element={<Profile />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/about" element={<Form />} />
+              <Route path="/aboutme" element={<AboutMe />} />
             </Routes>
           <Footer /> 
           </div>
