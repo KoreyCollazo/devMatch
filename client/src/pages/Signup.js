@@ -11,8 +11,6 @@ const Signup = () => {
   const [formState, setFormState] = useState({
     firstName: '',
     lastName: '',
-    age: '',
-    gender: '',
     email: '',
     password: ''
   });
@@ -72,22 +70,6 @@ const Signup = () => {
                   name="lastName"
                   type="text"
                   value={formState.lastName}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="Your age"
-                  name="age"
-                  type="text"
-                  value={formState.age}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="Gender"
-                  name="gender"
-                  type="text"
-                  value={formState.gender}
                   onChange={handleChange}
                 />
                 <input
