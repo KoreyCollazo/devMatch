@@ -25,22 +25,21 @@ export default function Main() {
 
   // submit form
   const handleFormSubmit = async (event) => {
-    console.log('look here!')
+    console.log('look here!');
     event.preventDefault();
     console.log(formState);
 
     try {
       const { data } = await addUser({
-        variables: { ...formState } && console.log('Successfully created account')
+        variables: { ...formState }
       });
 
       Auth.login(data.addUser.token);
-      console.log('right herrrrr')
+      console.log('right herrrrr');
     } catch (e) {
       console.error(e);
     }
   };
-
 
   return (
     <div className="section no-pad-bot" id="index-banner">
@@ -94,44 +93,42 @@ export default function Main() {
             open={isOpen}
             onClose={() => setOpen(false)}
             aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
+            aria-describedby="modal-modal-description">
             <form onSubmit={handleFormSubmit}>
-            <div class="col s14 signup-modal">
-              <h4>Sign up</h4>
-              <div class="row">
-                <div class="input-field hoverable col s6">
-                <input
-                  className="form-input"
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                  <label for="email">Email</label>
+              <div class="col s14 signup-modal">
+                <h4>Sign up</h4>
+                <div class="row">
+                  <div class="input-field hoverable col s6">
+                    <input
+                      className="form-input"
+                      placeholder="Your email"
+                      name="email"
+                      type="email"
+                      value={formState.email}
+                      onChange={handleChange}
+                    />
+                    <label for="email">Email</label>
+                  </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="input-field hoverable col s6">
-                <input
-                  className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                  <label for="password">Password</label>
+                <div class="row">
+                  <div class="input-field hoverable col s6">
+                    <input
+                      className="form-input"
+                      placeholder="******"
+                      name="password"
+                      type="password"
+                      value={formState.password}
+                      onChange={handleChange}
+                    />
+                    <label for="password">Password</label>
+                  </div>
+                  <button
+                    className="btn btn-block btn-primary"
+                    style={{ cursor: 'pointer' }}
+                    type="submit">
+                    Submit
+                  </button>
                 </div>
-                <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </div>
               </div>
             </form>
           </Modal>
