@@ -23,8 +23,8 @@ const resolvers = {
 
     getMatches: async (parent, args, context) => {
       if (context.user) {
-        const myProfile = await Profile.findById(context.user._id);
-        const allProfiles = await Profile.find({
+        const myProfile = await User.findById(context.user._id);
+        const allProfiles = await User.find({
           $ne: {
             _id: mongoose.ObjectId(context.user._id)
           },
@@ -71,7 +71,7 @@ const resolvers = {
 
     saveAnswers: async (parent, { answers }, context) => {
       if (context.user) {
-        await Profile.updateOne(
+        await User.updateOne(
           {
             where: {
               _id: context.user._id
