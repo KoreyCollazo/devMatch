@@ -45,6 +45,7 @@
     "react-router-dom": "^6.9.0",
     "socket.io": "^4.6.1",
     "socket.io-client": "^4.6.1",
-    "subscriptions-transport-ws": "^0.11.0"
+    "subscriptions-transport-ws": "^0.11.0",
+    "uploader": "^3.9.0"
   }
 }

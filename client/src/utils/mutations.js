@@ -24,3 +24,9 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const SAVE_ANSWERS = gql`
+  mutation saveAnswers($answers: [Boolean]) {
+    saveAnswers(answers: $answers)
+  }
+`;

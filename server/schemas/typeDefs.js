@@ -17,6 +17,15 @@ const typeDefs = gql`
     ethnicity: String
   }
 
+  type ProfileWithMatch {
+    _id: ID
+    name: String
+    age: String
+    email: String
+    password: String
+    matchScore: Int
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -27,13 +36,16 @@ const typeDefs = gql`
     user(UserId: ID!): User
     # Because we have the context functionality in place to check a JWT and decode its data, we can use a query that will always find and return the logged in user's data
     me: User
+    getMatches: [ProfileWithMatch]
+
   }
 
   type Mutation {
     addUser(email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-
     removeUser: User
+    saveAnswers(answers: [Boolean]): Boolean
+
   }
 `;
 
