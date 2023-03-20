@@ -23,25 +23,27 @@ const resolvers = {
 
     getMatches: async (parent, args, context) => {
       if (context.user) {
-        const myProfile = await User.findById(context.user._id);
-        const allProfiles = await User.find({
-          $ne: {
-            _id: mongoose.ObjectId(context.user._id)
-          },
-          answers: { $exists: true }
-        });
-
-        const allProfilesWithMatches = allProfiles
-          .map((profile) => ({
-            ...profile,
-            matchScore: profile.answers.reduce(
-              (totalScore, currAnswer, i) => totalScore + (currAnswer === myProfile.answers[i]),
-              0
-            )
-          }))
-          .sort((a, b) => b.matchScore - a.matchScore);
-
-        return allProfilesWithMatches;
+        try {
+          const myProfile = await User.findById(context.user._id);
+          const allProfiles = await User.find({
+            $ne: {
+              _id: mongoose.ObjectId(context.user._id)
+            },
+            answers: { $exists: true }
+          });
+          const allProfilesWithMatches = allProfiles
+            .map((profile) => ({
+              ...profile,
+              matchScore: profile.answers.reduce(
+                (totalScore, currAnswer, i) => totalScore + (currAnswer === myProfile.answers[i]),
+                0
+              )
+            }))
+            .sort((a, b) => b.matchScore - a.matchScore);
+          return allProfilesWithMatches;
+        } catch (err) {
+          console.log(err);
+        }
       }
     }
   },
@@ -84,14 +86,21 @@ const resolvers = {
 
         return true;
       }
-    }
+    },
 
-    // removeUser: async (parent, args, context) => {
-    //   if (context.user) {
-    //     return User.findOneAndDelete({ _id: context.user._id });
-    //   }
-    //   throw new AuthenticationError('You need to be logged in!');
-    // }
+    updateUser: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOneAndUpdate({ _id: context.user._id });
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+    removeUser: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOneAndDelete({ _id: context.user._id });
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    }
   }
 };
 

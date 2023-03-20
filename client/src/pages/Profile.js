@@ -7,7 +7,7 @@ import { Grid } from '@mui/material';
 
 import { Link } from 'react-router-dom';
 
-import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
+import { QUERY_SINGLE_USER, QUERY_ME, QUERY_GET_MATCHES } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
@@ -20,14 +20,27 @@ const Profile = () => {
     variables: { userId: userId }
   });
 
+// const savedMatches = () => {
+//   if()
+// }
+  const { data: matchData } = useQuery( QUERY_GET_MATCHES );
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_USER` query
   const user = data?.me || data?.user || {};
+
   console.log(user);
+
+  console.log(matchData, 'undefined')
+
+
 
   // Use React Router's `<Navigate />` component to redirect to personal user page if username is yours
   if (Auth.loggedIn() && Auth.getUser().data._id === userId) {
     return <Navigate to="/profile" />;
   }
+
+  /* To do 
+  once login in chnaged to log out button
+  add button to go to about me page where user can fill out info  */
 
   if (loading) {
     return (
@@ -68,7 +81,9 @@ const Profile = () => {
     );
   }
 
+  // added about me button just for testing 
   return (
+  
     <container>
       <h3>Matches</h3>
       <Grid container spacing={2} classname="MuiGrid-container">
@@ -80,6 +95,24 @@ const Profile = () => {
                   <span classNameName="fa fa-instagram">Message</span>
                 </button>
               </div>
+
+    <div className="row">
+      <div className="col s12 m6">
+        <div className="card">
+          <div className="card-image">
+          <button className="waves-effect waves-light btn greengit">
+                <Link id="about" to={`/about`}>
+                  About
+                </Link>
+              </button>
+            <img
+              id="profile-picture"
+              alt="headshot"
+              src="https://img.icons8.com/plasticine/12x/morty-smith.png"
+            />
+            <span className="card-title">John Smith, 20 Y/O</span>
+            <div className="btn-floating halfway-fab waves-effect waves-light green">
+              <i className="material-icons"></i>
             </div>
           </div>
         </Grid>

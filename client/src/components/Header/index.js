@@ -14,7 +14,7 @@ export default function Header() {
     <nav>
       <div className="nav-wrapper">
         <Link id="logo" to={`/`}>
-          DevMatch
+          devMatch
         </Link>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
         {Auth.loggedIn() ? (

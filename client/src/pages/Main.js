@@ -25,9 +25,7 @@ export default function Main() {
 
   // submit form
   const handleFormSubmit = async (event) => {
-    console.log('look here!');
     event.preventDefault();
-    console.log(formState);
 
     try {
       const { data } = await addUser({
@@ -94,10 +92,10 @@ export default function Main() {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description">
             <form onSubmit={handleFormSubmit}>
-              <div className="col s14 signup-modal">
+              <div className="col s12 signup-modal">
                 <h4>Sign up</h4>
                 <div className="row">
-                  <div className="input-field hoverable col s4">
+                  <div className="input-field hoverable col s12">
                     <input
                       className="form-input"
                       name="email"
@@ -109,7 +107,7 @@ export default function Main() {
                   </div>
                 </div>
                 <div class="row">
-                  <div class="input-field hoverable col s4">
+                  <div class="input-field hoverable col s12">
                     <input
                       className="form-input"
                       name="password"
@@ -121,7 +119,7 @@ export default function Main() {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col center-align">
+                  <div className="col s12 center-align">
                     <button
                       className="waves-effect waves-light btn-large"
                       style={{ cursor: 'pointer' }}
