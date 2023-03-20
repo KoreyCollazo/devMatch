@@ -10,19 +10,21 @@ import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 
 const Profile = () => {
-  const { profileId } = useParams();
+  const { userId } = useParams();
+  console.log(userId)
 
-  // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
-  const { loading, data } = useQuery(profileId ? QUERY_SINGLE_USER : QUERY_ME, {
-    variables: { profileId: profileId }
+  // If there is no `userId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
+  const { loading, data } = useQuery(userId ? QUERY_SINGLE_USER : QUERY_ME, {
+    variables: { userId: userId }
   });
 
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_USER` query
-  const profile = data?.me || data?.profile || {};
+  const user = data?.me || data?.user || {};
+  console.log(user)
 
-  // Use React Router's `<Navigate />` component to redirect to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
-    return <Navigate to="/me" />;
+  // Use React Router's `<Navigate />` component to redirect to personal user page if username is yours
+  if (Auth.loggedIn() && Auth.getUser().data._id === userId) {
+    return <Navigate to="/profile" />;
   }
 
   if (loading) {
@@ -43,7 +45,7 @@ const Profile = () => {
     );
   }
 
-  if (!profile?.firstName) {
+  if (!user?._id) {
     return (
       <div classNameName="row">
         <div classNameName="col s2 m12">
@@ -52,7 +54,7 @@ const Profile = () => {
               <h4>You need to be logged in to see your profile page.</h4>
             </div>
             <div classNameName="card-action">
-              <button lassName="waves-effect waves-light btn greengit">
+              <button className="waves-effect waves-light btn greengit">
                 <Link id="login" to={`/login`}>
                   Login
                 </Link>

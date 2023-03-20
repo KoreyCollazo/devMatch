@@ -13,7 +13,8 @@ import Footer from './components/Footer';
 import Settings from './pages/Settings';
 // import VideoPlayer from './components/VideoCall/videoPlayer';
 import Form from './components/Form/Form';
-import AboutMe from './pages/AboutMe';
+// import AboutMe from './pages/AboutMe';
+import Profile from './pages/Profile';
 
 // import VideoCall from './components/VideoCall';
 
@@ -45,14 +46,15 @@ function App() {
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
           <Routes>
-              <Route path="/" element={<Main />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/about" element={<Form />} />
-              <Route path="/aboutme" element={<AboutMe />} />
-            </Routes>
-          <Footer /> 
-          </div>
+            <Route path="/" element={<Main />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile/:userId" element={<Profile />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/about" element={<Form />} />
+          </Routes>
+          <Footer />
+        </div>
       </Router>
     </ApolloProvider>
   );
