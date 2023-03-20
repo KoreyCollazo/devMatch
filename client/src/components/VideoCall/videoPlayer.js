@@ -3,22 +3,29 @@ import React, { useContext, useEffect } from 'react';
 import { SocketContext } from '../SocketContext';
 
 const VideoPlayer = () => {
-  const { name, callAccepted, myVideo, userVideo, callEnded, stream, setStream, call } =
+  const { name, callAccepted, myVideo, userVideo, callEnded, stream, setStream, call, dialing } =
     useContext(SocketContext);
 
+    
   useEffect(() => {
-    navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((currentStream) => {
-      setStream(currentStream);
-
-      myVideo.current.srcObject = currentStream;
-    });
+    
+      navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((currentStream) => {
+        setStream(currentStream);
+  
+        myVideo.current.srcObject = currentStream;
+      });
+      
+    
+    
+    
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [callEnded]);
+  }, [callEnded, dialing]);
+
 
   return (
     <div>
       {/* client video */}
-      {stream && (
+      {dialing && (
         <div>
           <h2 value={name}></h2>
           <video playsInline muted ref={myVideo} autoPlay />

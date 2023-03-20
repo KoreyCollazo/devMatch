@@ -16,6 +16,7 @@ const ContextProvider = ({ children }) => {
   const userId = localStorage.getItem('userId');
   const [onlineUsers, setOnlineUsers] = useState([]);
   const [partnerId, setPartnerId] = useState();
+  const [dialing, setDialing] = useState(false)
 
   const myVideo = useRef();
   const userVideo = useRef();
@@ -41,6 +42,8 @@ const ContextProvider = ({ children }) => {
     });
 
     socket.on('callUser', ({ from, name: callerName, signal }) => {
+      setDialing(true)
+      initVideo()
       setCall({ isReceivingCall: true, from, name: callerName, signal });
     });
   }, [userId, name]);
@@ -79,7 +82,7 @@ const ContextProvider = ({ children }) => {
     peer.on('signal', (data) => {
       socket.emit('answerCall', { signal: data, to: call.from });
       setPartnerId(call.from);
-      console.log(partnerId, 'partnerid');
+      console.log(call.from, 'also partid')
     });
 
     peer.on('stream', (currentStream) => {
@@ -91,7 +94,20 @@ const ContextProvider = ({ children }) => {
     connectionRef.current = peer;
   };
 
+  const initVideo = async() => {
+    const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+    navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((currentStream) => {
+      setStream(currentStream);
+
+      myVideo.current.srcObject = currentStream;
+
+    });
+    await delay(2000)
+  }
+
   const callUser = (id) => {
+    initVideo()
+    setDialing(true)
     const peer = new Peer({ initiator: true, trickle: false, stream });
 
     peer.on('signal', (data) => {
@@ -140,7 +156,8 @@ const ContextProvider = ({ children }) => {
         callUser,
         endCall,
         answerCall,
-        onlineUsers
+        onlineUsers,
+        dialing
       }}
     >
       {children}

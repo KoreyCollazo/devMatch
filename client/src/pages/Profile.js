@@ -2,6 +2,7 @@ import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+// import VideoCall from '../components/VideoCall';
 
 import { Link } from 'react-router-dom';
 
@@ -20,7 +21,6 @@ const Profile = () => {
 
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_USER` query
   const user = data?.me || data?.user || {};
-  console.log(user)
 
   // Use React Router's `<Navigate />` component to redirect to personal user page if username is yours
   if (Auth.loggedIn() && Auth.getUser().data._id === userId) {
@@ -45,7 +45,7 @@ const Profile = () => {
     );
   }
 
-  if (!user?._id) {
+  if (!Auth.loggedIn()) {
     return (
       <div classNameName="row">
         <div classNameName="col s2 m12">
@@ -100,6 +100,7 @@ const Profile = () => {
               </button>
             </div>
           </div>
+          {/* {userId ? (<VideoCall/>):(null)} */}
         </div>
       </div>
     </div>
