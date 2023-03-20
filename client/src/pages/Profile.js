@@ -2,6 +2,7 @@ import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import { Grid } from '@mui/material';
 // import VideoCall from '../components/VideoCall';
 
 import { Link } from 'react-router-dom';
@@ -25,6 +26,12 @@ const Profile = () => {
   const { data: matchData } = useQuery(QUERY_GET_MATCHES);
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_USER` query
   const user = data?.me || data?.user || {};
+<<<<<<< HEAD
+=======
+
+  console.log(user);
+
+>>>>>>> 870a9bf9c40b3543806ae72e61f18ce9108f7072
   console.log(matchData, 'undefined');
 
   // Use React Router's `<Navigate />` component to redirect to personal user page if username is yours
@@ -77,6 +84,7 @@ const Profile = () => {
 
   // added about me button just for testing
   return (
+<<<<<<< HEAD
     <div className="row">
       <div className="col s12 m6">
         <div className="card">
@@ -102,23 +110,89 @@ const Profile = () => {
               convenient because I require little markup to use effectively.
             </p>
           </div>
+=======
+    <container>
+      <h3>Matches</h3>
+      <Grid container spacing={2} classname="MuiGrid-container">
+        <Grid item xs={4}>
+>>>>>>> 870a9bf9c40b3543806ae72e61f18ce9108f7072
           <div id="row">
-            <div id="buttons">
-              <button id="dislike" className="waves-effect waves-light btn red" tab-index="1">
-                <span classNameName="dislike-emoji">Nope</span>
-              </button>
-              <button id="letter" className="waves-effect waves-light btn orange" tab-index="2">
-                <span classNameName="fa fa-instagram">Message</span>
-              </button>
-              <button id="like" className="waves-effect waves-light btn green" tab-index="1">
-                <span classNameName="like-emoji">Yep</span>
-              </button>
+            <div class="col-4" className="col4">
+              <div id="buttons">
+                <button id="letter" className="waves-effect waves-light btn orange" tab-index="2">
+                  <span classNameName="fa fa-instagram">Message</span>
+                </button>
+              </div>
             </div>
           </div>
-          {/* {userId ? (<VideoCall/>):(null)} */}
-        </div>
-      </div>
-    </div>
+          <div className="row">
+            <div className="col s12 m6">
+              <div className="card">
+                <div className="card-image">
+                  <button className="waves-effect waves-light btn greengit">
+                    <Link id="about" to={`/about`}>
+                      About
+                    </Link>
+                  </button>
+                  <img
+                    id="profile-picture"
+                    alt="headshot"
+                    src="https://img.icons8.com/plasticine/12x/morty-smith.png"
+                  />
+                  <span className="card-title">John Smith, 20 Y/O</span>
+                  <div className="btn-floating halfway-fab waves-effect waves-light green">
+                    <i className="material-icons"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Grid>
+        <Grid item xs={8}>
+          {/* <Item className=".MuiGrid-item"> */}
+          <div className="row">
+            <div class="col-8" className="col-8">
+              {/* <div className="col s12 m6"> */}
+              <div className="card">
+                <div className="card-image">
+                  <img
+                    id="profile-picture"
+                    alt="headshot"
+                    src="https://img.icons8.com/plasticine/12x/morty-smith.png"
+                  />
+                  <span className="card-title">John Smith, 20 Y/O</span>
+                  <div className="btn-floating halfway-fab waves-effect waves-light green">
+                    <i className="material-icons"></i>
+                  </div>
+                </div>
+                <div className="card-content">
+                  <p>
+                    I am a very simple card. I am good at containing small bits of information. I am
+                    convenient because I require little markup to use effectively.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* </Item> */}
+          {/* <Item> */}
+          <div id="row">
+            <div class="col-4" className="col4">
+              <div id="buttons">
+                <button id="dislike" className="waves-effect waves-light btn red" tab-index="1">
+                  <span classNameName="dislike-emoji">Nope</span>
+                </button>
+                <button id="like" className="waves-effect waves-light btn green" tab-index="1">
+                  <span classNameName="like-emoji">Yep</span>
+                </button>
+              </div>
+            </div>
+            {/* {userId ? (<VideoCall/>):(null)} */}
+          </div>
+          {/* </Item> */}
+        </Grid>
+      </Grid>
+    </container>
   );
 };
 
