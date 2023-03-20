@@ -1,13 +1,19 @@
 import React, { useContext, useState } from 'react';
 import { SocketContext } from '../SocketContext';
+import { useParams } from 'react-router-dom';
+
 
 const Options = ({ children }) => {
-  const { me, callAccepted, name, callEnded, endCall, callUser, stream, onlineUsers } =
+  const { me, callAccepted, name, callEnded, endCall, callUser, stream, onlineUsers, call, answerCall } =
     useContext(SocketContext);
   const [idToCall, setIdToCall] = useState('');
+  const guest = useParams();
+  console.log(guest)
   console.log(onlineUsers);
+  let guestObj = onlineUsers.find(o => o.userId === guest)
   return (
     <div>
+     
       <div>
         <h2>{name}</h2>
         <input defaultValue={me} />
@@ -16,6 +22,20 @@ const Options = ({ children }) => {
           value={idToCall}
           onChange={(e) => setIdToCall(e.target.value)}
         />
+        <div>
+      {call.isReceivingCall && !callAccepted && (
+        <div>
+          <h1>{call.name} is calling: </h1>
+          <button
+            onClick={() => {
+              answerCall();
+            }}
+          >
+            answer
+          </button>
+        </div>
+      )}
+    </div>
         {callAccepted && !callEnded ? (
           <div>
             <button onClick={endCall}>hang up</button>
@@ -49,7 +69,9 @@ const Options = ({ children }) => {
             </button>
           </div>
         ) : (
-          <button onClick={() => callUser(idToCall)}>call</button>
+          <button onClick={() => {
+            callUser(guestObj.socketId)
+          }}>call</button>
         )}
       </div>
       Options
