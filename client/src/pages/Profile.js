@@ -20,7 +20,6 @@ const Profile = () => {
 
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_USER` query
   const user = data?.me || data?.user || {};
-  console.log(user)
 
   // Use React Router's `<Navigate />` component to redirect to personal user page if username is yours
   if (Auth.loggedIn() && Auth.getUser().data._id === userId) {

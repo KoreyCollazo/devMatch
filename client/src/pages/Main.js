@@ -25,9 +25,7 @@ export default function Main() {
 
   // submit form
   const handleFormSubmit = async (event) => {
-    console.log('look here!');
     event.preventDefault();
-    console.log(formState);
 
     try {
       const { data } = await addUser({
