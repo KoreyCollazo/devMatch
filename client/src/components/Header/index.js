@@ -4,6 +4,7 @@ import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
 
 export default function Header() {
+
   const logout = (event) => {
     event.preventDefault();
     localStorage.removeItem('userId');
@@ -16,22 +17,23 @@ export default function Header() {
           devMatch
         </Link>
 
-        
-          {Auth.loggedIn() ? (
-            
-
-          
-        <ul id="dropdown1" class="dropdown-content">
-            <>
-             <li> <Link id="logout" onClick={logout}>Logout</Link></li>
-            </>
-        </ul>
-          ) : (
-            <ul id="nav-mobile" class="right hide-on-med-and-down"><Link id="login" to={`/login`}>
+        {Auth.loggedIn() ? (
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li>
+                {' '}
+                <Link id="logout" onClick={logout} to="/">
+                  Logout
+                </Link>
+              </li>
+          </ul>
+         
+        ) : (
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <Link id="login" to={`/login`}>
               Login
-            </Link></ul>
-          
-          )}
+            </Link>
+          </ul>
+        )}
       </div>
     </nav>
   );
