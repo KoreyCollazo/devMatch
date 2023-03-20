@@ -59,8 +59,8 @@ function App() {
             <Route path="/profile/:userId" element={<Profile />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/about" element={<AboutMe />} />
+            <Route path="/about" element={<Directory />} />
           </Routes>
-          <Directory />
           <Footer />
         </div>
         </ContextProvider>
