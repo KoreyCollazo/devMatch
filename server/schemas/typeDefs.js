@@ -16,6 +16,7 @@ const typeDefs = gql`
     height: String
     ethnicity: String
     match: [User!]
+    matchScore: Int
   }
 
   type ProfileWithMatch {
@@ -36,6 +37,7 @@ const typeDefs = gql`
     users: [User]!
     user(UserId: ID!): User
     getMatches: [User]
+    getMatch(UserId: ID!): User
     # Because we have the context functionality in place to check a JWT and decode its data, we can use a query that will always find and return the logged in user's data
     me: User
   }
@@ -45,6 +47,7 @@ const typeDefs = gql`
     addMatch(userId: ID!, matchId: ID!): User!
     login(email: String!, password: String!): Auth
 
+    updateUser: User
     removeUser: User
     saveAnswers(answers: [Boolean]): Boolean
   }
