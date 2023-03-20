@@ -13,9 +13,8 @@ import Main from './pages/Main';
 import Footer from './components/Footer';
 import Settings from './pages/Settings';
 // import VideoPlayer from './components/VideoCall/videoPlayer';
-import Form from './components/Form/Form';
+import AboutMe from './pages/AboutMe';
 import Auth from './utils/auth';
-
 import Profile from './pages/Profile';
 import { ContextProvider } from './components/SocketContext';
 import { UserContextProvider } from './components/UserContext';
@@ -59,7 +58,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/profile/:userId" element={<Profile />} />
             <Route path="/settings" element={<Settings />} />
-            {/* <Route path="/about" element={<AboutMe />} /> */}
+            <Route path="/about" element={<AboutMe />} />
           </Routes>
           <Directory />
           <Footer />
