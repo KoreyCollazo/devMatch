@@ -21,8 +21,7 @@ const Login = (props) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
-    console.log("look here")
+   
     try {
       const { data } = await login({
         variables: { ...formState }
