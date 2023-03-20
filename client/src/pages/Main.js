@@ -95,10 +95,10 @@ export default function Main() {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description">
             <form onSubmit={handleFormSubmit}>
-              <div className="col s14 signup-modal">
+              <div className="col s12 signup-modal">
                 <h4>Sign up</h4>
                 <div className="row">
-                  <div className="input-field hoverable col s4">
+                  <div className="input-field hoverable col s12">
                     <input
                       className="form-input"
                       name="email"
@@ -110,7 +110,7 @@ export default function Main() {
                   </div>
                 </div>
                 <div class="row">
-                  <div class="input-field hoverable col s4">
+                  <div class="input-field hoverable col s12">
                     <input
                       className="form-input"
                       name="password"
