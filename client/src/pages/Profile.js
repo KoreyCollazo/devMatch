@@ -86,10 +86,13 @@ const Profile = () => {
 
   // added about me button just for testing
   return (
+    // chat
     <div className="row">
         <div class="col s12 m4 l2 chat">
           <h1> Chat </h1>
         </div>
+
+    {/* card */}
 
       <div className="col s12 m8 l9">
         <div className="card">
