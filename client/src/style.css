@@ -92,13 +92,14 @@
 }
 
 .card-image {
-  width: 30%;
+  width: 50%;
   margin: auto;
 }
 
 .card {
-  width: 80%;
+  width: 79%;
   margin: auto!important;
+  margin-top: 10px!important;
 }
 
 .card-title {
@@ -107,4 +108,10 @@
 
 .card-content {
   color: var(--coral);
+}
+
+.chat {
+  background-color: var(--beige);
+  border-right: 2mm solid var(--coral);
+  border-image: linear-gradient(to bottom, var(--coral), #F0CB35) 1;
 }
