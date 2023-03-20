@@ -1,8 +1,7 @@
 import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
-import { Navigate, useParams } from 'react-router-dom';
+import { useNavigate, Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { Grid } from '@mui/material';
 // import VideoCall from '../components/VideoCall';
 
 import { Link } from 'react-router-dom';
@@ -12,6 +11,15 @@ import { QUERY_SINGLE_USER, QUERY_ME, QUERY_GET_MATCHES } from '../utils/queries
 import Auth from '../utils/auth';
 
 const Profile = () => {
+
+  const navigate = useNavigate();
+    const onSubmit = async (event) => {
+       event.preventDefault();
+       navigate(`/about`);
+    }
+       
+    
+    
   const { userId } = useParams();
   console.log(userId);
 
@@ -26,9 +34,6 @@ const Profile = () => {
   const { data: matchData } = useQuery(QUERY_GET_MATCHES);
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_USER` query
   const user = data?.me || data?.user || {};
-
-  console.log(user);
-
   console.log(matchData, 'undefined');
 
   // Use React Router's `<Navigate />` component to redirect to personal user page if username is yours
@@ -60,13 +65,13 @@ const Profile = () => {
 
   if (!Auth.loggedIn()) {
     return (
-      <div classNameName="row">
-        <div classNameName="col s2 m12">
-          <div classNameName="card">
-            <div classNameName="card-content">
+      <div className="row">
+        <div className="col s2 m12">
+          <div className="card">
+            <div className="card-content">
               <h4>You need to be logged in to see your profile page.</h4>
             </div>
-            <div classNameName="card-action">
+            <div className="card-action">
               <button className="waves-effect waves-light btn greengit">
                 <Link id="login" to={`/login`}>
                   Login
@@ -81,87 +86,57 @@ const Profile = () => {
 
   // added about me button just for testing
   return (
-    <container>
-      <h3>Matches</h3>
-      <Grid container spacing={2} classname="MuiGrid-container">
-        <Grid item xs={4}>
+    // chat
+    <div className="row">
+        <div class="col s12 m4 l2 chat">
+          <h1> Chat </h1>
+        </div>
+
+    {/* card */}
+
+      <div className="col s12 m8 l9">
+        <div className="card">
+
+            <button onSubmit={onSubmit} className="waves-effect waves-light btn green" style={{ cursor: 'pointer' }}
+                  type="submit">
+              
+                About
+            
+            </button>
+          <div className="card-image">
+            <img
+              id="profile-picture"
+              alt="headshot"
+              src="https://img.icons8.com/plasticine/12x/morty-smith.png"
+            />
+            <div className="btn-floating halfway-fab waves-effect waves-light green">
+              <i className="material-icons"></i>
+            </div>
+          </div>
+          <div className="card-content">
+            <h4 className="card-title">John Smith, 20 Y/O</h4>
+            <p>
+              I am a very simple card. I am good at containing small bits of information. I am
+              convenient because I require little markup to use effectively.
+            </p>
+          </div>
           <div id="row">
-            <div class="col-4" className="col4">
-              <div id="buttons">
-                <button id="letter" className="waves-effect waves-light btn orange" tab-index="2">
-                  <span classNameName="fa fa-instagram">Message</span>
-                </button>
-              </div>
+            <div id="buttons">
+              <button id="dislike" className="waves-effect waves-light btn red" tab-index="1">
+                <span className="dislike-emoji">Nope</span>
+              </button>
+              <button id="letter" className="waves-effect waves-light btn orange" tab-index="2">
+                <span className="fa fa-instagram">Message</span>
+              </button>
+              <button id="like" className="waves-effect waves-light btn green" tab-index="1">
+                <span className="like-emoji">Yep</span>
+              </button>
             </div>
           </div>
-          <div className="row">
-            <div className="col s12 m6">
-              <div className="card">
-                <div className="card-image">
-                  <button className="waves-effect waves-light btn greengit">
-                    <Link id="about" to={`/about`}>
-                      About
-                    </Link>
-                  </button>
-                  <img
-                    id="profile-picture"
-                    alt="headshot"
-                    src="https://img.icons8.com/plasticine/12x/morty-smith.png"
-                  />
-                  <span className="card-title">John Smith, 20 Y/O</span>
-                  <div className="btn-floating halfway-fab waves-effect waves-light green">
-                    <i className="material-icons"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Grid>
-        <Grid item xs={8}>
-          {/* <Item className=".MuiGrid-item"> */}
-          <div className="row">
-            <div class="col-8" className="col-8">
-              {/* <div className="col s12 m6"> */}
-              <div className="card">
-                <div className="card-image">
-                  <img
-                    id="profile-picture"
-                    alt="headshot"
-                    src="https://img.icons8.com/plasticine/12x/morty-smith.png"
-                  />
-                  <span className="card-title">John Smith, 20 Y/O</span>
-                  <div className="btn-floating halfway-fab waves-effect waves-light green">
-                    <i className="material-icons"></i>
-                  </div>
-                </div>
-                <div className="card-content">
-                  <p>
-                    I am a very simple card. I am good at containing small bits of information. I am
-                    convenient because I require little markup to use effectively.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* </Item> */}
-          {/* <Item> */}
-          <div id="row">
-            <div class="col-4" className="col4">
-              <div id="buttons">
-                <button id="dislike" className="waves-effect waves-light btn red" tab-index="1">
-                  <span classNameName="dislike-emoji">Nope</span>
-                </button>
-                <button id="like" className="waves-effect waves-light btn green" tab-index="1">
-                  <span classNameName="like-emoji">Yep</span>
-                </button>
-              </div>
-            </div>
-            {/* {userId ? (<VideoCall/>):(null)} */}
-          </div>
-          {/* </Item> */}
-        </Grid>
-      </Grid>
-    </container>
+          {/* {userId ? (<VideoCall/>):(null)} */}
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -48,13 +48,13 @@ const Matches = () => {
 
   if (!Auth.loggedIn()) {
     return (
-      <div classNameName="row">
-        <div classNameName="col s2 m12">
-          <div classNameName="card">
-            <div classNameName="card-content">
+      <div className="row">
+        <div className="col s2 m12">
+          <div className="card">
+            <div className="card-content">
               <h4>You need to be logged in to see your matches page.</h4>
             </div>
-            <div classNameName="card-action">
+            <div className="card-action">
               <button className="waves-effect waves-light btn greengit">
                 <Link id="login" to={`/login`}>
                   Login
@@ -91,13 +91,13 @@ const Matches = () => {
           <div id="row">
             <div id="buttons">
               <button id="dislike" className="waves-effect waves-light btn red" tab-index="1">
-                <span classNameName="dislike-emoji">Nope</span>
+                <span className="dislike-emoji">Nope</span>
               </button>
               <button id="letter" className="waves-effect waves-light btn orange" tab-index="2">
-                <span classNameName="fa fa-instagram">Message</span>
+                <span className="fa fa-instagram">Message</span>
               </button>
               <button id="like" className="waves-effect waves-light btn green" tab-index="1">
-                <span classNameName="like-emoji">Yep</span>
+                <span className="like-emoji">Yep</span>
               </button>
             </div>
           </div>

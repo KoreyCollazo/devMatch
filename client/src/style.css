@@ -14,9 +14,10 @@
   font-weight: bold;
 }
 
-#login {
+#login, #logout {
   font-size: 24px;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .flex-container {
@@ -86,4 +87,31 @@
   margin: auto;
 }
 
-  
+#login, #logo, #about{
+  text-decoration: none;
+}
+
+.card-image {
+  width: 50%;
+  margin: auto;
+}
+
+.card {
+  width: 79%;
+  margin: auto!important;
+  margin-top: 10px!important;
+}
+
+.card-title {
+  color: var(--orange)!important;
+}
+
+.card-content {
+  color: var(--coral);
+}
+
+.chat {
+  background-color: var(--beige);
+  border-right: 2mm solid var(--coral);
+  border-image: linear-gradient(to bottom, var(--coral), #F0CB35) 1;
+}

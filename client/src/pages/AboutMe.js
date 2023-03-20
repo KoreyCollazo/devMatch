@@ -188,9 +188,7 @@ const AboutMe = () => {
                                 id="textarea2"
                                 class="materialize-textarea"
                                 data-length="120"></textarea>
-                              <span className="helper-text" data-error="wrong" data-success="right">
-                                Bio
-                              </span>
+                             <label for="autocomplete-input">Bio</label>
                             </div>
                           </div>
                         </form>
