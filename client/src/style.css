@@ -14,9 +14,10 @@
   font-weight: bold;
 }
 
-#login {
+#login, #logout {
   font-size: 24px;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .flex-container {
@@ -84,4 +85,26 @@
 #modal {
   width: 60%;
   margin: auto;
+}
+
+#login, #logo, #about{
+  text-decoration: none;
+}
+
+.card-image {
+  width: 30%;
+  margin: auto;
+}
+
+.card {
+  width: 80%;
+  margin: auto!important;
+}
+
+.card-title {
+  color: var(--orange)!important;
+}
+
+.card-content {
+  color: var(--coral);
 }

@@ -12,21 +12,20 @@ import Auth from '../utils/auth';
 
 const Profile = () => {
   const { userId } = useParams();
-  console.log(userId)
+  console.log(userId);
 
   // If there is no `userId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(userId ? QUERY_SINGLE_USER : QUERY_ME, {
     variables: { userId: userId }
   });
 
-// const savedMatches = () => {
-//   if()
-// }
-  const { data: matchData } = useQuery( QUERY_GET_MATCHES );
+  // const savedMatches = () => {
+  //   if()
+  // }
+  const { data: matchData } = useQuery(QUERY_GET_MATCHES);
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_USER` query
   const user = data?.me || data?.user || {};
-  console.log(matchData, 'undefined')
-
+  console.log(matchData, 'undefined');
 
   // Use React Router's `<Navigate />` component to redirect to personal user page if username is yours
   if (Auth.loggedIn() && Auth.getUser().data._id === userId) {
@@ -76,28 +75,28 @@ const Profile = () => {
     );
   }
 
-  // added about me button just for testing 
+  // added about me button just for testing
   return (
     <div className="row">
       <div className="col s12 m6">
         <div className="card">
           <div className="card-image">
-          <button className="waves-effect waves-light btn greengit">
-                <Link id="about" to={`/about`}>
-                  About
-                </Link>
-              </button>
             <img
               id="profile-picture"
               alt="headshot"
               src="https://img.icons8.com/plasticine/12x/morty-smith.png"
             />
-            <span className="card-title">John Smith, 20 Y/O</span>
             <div className="btn-floating halfway-fab waves-effect waves-light green">
               <i className="material-icons"></i>
             </div>
           </div>
           <div className="card-content">
+            <span className="card-title">John Smith, 20 Y/O</span>
+            <button className="waves-effect waves-light btn green about">
+              <Link id="about" to={`/about`}>
+                About
+              </Link>
+            </button>
             <p>
               I am a very simple card. I am good at containing small bits of information. I am
               convenient because I require little markup to use effectively.
