@@ -115,3 +115,9 @@
   border-right: 2mm solid var(--coral);
   border-image: linear-gradient(to bottom, var(--coral), #F0CB35) 1;
 }
+
+#tab {
+  text-decoration: none;
+  border-right: 0.5mm solid #fff;
+  font-size: 18px;
+}

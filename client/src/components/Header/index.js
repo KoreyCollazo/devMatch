@@ -13,26 +13,36 @@ export default function Header() {
   return (
     <nav>
       <div className="nav-wrapper">
-        <Link id="logo" to={`/`}>
-          devMatch
-        </Link>
-
         {Auth.loggedIn() ? (
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <><Link id="logo" to={`/profile`}>
+            devMatch
+          </Link><ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li>
+                <Link id="tab" to="/profile">
+                  Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link id="tab" to="/about">
+                  Profile Settings
+                </Link>
+              </li>
               <li>
                 {' '}
                 <Link id="logout" onClick={logout} to="/">
                   Logout
                 </Link>
               </li>
-          </ul>
+            </ul></>
          
         ) : (
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <Link id="login" to={`/login`}>
-              Login
-            </Link>
-          </ul>
+          <><Link id="logo" to={`/`}>
+              devMatch
+            </Link><ul id="nav-mobile" class="right hide-on-med-and-down">
+                <Link id="login" to={`/login`}>
+                  Login
+                </Link>
+              </ul></>
         )}
       </div>
     </nav>
