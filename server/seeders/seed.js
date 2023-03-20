@@ -9,7 +9,6 @@ db.once('open', async () => {
 
     await User.create(userSeeds);
 
-    console.log('all done!');
     process.exit(0);
   } catch (err) {
     throw err;
