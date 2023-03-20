@@ -28,3 +28,19 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_DIRECTORY = gql`
+  query allUsers {
+  users {
+    _id
+    age
+    bio
+    education
+    ethnicity
+    firstName
+    gender
+    location
+    height
+  }
+}
+`

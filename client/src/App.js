@@ -20,6 +20,7 @@ import { ContextProvider } from './components/SocketContext';
 import { UserContextProvider } from './components/UserContext';
 
 // import AboutMe from './pages/AboutMe';
+import Directory from './components/Directory';
 
 
 const httpLink = createHttpLink({
@@ -57,8 +58,9 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/profile/:userId" element={<Profile />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/about" element={<Form />} />
+            {/* <Route path="/about" element={<AboutMe />} /> */}
           </Routes>
+          <Directory />
           <Footer />
         </div>
         </ContextProvider>
