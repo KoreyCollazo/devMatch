@@ -6,7 +6,7 @@ import Select from 'react-select';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import { useMutation } from '@apollo/client';
-import { ADD_PROFILE } from '../utils/mutations';
+import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
@@ -20,9 +20,10 @@ const AboutMe = () => {
     email: '',
     password: ''
   });
-  const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
+  const [addProfile, { error, data }] = useMutation(ADD_USER);
 
   const [startDate, setStartDate] = useState(new Date());
+
 
   const optionsGender = [
     { value: 'male', label: 'male' },
@@ -39,11 +40,11 @@ const AboutMe = () => {
 
   // update state based on form input changes
   const handleChange = (event) => {
-    const { firstName, value } = event.target;
+    const { name, value } = event.target;
 
     setFormState({
       ...formState,
-      [firstName]: value
+      [name]: value
     });
   };
 
