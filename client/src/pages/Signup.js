@@ -29,12 +29,10 @@ const Signup = () => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
 
     try {
       const { data } = await addProfile({
-        variables: { ...formState } &&
-        console.log("Successfully created account")
+        variables: { ...formState } 
       });
 
       Auth.login(data.addProfile.token);
