@@ -121,7 +121,7 @@ export default function Main() {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col center-align">
+                  <div className="col s12 center-align">
                     <button
                       className="waves-effect waves-light btn-large"
                       style={{ cursor: 'pointer' }}
