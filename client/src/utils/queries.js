@@ -46,6 +46,16 @@ export const QUERY_ME = gql`
     me {
       _id
       firstName
+      lastName
+      age
+      gender
+      email
+      photos
+      bio
+      education
+      location
+      height
+      ethnicity
     }
   }
 `;
