@@ -110,6 +110,7 @@ const AboutMe = () => {
     try {
       const { data } = await addUser({
         variables: { ...formState }
+
       });
 
       Auth.login(data.addUser.token);
