@@ -68,7 +68,7 @@ const Questionnaire = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <><h1 id="quiz-header"> Fill out the questionnaire to match with other developers</h1><form onSubmit={handleSubmit}>
       <ul>
         {Object.keys(questions).map((questionKey, index) => {
           const question = questions[questionKey];
@@ -103,13 +103,14 @@ const Questionnaire = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description">
         <div className="col s12 signup-modal">
-          <p>Submit was succussful</p>
+          <p>Submit was successful</p>
+          <p>
+            You may head <Link to="/profile"> to the profile page.</Link>
+          </p>
         </div>
       </Modal>
-      <p>
-        You may head <Link to="/profile"> to the profile page.</Link>
-      </p>
-    </form>
+
+    </form></>
   );
 };
 

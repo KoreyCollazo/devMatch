@@ -34,6 +34,17 @@
   width: 50%;
 }
 
+.card-panel-user {
+  color: #fff;
+  margin-top: 10px!important;
+  margin: auto;
+  height: 100%;
+  width: 50%;
+  background-color: var(--orange);
+  border: 2mm solid var(--green);
+  border-image: linear-gradient(to bottom, var(--green), var(--orange)) 1;
+}
+
 #float-right {
   align-items: flex-start;
 }
@@ -135,4 +146,9 @@
 .btn-quiz {
   margin: auto;
   width: 50%!important;
+}
+
+#quiz-header {
+  margin: auto;
+  color: var(--orange)
 }
