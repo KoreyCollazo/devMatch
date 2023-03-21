@@ -20,15 +20,21 @@ const Matches = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-  
+
   return (
     <ul>
       {data.getMatches.map((match) => (
-        <li key={match._id}>
-          <div>Email: {match.email}</div>
-          {match.firstName && <div>{match.firstName}</div>}
-          {match.matchScore}
-        </li>
+        <div class="row">
+          <div class="col s12 m5">
+            <div class="card-panel teal">
+              <li key={match._id}>
+                <h4>Email: {match.email}</h4>
+                <h5>{match.firstName && <div>{match.firstName}</div>}</h5>
+                <button class="btn-floating btn-large waves-effect waves-light red">{match.matchScore}</button>
+              </li>
+            </div>
+          </div>
+        </div>
       ))}
     </ul>
   );
