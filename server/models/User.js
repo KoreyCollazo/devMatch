@@ -4,18 +4,28 @@ const bcrypt = require('bcrypt');
 const userSchema = new Schema({
   firstName: {
     type: String,
-    trim: true
+    required: true,
+    trim: true,
+    minlength: 2,
+    maxlenght: 15
   },
   lastName: {
     type: String,
-    trim: true
+    required: true,
+    trim: true,
+    minlength: 2,
+    maxlenght: 15
   },
   age: {
     type: Number,
+    required: true,
+    minlength: 2,
+    maxlenght: 2,
     trim: true
   },
   gender: {
-    type: String
+    type: String,
+    required: true
   },
   photos: {
     type: String
@@ -29,13 +39,17 @@ const userSchema = new Schema({
     type: String
   },
   location: {
-    type: String
+    type: String,
+    required: true
   },
   height: {
     type: String
   },
   ethinicity: {
     type: String
+  },
+  answers: {
+    type: Array
   },
   email: {
     type: String,

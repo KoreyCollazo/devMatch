@@ -2,7 +2,8 @@ import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import { useNavigate, Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-// import VideoCall from '../components/VideoCall';
+import VideoCall from '../components/VideoCall';
+
 
 import { Link } from 'react-router-dom';
 
@@ -90,6 +91,7 @@ const Profile = () => {
     <div className="row">
         <div class="col s12 m4 l2 chat">
           <h1> Chat </h1>
+          <VideoCall/>
         </div>
 
     {/* card */}
@@ -133,7 +135,6 @@ const Profile = () => {
               </button>
             </div>
           </div>
-          {/* {userId ? (<VideoCall/>):(null)} */}
         </div>
       </div>
     </div>

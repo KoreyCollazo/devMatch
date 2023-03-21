@@ -17,6 +17,8 @@ import Auth from './utils/auth';
 import Profile from './pages/Profile';
 import { ContextProvider } from './components/SocketContext';
 import { UserContextProvider } from './components/UserContext';
+import Questionnaire from './pages/Questionnaire';
+import Matches from './pages/Matches';
 
 // import AboutMe from './pages/AboutMe';
 import Directory from './components/Directory';
@@ -54,7 +56,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/questionnaire" element={<Questionnaire />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/questionnaire" element={<Questionnaire/>} />
+            <Route path="/matches" element={<Matches/>} />
             <Route path="/profile/:userId" element={<Profile />} />
             <Route path="/about" element={<AboutMe />} />
             <Route path="/about" element={<Directory />} />

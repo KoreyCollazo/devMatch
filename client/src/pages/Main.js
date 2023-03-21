@@ -9,6 +9,12 @@ import AboutMe from './AboutMe';
 export default function Main() {
   const [isOpen, setOpen] = useState(false);
   const [formState, setFormState] = useState({
+    firstName: '',
+    lastName: '',
+    age: 0,
+    gender: '',
+    education: '',
+    location: '',
     email: '',
     password: ''
   });
@@ -94,6 +100,7 @@ export default function Main() {
             aria-describedby="modal-modal-description">
             <form onSubmit={handleFormSubmit}>
               <AboutMe />
+
             </form>
           </Modal>
         </div>
