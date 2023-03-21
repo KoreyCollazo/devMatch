@@ -56,6 +56,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/questionnaire" element={<Questionnaire />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/questionnaire" element={<Questionnaire/>} />
             <Route path="/matches" element={<Matches/>} />
