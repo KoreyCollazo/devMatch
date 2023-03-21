@@ -33,6 +33,7 @@ const Matches = () => {
                 <h5>{match.firstName && <div>{match.firstName}</div>}</h5>
                 
                   {/* {match.lastName && <div>{match.lastName}</div>} */}
+
                   <div>{match.photo}</div>
                   <h4>Age: {match.age}
                   <div>Height: {match.height}</div>
