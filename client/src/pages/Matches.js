@@ -24,6 +24,7 @@ const Matches = () => {
   return (
     <ul>
       {data.getMatches.map((match) => (
+
         <div class="row">
           <div class="col s12 m5">
             <div class="card-panel teal">
@@ -35,6 +36,22 @@ const Matches = () => {
             </div>
           </div>
         </div>
+
+        <li key={match._id}>
+          <div>Email: {match.email}</div>
+          {match.firstName && <div>{match.firstName}</div>}
+          {match.lastName && <div>{match.lastName}</div>}
+          <div>{match.photo}</div>
+          <div>Age: {match.age}</div>
+          <div>Height: {match.height}</div>
+          <div>Education: {match.education}</div>
+          <div>Bio: {match.bio}</div>
+          <div>Gender: {match.gender}</div>
+          <div>Location: {match.location}</div>
+          <div>Ethnicity: {match.ethnicity}</div>
+          <div>Match Score: {match.matchScore}</div>
+        </li>
+
       ))}
     </ul>
   );

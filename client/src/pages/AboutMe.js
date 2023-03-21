@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import Select from 'react-select';
+import { Uploader } from 'uploader'
+
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -9,6 +11,8 @@ import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
+// init images var
+var images;
 
 // hey yulia added more parameters, names and gender
 const AboutMe = () => {
@@ -18,7 +22,8 @@ const AboutMe = () => {
     age: '',
     gender: '',
     email: '',
-    password: ''
+    password: '',
+    photos: ''
   });
   const [addProfile, { error, data }] = useMutation(ADD_USER);
 
@@ -36,6 +41,34 @@ const AboutMe = () => {
     { value: 'self-taught', label: 'self-taught' }
   ];
 
+
+  function uploadFiles() {
+    // API key for upload-io
+    const uploader = Uploader({
+      apiKey: 'public_FW25b2gBiUt9ZJeaMf76rGcekrMo',
+    });
+
+    uploader
+      .open({
+        maxFileCount: 10,
+        mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
+      })
+      .then((files) => {
+        if (files.length === 0) {
+          alert('No files selected.');
+        } else {
+          images = files.map((f) => f.fileUrl);
+          setFormState({
+            ...formState,
+            photos : images
+          })
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+  console.log(formState)
   // update state based on form input changes
   const handleChange = (event) => {
     const { firstName, value } = event.target;
@@ -78,7 +111,7 @@ const AboutMe = () => {
                 <button
                   className="btn btn-block btn-info"
                   style={{ cursor: 'pointer' }}
-                  type="submit">
+                  type="submit" onClick={(()=>{uploadFiles()})}>
                   Upload Image
                 </button>
                 <div>
