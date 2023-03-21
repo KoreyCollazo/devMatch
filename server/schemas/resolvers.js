@@ -1,7 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User } = require('../models');
 const { signToken } = require('../utils/auth');
-const mongoose = require('mongoose');
 
 const resolvers = {
   Query: {
@@ -74,6 +73,7 @@ const resolvers = {
     saveAnswers: async (parent, { answers }, context) => {
       if (context.user) {
         try {
+          // eslint-disable-next-line no-unused-vars
           const ret = await User.findByIdAndUpdate(
             context.user._id,
             {
@@ -81,7 +81,7 @@ const resolvers = {
             },
             { new: true }
           );
-
+ 
           return true;
         } catch (e) {
           console.log(e);
