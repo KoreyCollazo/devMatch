@@ -22,6 +22,7 @@ const Matches = () => {
   }
 
   return (
+    <>
     <ul>
       {data.getMatches.map((match) => (
         <div class="row">
@@ -30,13 +31,15 @@ const Matches = () => {
               <li key={match._id}>
                 <h4>Email: {match.email}</h4>
                 <h5>{match.firstName && <div>{match.firstName}</div>}</h5>
-                <button class="btn-floating btn-large waves-effect waves-light red">{match.matchScore}</button>
+                <button class="btn-floating btn-large waves-effect waves-light red">
+                  {match.matchScore}
+                </button>
               </li>
             </div>
           </div>
         </div>
       ))}
-    </ul>
+    </ul></>
   );
 };
 export default Matches;
