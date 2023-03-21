@@ -37,6 +37,7 @@ const Matches = () => {
           <div>Location: {match.location}</div>
           <div>Ethnicity: {match.ethnicity}</div>
           <div>Match Score: {match.matchScore}</div>
+          {/* <button onClick={(() => {<Navigate to={`/profile/:${match._id}`} />;})}>Meet your match</button> */}
         </li>
       ))}
     </ul>
