@@ -82,56 +82,43 @@ const AboutMe = () => {
                   Upload Image
                 </button>
                 <div>
-                <div className="row">
-                  <form className="col s12" onSubmit={handleFormSubmit}>
+                  <div className="row">
+                    <form className="col s12" onSubmit={handleFormSubmit}>
+                      <div className="row">
+                        <div class="input-field col s6">
+                          <input
+                            className="form-input"
+                            placeholder="Your email"
+                            name="email"
+                            type="email"
+                            value={formState.email}
+                            onChange={handleChange}
+                          />
+                        </div>
 
-                      {/* <div class="input-field col s6">
-
-                    <div class="input-field col s6">
-                      <input
-                        className="form-input"
-                        placeholder="Your email"
-                        name="email"
-                        type="email"
-                        value={formState.email}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div className="input-field col s6">
-                      <input
-                        className="form-input"
-                        placeholder="******"
-                        name="password"
-                        type="password"
-                        value={formState.password}
-                        onChange={handleChange}
-                      />
+                        <div className="input-field col s6">
+                          <input
+                            className="form-input"
+                            placeholder="******"
+                            name="password"
+                            type="password"
+                            value={formState.password}
+                            onChange={handleChange}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="row">
-                      <div clas="input-field col s6">
-
-                        <input
-                          className="form-input"
-                          placeholder="Your first name"
-                          name="firstName"
-                          type="text"
-                          value={formState.firstName}
-                          onChange={handleChange}
-                        />
-                      </div> */}
                       <div>
-                      <div class="input-field col s6">
-                        <input
-                          type="text"
-                          id="autocomplete-input"
-                          class="autocomplete"
-                          value={formState.location}
-                          onChange={handleChange}
-                        />
-                        <label for="autocomplete-input">Enter your First Name</label>
-                      </div>
-                      {/* <div class="input-field col s6">
+                        <div class="input-field col s6">
+                          <input
+                            type="text"
+                            id="autocomplete-input"
+                            class="autocomplete"
+                            value={formState.location}
+                            onChange={handleChange}
+                          />
+                          <label for="autocomplete-input">Enter your First Name</label>
+                        </div>
+                        {/* <div class="input-field col s6">
                         <input
                           className="form-input"
                           placeholder="Your last name"
@@ -142,110 +129,113 @@ const AboutMe = () => {
                           onChange={handleChange}
                         />
                       </div> */}
-                      <div class="input-field col s6">
-                        <input
-                          type="text"
-                          id="autocomplete-input"
-                          class="autocomplete"
-                          value={formState.location}
-                          onChange={handleChange}
-                        />
-                        <label for="autocomplete-input">Enter your last name</label>
+                        <div class="input-field col s6">
+                          <input
+                            type="text"
+                            id="autocomplete-input"
+                            class="autocomplete"
+                            value={formState.location}
+                            onChange={handleChange}
+                          />
+                          <label for="autocomplete-input">Enter your last name</label>
+                        </div>
                       </div>
-                    </div>
-                    <div className="row">
-                      <div className="input-field col s6">
-                        <DatePicker selected={dateValue} onChange={(date) => setDateValue(date)} />
-                        <span className="helper-text" data-error="wrong" data-success="right">
-                          DOB
-                        </span>
-                      </div>
-
-                      <div className="input-field col s6">
-                        <Select options={optionsGender} />
-
-                        <span
-                          name="gender"
-                          className="helper-text"
-                          data-error="wrong"
-                          data-success="right"
-                          type="select"
-                          value={formState.gender}
-                          onChange={handleChange}>
-                          Select your gender
-                        </span>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="input-field col s6">
-                        <Select options={optionsEdu} />
-
-                        <span
-                          name="education"
-                          className="helper-text"
-                          data-error="wrong"
-                          data-success="right"
-                          value={formState.gender}
-                          onChange={handleChange}>
-                          Select your education
-                        </span>
-                      </div>
-                      <div className="input-field col s6">
-                        <input
-                          type="text"
-                          id="autocomplete-input"
-                          className="autocomplete"
-                          value={formState.location}
-                          onChange={handleChange}
-                        />
-                        <label for="autocomplete-input">Enter your location</label>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="input-field col s6">
-                        <input
-                          type="text"
-                          id="autocomplete-input"
-                          className="autocomplete"
-                          value={formState.height}
-                          onChange={handleChange}
-                        />
-                        <label for="autocomplete-input">Enter your height</label>
-                      </div>
-                      <div className="input-field col s6">
-                        <input
-                          type="text"
-                          id="autocomplete-input"
-                          className="autocomplete"
-                          value={formState.ethnicity}
-                          onChange={handleChange}
-                        />
-                        <label for="autocomplete-input">Enter your ethnicity</label>
-                      </div>
-                    </div>
-                    <div className="row">
                       <div className="row">
-                        <form className="col s12">
-                          <div className="row">
-                            <div className="input-field col s12">
-                              <textarea
-                                id="textarea2"
-                                className="materialize-textarea"
-                                data-length="120"></textarea>
-                              <label for="autocomplete-input">Bio</label>
-                            </div>
-                          </div>
-                        </form>
+                        <div className="input-field col s6">
+                          <DatePicker
+                            selected={dateValue}
+                            onChange={(date) => setDateValue(date)}
+                          />
+                          <span className="helper-text" data-error="wrong" data-success="right">
+                            DOB
+                          </span>
+                        </div>
+
+                        <div className="input-field col s6">
+                          <Select options={optionsGender} />
+
+                          <span
+                            name="gender"
+                            className="helper-text"
+                            data-error="wrong"
+                            data-success="right"
+                            type="select"
+                            value={formState.gender}
+                            onChange={handleChange}>
+                            Select your gender
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <button
-                      className="btn btn-block btn-info"
-                      style={{ cursor: 'pointer' }}
-                      type="submit">
-                      Submit
-                    </button>
-                  </form>
-                </div>
+                      <div className="row">
+                        <div className="input-field col s6">
+                          <Select options={optionsEdu} />
+
+                          <span
+                            name="education"
+                            className="helper-text"
+                            data-error="wrong"
+                            data-success="right"
+                            value={formState.education}
+                            onChange={handleChange}>
+                            Select your education
+                          </span>
+                        </div>
+                        <div className="input-field col s6">
+                          <input
+                            type="text"
+                            id="autocomplete-input"
+                            className="autocomplete"
+                            value={formState.location}
+                            onChange={handleChange}
+                          />
+                          <label for="autocomplete-input">Enter your location</label>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="input-field col s6">
+                          <input
+                            type="text"
+                            id="autocomplete-input"
+                            className="autocomplete"
+                            value={formState.height}
+                            onChange={handleChange}
+                          />
+                          <label for="autocomplete-input">Enter your height</label>
+                        </div>
+                        <div className="input-field col s6">
+                          <input
+                            type="text"
+                            id="autocomplete-input"
+                            className="autocomplete"
+                            value={formState.ethnicity}
+                            onChange={handleChange}
+                          />
+                          <label for="autocomplete-input">Enter your ethnicity</label>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="row">
+                          <form className="col s12">
+                            <div className="row">
+                              <div className="input-field col s12">
+                                <textarea
+                                  id="textarea2"
+                                  className="materialize-textarea"
+                                  data-length="120"></textarea>
+                                <label for="autocomplete-input">Bio</label>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      <button
+                        className="btn btn-block btn-info"
+                        style={{ cursor: 'pointer' }}
+                        type="submit">
+                        Submit
+                      </button>
+                    </form>
+                  </div>
                 </div>
               </>
             )}

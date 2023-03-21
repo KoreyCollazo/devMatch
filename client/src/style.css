@@ -83,8 +83,8 @@
 }
 
 #modal {
-  width: 60%;
   margin: auto;
+  overflow: scroll;
 }
 
 #login, #logo, #about{
