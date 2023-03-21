@@ -24,7 +24,6 @@ const AboutMe = () => {
 
   const [dateValue, setDateValue] = useState(new Date());
 
-
   const optionsGender = [
     { value: 'male', label: 'male' },
     { value: 'female', label: 'female' },
@@ -46,7 +45,6 @@ const AboutMe = () => {
       ...formState,
       [firstName]: value,
       [age]: dateValue
-
     });
   };
 
@@ -57,7 +55,6 @@ const AboutMe = () => {
     try {
       const { data } = await addProfile({
         variables: { ...formState } && console.log('Successfully created account')
-
       });
 
       Auth.login(data.addProfile.token);
@@ -70,7 +67,7 @@ const AboutMe = () => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header text-light p-2">About Me</h4>
+          <h4 className="card-header text-light p-2">Sign Up</h4>
           <div className="card-body">
             {data ? (
               <p>
@@ -87,8 +84,33 @@ const AboutMe = () => {
 
                 <div className="row">
                   <form className="col s12" onSubmit={handleFormSubmit}>
-                    <div className="row">
+
                       {/* <div class="input-field col s6">
+
+                    <div class="input-field col s6">
+                      <input
+                        className="form-input"
+                        placeholder="Your email"
+                        name="email"
+                        type="email"
+                        value={formState.email}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div class="input-field col s6">
+                      <input
+                        className="form-input"
+                        placeholder="******"
+                        name="password"
+                        type="password"
+                        value={formState.password}
+                        onChange={handleChange}
+                      />
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div class="input-field col s6">
+
                         <input
                           className="form-input"
                           placeholder="Your first name"
@@ -129,6 +151,7 @@ const AboutMe = () => {
                         />
                         <label for="autocomplete-input">Enter your last name</label>
                       </div>
+                  
                     </div>
                     <div className="row">
                       <div className="input-field col s6">
@@ -209,7 +232,7 @@ const AboutMe = () => {
                                 id="textarea2"
                                 class="materialize-textarea"
                                 data-length="120"></textarea>
-                             <label for="autocomplete-input">Bio</label>
+                              <label for="autocomplete-input">Bio</label>
                             </div>
                           </div>
                         </form>
