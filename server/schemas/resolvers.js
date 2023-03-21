@@ -1,7 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User } = require('../models');
 const { signToken } = require('../utils/auth');
-const mongoose = require('mongoose');
 
 const resolvers = {
   Query: {
@@ -24,13 +23,13 @@ const resolvers = {
     getMatches: async (parent, args, context) => {
       if (context.user) {
         try {
-          const myProfile = await User.findById(context.user._id);
+          const myProfile = await User.findById(context.user._id).lean();
           const allProfiles = await User.find({
-            $ne: {
-              _id: mongoose.ObjectId(context.user._id)
+            _id: {
+              $ne: context.user._id
             },
             answers: { $exists: true }
-          });
+          }).lean();
           const allProfilesWithMatches = allProfiles
             .map((profile) => ({
               ...profile,
@@ -73,18 +72,20 @@ const resolvers = {
 
     saveAnswers: async (parent, { answers }, context) => {
       if (context.user) {
-        await User.updateOne(
-          {
-            where: {
-              _id: context.user._id
-            }
-          },
-          {
-            answers
-          }
-        );
+        try {
+          // eslint-disable-next-line no-unused-vars
+          const ret = await User.findByIdAndUpdate(
+            context.user._id,
+            {
+              answers
+            },
+            { new: true }
+          );
 
-        return true;
+          return true;
+        } catch (e) {
+          console.log(e);
+        }
       }
     },
 

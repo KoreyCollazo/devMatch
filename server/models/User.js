@@ -37,6 +37,9 @@ const userSchema = new Schema({
   ethinicity: {
     type: String
   },
+  answers: {
+    type: Array
+  },
   email: {
     type: String,
     required: true,
