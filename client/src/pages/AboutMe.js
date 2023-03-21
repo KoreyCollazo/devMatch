@@ -81,7 +81,7 @@ const AboutMe = () => {
                   type="submit">
                   Upload Image
                 </button>
-
+                <div>
                 <div className="row">
                   <form className="col s12" onSubmit={handleFormSubmit}>
 
@@ -109,7 +109,7 @@ const AboutMe = () => {
                       </div>
                     </div>
                     <div className="row">
-                      <div class="input-field col s6">
+                      <div clas="input-field col s6">
 
                         <input
                           className="form-input"
@@ -120,6 +120,7 @@ const AboutMe = () => {
                           onChange={handleChange}
                         />
                       </div> */}
+                      <div>
                       <div class="input-field col s6">
                         <input
                           type="text"
@@ -151,7 +152,6 @@ const AboutMe = () => {
                         />
                         <label for="autocomplete-input">Enter your last name</label>
                       </div>
-                  
                     </div>
                     <div className="row">
                       <div className="input-field col s6">
@@ -245,6 +245,7 @@ const AboutMe = () => {
                       Submit
                     </button>
                   </form>
+                </div>
                 </div>
               </>
             )}
