@@ -83,6 +83,7 @@
 }
 
 #modal {
+  width: 50%;
   margin: auto;
   overflow: scroll;
 }
