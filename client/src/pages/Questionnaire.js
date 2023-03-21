@@ -3,8 +3,10 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { SAVE_ANSWERS } from '../utils/mutations';
 import { useMutation } from '@apollo/client';
+import { Modal } from '@mui/material';
 
 const Questionnaire = () => {
+  const [isOpen, setOpen] = useState(false);
   const [questions, setQuestions] = useState({
     1: {
       question: 'Do you like single quotes better than double quotes?',
@@ -87,7 +89,17 @@ const Questionnaire = () => {
           );
         })}
       </ul>
-      <button>Save</button>
+      <button onClick={() => setOpen(true)}>Save</button>
+      <Modal
+            id="modal"
+            open={isOpen}
+            onClose={() => setOpen(false)}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description">
+              <div className="col s12 signup-modal">
+               <p>Submit was succussful</p>
+               </div>
+      </Modal>
     </form>
   );
 };
