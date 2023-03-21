@@ -23,11 +23,13 @@ const AboutMe = () => {
     gender: '',
     email: '',
     password: '',
-    photos: ''
+    photos: '',
+    bio: '',
   });
   const [addProfile, { error, data }] = useMutation(ADD_USER);
 
   const [dateValue, setDateValue] = useState(new Date());
+  
 
   const optionsGender = [
     { value: 'male', label: 'male' },
@@ -68,16 +70,34 @@ const AboutMe = () => {
         console.error(err);
       });
   }
-  console.log(formState)
+  
+
+  // age function from https://stackoverflow.com/users/17447/naveen
+  function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    
+    return age;
+}
+
+
   // update state based on form input changes
   const handleChange = (event) => {
-    const { firstName, value } = event.target;
-    const { age, dateValue } = event.target;
+    const { name, value } = event.target;
+    
+    
 
     setFormState({
       ...formState,
-      [firstName]: value,
-      [age]: dateValue
+      [name]: value,
+      age: getAge(dateValue),
+      gender: document.getElementById('gender').textContent,
+      education: document.getElementById('education').textContent
     });
   };
 
@@ -122,17 +142,17 @@ const AboutMe = () => {
                           <form class="col s12" id="reg-form">
                             <div class="row">
                               <div class="input-field col s6">
-                                <input id="first_name" type="text" class="validate" required />
+                                <input id="first_name" name="firstName" type="text" class="validate" required value={formState.firstName} onChange={handleChange} />
                                 <label for="first_name">First Name</label>
                               </div>
                               <div class="input-field col s6">
-                                <input id="last_name" type="text" class="validate" required />
+                                <input id="last_name" name="lastName" type="text" class="validate" required value={formState.lastName} onChange={handleChange} />
                                 <label for="last_name">Last Name</label>
                               </div>
                             </div>
                             <div class="row">
                               <div class="input-field col s12">
-                                <input id="email" type="email" class="validate" required/>
+                                <input id="email" name="email" type="email" class="validate" required value={formState.email} onChange={handleChange} />
                                 <label for="email">Email</label>
                               </div>
                             </div>
@@ -144,7 +164,9 @@ const AboutMe = () => {
                                   class="validate"
                                   minlength="6"
                                   required
-                              
+                                  name="password"
+                                  value={formState.password}
+                                  onChange={handleChange}
                                 />
                                 <label for="password">Password</label>
                               </div>
@@ -162,20 +184,17 @@ const AboutMe = () => {
                         DOB
                       </span>
 
-                      <Select options={optionsGender} />
+                      <Select options={optionsGender} id="gender"/>
 
                       <span
-                        name="gender"
                         className="helper-text"
                         data-error="wrong"
                         data-success="right"
-                        type="select"
-                        value={formState.gender}
-                        onChange={handleChange}>
+                        type="select">
                         Select your gender
                       </span>
 
-                      <Select options={optionsEdu} />
+                      <Select options={optionsEdu} id="education"/>
 
                       <span
                         name="education"
@@ -188,6 +207,7 @@ const AboutMe = () => {
                       </span>
 
                       <input
+                        name='location'
                         type="text"
                         id="autocomplete-input"
                         className="autocomplete"
@@ -197,6 +217,7 @@ const AboutMe = () => {
                       <label for="autocomplete-input">Enter your location</label>
 
                       <input
+                        name='height'
                         type="text"
                         id="autocomplete-input"
                         className="autocomplete"
@@ -206,6 +227,7 @@ const AboutMe = () => {
                       <label for="autocomplete-input">Enter your height</label>
 
                       <input
+                        name='ethnicity'
                         type="text"
                         id="autocomplete-input"
                         className="autocomplete"
@@ -220,7 +242,11 @@ const AboutMe = () => {
                             <textarea
                               id="textarea2"
                               className="materialize-textarea"
-                              data-length="120"></textarea>
+                              data-length="120"
+                              name='bio'
+                              value={formState.bio}
+                              onChange={handleChange}
+                              ></textarea>
                             <label for="autocomplete-input">Bio</label>
                           </div>
                         </div>
