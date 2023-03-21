@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { QUERY_DIRECTORY } from '../../utils/queries';
 import { SocketContext } from '../SocketContext';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 
 const Directory = () => {
   const { loading, data } = useQuery(QUERY_DIRECTORY);

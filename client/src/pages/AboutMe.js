@@ -24,7 +24,6 @@ const AboutMe = () => {
 
   const [dateValue, setDateValue] = useState(new Date());
 
-
   const optionsGender = [
     { value: 'male', label: 'male' },
     { value: 'female', label: 'female' },
@@ -46,7 +45,6 @@ const AboutMe = () => {
       ...formState,
       [firstName]: value,
       [age]: dateValue
-
     });
   };
 
@@ -57,7 +55,6 @@ const AboutMe = () => {
     try {
       const { data } = await addProfile({
         variables: { ...formState } && console.log('Successfully created account')
-
       });
 
       Auth.login(data.addProfile.token);
@@ -70,7 +67,7 @@ const AboutMe = () => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header text-light p-2">About Me</h4>
+          <h4 className="card-header text-light p-2">Sign Up</h4>
           <div className="card-body">
             {data ? (
               <p>
@@ -84,11 +81,36 @@ const AboutMe = () => {
                   type="submit">
                   Upload Image
                 </button>
-
+                <div>
                 <div className="row">
                   <form className="col s12" onSubmit={handleFormSubmit}>
+
+                      {/* <div class="input-field col s6">
+
+                    <div class="input-field col s6">
+                      <input
+                        className="form-input"
+                        placeholder="Your email"
+                        name="email"
+                        type="email"
+                        value={formState.email}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div className="input-field col s6">
+                      <input
+                        className="form-input"
+                        placeholder="******"
+                        name="password"
+                        type="password"
+                        value={formState.password}
+                        onChange={handleChange}
+                      />
+                      </div>
+                    </div>
                     <div className="row">
-                      <div class="input-field col s6">
+                      <div clas="input-field col s6">
+
                         <input
                           className="form-input"
                           placeholder="Your first name"
@@ -97,16 +119,38 @@ const AboutMe = () => {
                           value={formState.firstName}
                           onChange={handleChange}
                         />
-                      </div>
+                      </div> */}
+                      <div>
                       <div class="input-field col s6">
+                        <input
+                          type="text"
+                          id="autocomplete-input"
+                          class="autocomplete"
+                          value={formState.location}
+                          onChange={handleChange}
+                        />
+                        <label for="autocomplete-input">Enter your First Name</label>
+                      </div>
+                      {/* <div class="input-field col s6">
                         <input
                           className="form-input"
                           placeholder="Your last name"
+                         
                           name="lastName"
                           type="text"
                           value={formState.lastName}
                           onChange={handleChange}
                         />
+                      </div> */}
+                      <div class="input-field col s6">
+                        <input
+                          type="text"
+                          id="autocomplete-input"
+                          class="autocomplete"
+                          value={formState.location}
+                          onChange={handleChange}
+                        />
+                        <label for="autocomplete-input">Enter your last name</label>
                       </div>
                     </div>
                     <div className="row">
@@ -117,7 +161,7 @@ const AboutMe = () => {
                         </span>
                       </div>
 
-                      <div class="input-field col s6">
+                      <div className="input-field col s6">
                         <Select options={optionsGender} />
 
                         <span
@@ -133,7 +177,7 @@ const AboutMe = () => {
                       </div>
                     </div>
                     <div className="row">
-                      <div class="input-field col s6">
+                      <div className="input-field col s6">
                         <Select options={optionsEdu} />
 
                         <span
@@ -146,11 +190,11 @@ const AboutMe = () => {
                           Select your education
                         </span>
                       </div>
-                      <div class="input-field col s6">
+                      <div className="input-field col s6">
                         <input
                           type="text"
                           id="autocomplete-input"
-                          class="autocomplete"
+                          className="autocomplete"
                           value={formState.location}
                           onChange={handleChange}
                         />
@@ -158,21 +202,21 @@ const AboutMe = () => {
                       </div>
                     </div>
                     <div className="row">
-                      <div class="input-field col s6">
+                      <div className="input-field col s6">
                         <input
                           type="text"
                           id="autocomplete-input"
-                          class="autocomplete"
+                          className="autocomplete"
                           value={formState.height}
                           onChange={handleChange}
                         />
                         <label for="autocomplete-input">Enter your height</label>
                       </div>
-                      <div class="input-field col s6">
+                      <div className="input-field col s6">
                         <input
                           type="text"
                           id="autocomplete-input"
-                          class="autocomplete"
+                          className="autocomplete"
                           value={formState.ethnicity}
                           onChange={handleChange}
                         />
@@ -180,15 +224,15 @@ const AboutMe = () => {
                       </div>
                     </div>
                     <div className="row">
-                      <div class="row">
-                        <form class="col s12">
-                          <div class="row">
-                            <div class="input-field col s12">
+                      <div className="row">
+                        <form className="col s12">
+                          <div className="row">
+                            <div className="input-field col s12">
                               <textarea
                                 id="textarea2"
-                                class="materialize-textarea"
+                                className="materialize-textarea"
                                 data-length="120"></textarea>
-                             <label for="autocomplete-input">Bio</label>
+                              <label for="autocomplete-input">Bio</label>
                             </div>
                           </div>
                         </form>
@@ -201,6 +245,7 @@ const AboutMe = () => {
                       Submit
                     </button>
                   </form>
+                </div>
                 </div>
               </>
             )}

@@ -22,6 +22,7 @@ const ContextProvider = ({ children }) => {
   const userVideo = useRef();
   const connectionRef = useRef();
 
+  //Connect user to socket
   useEffect(() => {
     socket.on('get-users', (users) => {
       setOnlineUsers(users);
@@ -35,12 +36,12 @@ const ContextProvider = ({ children }) => {
   }, [userId]);
 
   useEffect(() => {
-    console.log(userId);
+    //handle call ended signal from server
     socket.on('callEnded', () => {
       setCallEnded(true);
       leaveCall();
     });
-
+    //handle receiving call
     socket.on('callUser', ({ from, name: callerName, signal }) => {
       setDialing(true)
       initVideo()
@@ -48,32 +49,7 @@ const ContextProvider = ({ children }) => {
     });
   }, [userId, name]);
 
-  // useEffect(() => {
-  //     // Tab has focus
-  //     const handleFocus = async () => {
-  //         socket.emit("new-user-add", userId);
-  //         socket.on("get-users", (users) => {
-  //             setOnlineUsers(users);
-  //         });
-  //     };
-
-  //     // Tab closed
-  //     const handleBlur = () => {
-  //       if(userId) {
-  //         socket.emit("offline")
-  //       }
-  //     };
-
-  //     // Track if the user changes the tab to determine when they are online
-  //     window.addEventListener('focus', handleFocus);
-  //     window.addEventListener('blur', handleBlur);
-
-  //     return () => {
-  //       window.removeEventListener('focus', handleFocus);
-  //       window.removeEventListener('blur', handleBlur);
-  //     };
-  //   }, [userId]);
-
+  //function for answer call
   const answerCall = () => {
     setCallAccepted(true);
 
@@ -82,7 +58,6 @@ const ContextProvider = ({ children }) => {
     peer.on('signal', (data) => {
       socket.emit('answerCall', { signal: data, to: call.from });
       setPartnerId(call.from);
-      console.log(call.from, 'also partid')
     });
 
     peer.on('stream', (currentStream) => {
@@ -94,24 +69,27 @@ const ContextProvider = ({ children }) => {
     connectionRef.current = peer;
   };
 
+  //init video feed
   const initVideo = async() => {
-    const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+    
     navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((currentStream) => {
       setStream(currentStream);
 
       myVideo.current.srcObject = currentStream;
 
     });
-    await delay(2000)
+  
   }
 
+  // function for calling user
   const callUser = (id) => {
     initVideo()
     setDialing(true)
     const peer = new Peer({ initiator: true, trickle: false, stream });
 
     peer.on('signal', (data) => {
-      socket.emit('callUser', { userToCall: id, signalData: data, from: me, name });
+      console.log(name)
+      socket.emit('callUser', { userToCall: id, signalData: data, from: me, name: name });
     });
 
     peer.on('stream', (currentStream) => {
@@ -121,22 +99,19 @@ const ContextProvider = ({ children }) => {
     socket.on('callAccepted', (signal) => {
       setCallAccepted(true);
       setPartnerId(id);
-      console.log(partnerId, 'partnerid');
 
       peer.signal(signal);
     });
 
     connectionRef.current = peer;
   };
-
+//send end call to server to disconnect both parties
   const endCall = () => {
     socket.emit('endCall', { partnerId: partnerId, userId: me });
-    console.log({ partnerId: partnerId, userId: me });
   };
 
   const leaveCall = () => {
     socket.disconnect();
-    connectionRef.current.destroy();
     window.location.reload(true);
   };
 

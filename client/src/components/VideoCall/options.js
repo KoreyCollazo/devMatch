@@ -1,29 +1,33 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { SocketContext } from '../SocketContext';
 import { useParams } from 'react-router-dom';
 
 
+
 const Options = ({ children }) => {
-  const { me, callAccepted, name, callEnded, endCall, callUser, stream, onlineUsers, call, answerCall } =
+  const { me, callAccepted, callEnded, endCall, callUser, stream, onlineUsers, call, answerCall, setName } =
     useContext(SocketContext);
+    
   const [idToCall, setIdToCall] = useState('');
   const guest = useParams();
-  console.log(guest)
-  console.log(onlineUsers);
-  let guestObj = onlineUsers.find(o => o.userId === guest)
+ 
+  //set id to call only if on another user's profile
+  useEffect(() => {
+    if (guest){
+      let guestObj = onlineUsers.find(o => o.userId === guest?.userId.slice(1))
+      setIdToCall(guestObj?.socketId)
+    }
+  }, [])
+  
+  setName(localStorage.getItem('firstName'))
+  console.log(call)
+ 
   return (
     <div>
-     
       <div>
-        <h2>{name}</h2>
-        <input defaultValue={me} />
-        <input
-          placeholder="id to call"
-          value={idToCall}
-          onChange={(e) => setIdToCall(e.target.value)}
-        />
         <div>
-      {call.isReceivingCall && !callAccepted && (
+          {/* if receving a call display notification */}
+      {call.isReceivingCall && !callAccepted && call.from !== me && (
         <div>
           <h1>{call.name} is calling: </h1>
           <button
@@ -36,6 +40,7 @@ const Options = ({ children }) => {
         </div>
       )}
     </div>
+    {/* display call options during call */}
         {callAccepted && !callEnded ? (
           <div>
             <button onClick={endCall}>hang up</button>
@@ -68,13 +73,12 @@ const Options = ({ children }) => {
               camera
             </button>
           </div>
-        ) : (
-          <button onClick={() => {
-            callUser(guestObj.socketId)
-          }}>call</button>
-        )}
+        ) : (null)}
+        {/* only show call button if profile is not yours and call hasn't started */}
+        {window.location.pathname !== "/profile" && !callAccepted ? (<button onClick={() => {
+            callUser(idToCall)
+          }}>call</button>):(null)}
       </div>
-      Options
       {children}
     </div>
   );
