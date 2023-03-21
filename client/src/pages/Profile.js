@@ -48,16 +48,16 @@ const Profile = () => {
 
   if (loading) {
     return (
-      <div class="preloader-wrapper big active">
-        <div class="spinner-layer spinner-blue">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
+      <div className="preloader-wrapper big active">
+        <div className="spinner-layer spinner-blue">
+          <div className="circle-clipper left">
+            <div className="circle"></div>
           </div>
-          <div class="gap-patch">
-            <div class="circle"></div>
+          <div className="gap-patch">
+            <div className="circle"></div>
           </div>
-          <div class="circle-clipper right">
-            <div class="circle"></div>
+          <div className="circle-clipper right">
+            <div className="circle"></div>
           </div>
         </div>
       </div>
@@ -67,17 +67,10 @@ const Profile = () => {
   if (!Auth.loggedIn()) {
     return (
       <div className="row">
-        <div className="col s2 m12">
+        <div className="col s2 m12 center-align">
           <div className="card">
             <div className="card-content">
               <h4>You need to be logged in to see your profile page.</h4>
-            </div>
-            <div className="card-action">
-              <button className="waves-effect waves-light btn greengit">
-                <Link id="login" to={`/login`}>
-                  Login
-                </Link>
-              </button>
             </div>
           </div>
         </div>
@@ -89,7 +82,7 @@ const Profile = () => {
   return (
     // chat
     <div className="row">
-        <div class="col s12 m4 l2 chat">
+        <div className="col s12 m4 l2 chat">
           <h1> Chat </h1>
           <VideoCall/>
         </div>

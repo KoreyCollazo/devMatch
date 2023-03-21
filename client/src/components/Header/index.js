@@ -16,7 +16,7 @@ export default function Header() {
         {Auth.loggedIn() ? (
           <><Link id="logo" to={`/profile`}>
             devMatch
-          </Link><ul id="nav-mobile" class="right hide-on-med-and-down">
+          </Link><ul id="nav-mobile" className="right hide-on-med-and-down">
               <li>
                 <Link id="tab" to="/matches">
                   Matches
@@ -43,7 +43,7 @@ export default function Header() {
         ) : (
           <><Link id="logo" to={`/`}>
               devMatch
-            </Link><ul id="nav-mobile" class="right hide-on-med-and-down">
+            </Link><ul id="nav-mobile" className="right hide-on-med-and-down">
                 <Link id="login" to={`/login`}>
                   Login
                 </Link>
