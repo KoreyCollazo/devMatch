@@ -23,6 +23,11 @@ export default function Header() {
                 </Link>
               </li>
               <li>
+                <Link id="tab" to="/questionnaire">
+                  Questionnaire
+                </Link>
+              </li>
+              <li>
                 <Link id="tab" to="/profile">
                   Dashboard
                 </Link>
