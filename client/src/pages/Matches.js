@@ -22,24 +22,33 @@ const Matches = () => {
   }
 
   return (
+    <>
     <ul>
       {data.getMatches.map((match) => (
-        <li key={match._id}>
-          <div>Email: {match.email}</div>
-          {match.firstName && <div>{match.firstName}</div>}
-          {match.lastName && <div>{match.lastName}</div>}
-          <div>{match.photo}</div>
-          <div>Age: {match.age}</div>
-          <div>Height: {match.height}</div>
-          <div>Education: {match.education}</div>
-          <div>Bio: {match.bio}</div>
-          <div>Gender: {match.gender}</div>
-          <div>Location: {match.location}</div>
-          <div>Ethnicity: {match.ethnicity}</div>
-          <div>Match Score: {match.matchScore}</div>
-        </li>
+        <div class="row">
+          <div class="col s12 m5">
+            <div class="card-panel teal">
+              <li key={match._id}>
+                <h4>Email: {match.email}</h4>
+                <h5>{match.firstName && <div>{match.firstName}</div>}</h5>
+                
+                  {match.lastName && <div>{match.lastName}</div>}
+                  <div>{match.photo}</div>
+                  <div>Age: {match.age}</div>
+                  <div>Height: {match.height}</div>
+                  <div>Education: {match.education}</div>
+                  <div>Bio: {match.bio}</div>
+                  <div>Gender: {match.gender}</div>
+                  <div>Location: {match.location}</div>
+                  <div>Ethnicity: {match.ethnicity}</div>
+                  <div>Match Score: </div><button class="btn-floating btn-large waves-effect waves-light red"><div>{match.matchScore}</div>
+                </button>
+              </li>
+            </div>
+          </div>
+        </div>
       ))}
-    </ul>
+    </ul></>
   );
 };
 export default Matches;
