@@ -7,14 +7,15 @@ const UserContext = createContext();
 const UserContextProvider = ({ children }) => {
   const { loading, data } = useQuery(QUERY_ME);
   const [fetchId, setFetchId] = useState(false);
-  console.log('user provder')
-
+  console.log(data)
+  
+//set user id in localStorage
   useEffect(() => {
     if (localStorage.getItem('userId') === null) {
-      console.log(data?.me?._id);
+      
       if (data !== undefined && loading === false) {
         localStorage.setItem('userId', data?.me._id);
-        console.log(localStorage.getItem('userId'));
+        localStorage.setItem('firstName', data?.me.firstName)
         setFetchId(true);
       }
     } else {
