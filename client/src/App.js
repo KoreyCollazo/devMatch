@@ -11,7 +11,6 @@ import Login from './pages/Login';
 import Header from './components/Header';
 import Main from './pages/Main';
 import Footer from './components/Footer';
-import Settings from './pages/Settings';
 // import VideoPlayer from './components/VideoCall/videoPlayer';
 import AboutMe from './pages/AboutMe';
 import Auth from './utils/auth';
@@ -61,7 +60,6 @@ function App() {
             <Route path="/questionnaire" element={<Questionnaire/>} />
             <Route path="/matches" element={<Matches/>} />
             <Route path="/profile/:userId" element={<Profile />} />
-            <Route path="/settings" element={<Settings />} />
             <Route path="/about" element={<AboutMe />} />
             <Route path="/about" element={<Directory />} />
           </Routes>
