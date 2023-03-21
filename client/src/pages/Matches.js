@@ -22,14 +22,23 @@ const Matches = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-  
+
   return (
     <ul>
       {data.getMatches.map((match) => (
         <li key={match._id}>
           <div>Email: {match.email}</div>
           {match.firstName && <div>{match.firstName}</div>}
-          {match.matchScore}
+          {match.lastName && <div>{match.lastName}</div>}
+          <div>{match.photo}</div>
+          <div>Age: {match.age}</div>
+          <div>Height: {match.height}</div>
+          <div>Education: {match.education}</div>
+          <div>Bio: {match.bio}</div>
+          <div>Gender: {match.gender}</div>
+          <div>Location: {match.location}</div>
+          <div>Ethnicity: {match.ethnicity}</div>
+          <div>Match Score: {match.matchScore}</div>
         </li>
       ))}
     </ul>
