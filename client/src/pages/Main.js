@@ -8,6 +8,12 @@ import Auth from '../utils/auth';
 export default function Main() {
   const [isOpen, setOpen] = useState(false);
   const [formState, setFormState] = useState({
+    firstName: '',
+    lastName: '',
+    age: 0,
+    gender: '',
+    education: '',
+    location: '',
     email: '',
     password: ''
   });
@@ -94,6 +100,66 @@ export default function Main() {
             <form onSubmit={handleFormSubmit}>
               <div className="col s12 signup-modal">
                 <h4>Sign up</h4>
+                <div className="row">
+                  <div className="input-field hoverable col s12">
+                    <input
+                      className="form-input"
+                      name="firstName"
+                      type="text"
+                      value={formState.firstName}
+                      onChange={handleChange}
+                    />
+                    <label for="firstName">First Name</label>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="input-field hoverable col s12">
+                    <input
+                      className="form-input"
+                      name="lastName"
+                      type="text"
+                      value={formState.lastName}
+                      onChange={handleChange}
+                    />
+                    <label for="lastName">Last Name</label>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="input-field hoverable col s12">
+                    <input
+                      className="form-input"
+                      name="age"
+                      type="number"
+                      value={formState.age}
+                      onChange={handleChange}
+                    />
+                    <label for="age">Age</label>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="input-field hoverable col s12">
+                    <input
+                      className="form-input"
+                      name="gender"
+                      type="text"
+                      value={formState.gender}
+                      onChange={handleChange}
+                    />
+                    <label for="gender">Gender</label>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="input-field hoverable col s12">
+                    <input
+                      className="form-input"
+                      name="location"
+                      type="text"
+                      value={formState.location}
+                      onChange={handleChange}
+                    />
+                    <label for="location">Location</label>
+                  </div>
+                </div>
                 <div className="row">
                   <div className="input-field hoverable col s12">
                     <input
