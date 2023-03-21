@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import { useNavigate, Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import VideoCall from '../components/VideoCall';
+import { SocketContext } from '../components/SocketContext';
 
 import { Link } from 'react-router-dom';
 
@@ -11,6 +12,8 @@ import { QUERY_SINGLE_USER, QUERY_ME, QUERY_GET_MATCHES } from '../utils/queries
 import Auth from '../utils/auth';
 
 const Profile = () => {
+  const { onlineUsers } = useContext(SocketContext);
+  const [ myProfile, setMyProfile ] = useState(false)
   const navigate = useNavigate();
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -32,6 +35,15 @@ const Profile = () => {
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_USER` query
   const user = data?.me || data?.user || {};
   console.log(matchData, 'undefined');
+  
+  const status = onlineUsers.find((o) => o.userId === user._id);
+
+  useEffect(() => {
+    if (window.location.pathname === "/profile"){
+      setMyProfile(true)
+    }
+  }, [])
+  
 
   // Use React Router's `<Navigate />` component to redirect to personal user page if username is yours
   if (Auth.loggedIn() && Auth.getUser().data._id === userId) {
@@ -100,18 +112,24 @@ const Profile = () => {
               alt="headshot"
               src="https://img.icons8.com/plasticine/12x/morty-smith.png"
             />
-            <div className="btn-floating halfway-fab waves-effect waves-light green">
-              <i className="material-icons"></i>
-            </div>
+            {status ? (
+              <div className="btn-floating halfway-fab waves-effect waves-light green">
+                <i className="material-icons"></i>
+              </div>
+            ) : (
+              <div className="btn-floating halfway-fab waves-effect waves-light red">
+                <i className="material-icons"></i>
+              </div>
+            )}
           </div>
           <div className="card-content">
-            <h4 className="card-title">John Smith, 20 Y/O</h4>
+            <h4 className="card-title">{user.firstName}, {user.age} Y/O</h4>
             <p>
-              I am a very simple card. I am good at containing small bits of information. I am
-              convenient because I require little markup to use effectively.
+              {user.bio}
             </p>
           </div>
           <div id="row">
+            {myProfile ? (null):(
             <div id="buttons">
               <button id="dislike" className="waves-effect waves-light btn red" tab-index="1">
                 <span className="dislike-emoji">Nope</span>
@@ -119,7 +137,8 @@ const Profile = () => {
               <button id="like" className="waves-effect waves-light btn green" tab-index="1">
                 <span className="like-emoji">Yep</span>
               </button>
-            </div>
+            </div>)}
+            
           </div>
         </div>
       </div>
