@@ -11,7 +11,8 @@
     "height": "6'3",
     "ethinicity": "Black",
     "email": "bkernighan@techfriends.dev",
-    "password": "password01"
+    "password": "password01",
+    "answers": [true, false, false, true, true, false, false, true]
   },
   {
     "firstName": "Max Kanat-Alexander",
@@ -25,7 +26,8 @@
     "height": "6'2",
     "ethinicity": "Black",
     "email": "mkanatalexander@techfriends.dev",
-    "password": "password02"
+    "password": "password02",
+    "answers": [true, false, false, true, true, false, false, true]
   },
   {
     "firstName": "Amiko",
@@ -39,7 +41,8 @@
     "height": "6'2",
     "ethinicity": "Black",
     "email": "amiko@techfriends.dev",
-    "password": "password03"
+    "password": "password03",
+    "answers": [true, false, true, true, true, false, false, true]
   },
   {
     "firstName": "Kent Beck",
@@ -53,7 +56,8 @@
     "height": "6'2",
     "ethinicity": "Black",
     "email": "kbeck@techfriends.dev",
-    "password": "password04"
+    "password": "password04",
+    "answers": [true, false, true, true, true, false, false, true]
   },
   {
     "firstName": "Edward V. Berard",
@@ -67,7 +71,8 @@
     "height": "6'2",
     "ethinicity": "Black",
     "email": "evberard@techfriends.dev",
-    "password": "password05"
+    "password": "password05",
+    "answers": [true, false, false, true, true, false, true, true]
   },
   {
     "firstName": "Alan Kay",
@@ -81,7 +86,8 @@
     "height": "6'2",
     "ethinicity": "Black",
     "email": "akay@techfriends.dev",
-    "password": "password06"
+    "password": "password06",
+    "answers": [true, false, false, true, true, false, false, false]
   },
   {
     "firstName": "C.A.R. Hoare",
@@ -95,7 +101,8 @@
     "height": "6'2",
     "ethinicity": "Black",
     "email": "choare@techfriends.dev",
-    "password": "password07"
+    "password": "password07",
+    "answers": [true, false, false, true, true, false, false, true]
   },
   {
     "firstName": "David Thomas",
@@ -109,7 +116,8 @@
     "height": "6'2",
     "ethinicity": "Black",
     "email": "dthomas@techfriends.dev",
-    "password": "password08"
+    "password": "password08",
+    "answers": [true, false, true, true, true, false, false, true]
   },
   {
     "firstName": "Donald Knuth",
@@ -123,7 +131,8 @@
     "height": "6'2",
     "ethinicity": "Black",
     "email": "dknuth@techfriends.dev",
-    "password": "password09"
+    "password": "password09",
+    "answers": [true, false, false, true, true, false, false, true]
   },
   {
     "firstName": "Lernantino",
@@ -137,6 +146,7 @@
     "height": "6'2",
     "ethinicity": "Black",
     "email": "lernantino@techfriends.dev",
-    "password": "password10"
+    "password": "password10",
+    "answers": [true, false, false, true, true, false, false, true]
   }
 ]
