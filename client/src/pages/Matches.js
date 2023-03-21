@@ -23,7 +23,7 @@ const Matches = () => {
   const user = data?.me || data?.user || {};
   console.log(user)
 
-  // Use React Router's `<Navigate />` component to redirect to personal user page if username is yours
+ 
   if (Auth.loggedIn() && Auth.getUser().data._id === userId) {
     return <Navigate to="/profile" />;
   }
