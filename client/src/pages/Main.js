@@ -100,7 +100,6 @@ export default function Main() {
             aria-describedby="modal-modal-description">
             <form onSubmit={handleFormSubmit}>
               <AboutMe />
-
             </form>
           </Modal>
         </div>

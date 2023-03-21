@@ -97,7 +97,7 @@ const AboutMe = () => {
                         onChange={handleChange}
                       />
                     </div>
-                    <div class="input-field col s6">
+                    <div className="input-field col s6">
                       <input
                         className="form-input"
                         placeholder="******"
@@ -161,7 +161,7 @@ const AboutMe = () => {
                         </span>
                       </div>
 
-                      <div class="input-field col s6">
+                      <div className="input-field col s6">
                         <Select options={optionsGender} />
 
                         <span
@@ -177,7 +177,7 @@ const AboutMe = () => {
                       </div>
                     </div>
                     <div className="row">
-                      <div class="input-field col s6">
+                      <div className="input-field col s6">
                         <Select options={optionsEdu} />
 
                         <span
@@ -190,11 +190,11 @@ const AboutMe = () => {
                           Select your education
                         </span>
                       </div>
-                      <div class="input-field col s6">
+                      <div className="input-field col s6">
                         <input
                           type="text"
                           id="autocomplete-input"
-                          class="autocomplete"
+                          className="autocomplete"
                           value={formState.location}
                           onChange={handleChange}
                         />
@@ -202,21 +202,21 @@ const AboutMe = () => {
                       </div>
                     </div>
                     <div className="row">
-                      <div class="input-field col s6">
+                      <div className="input-field col s6">
                         <input
                           type="text"
                           id="autocomplete-input"
-                          class="autocomplete"
+                          className="autocomplete"
                           value={formState.height}
                           onChange={handleChange}
                         />
                         <label for="autocomplete-input">Enter your height</label>
                       </div>
-                      <div class="input-field col s6">
+                      <div className="input-field col s6">
                         <input
                           type="text"
                           id="autocomplete-input"
-                          class="autocomplete"
+                          className="autocomplete"
                           value={formState.ethnicity}
                           onChange={handleChange}
                         />
@@ -224,13 +224,13 @@ const AboutMe = () => {
                       </div>
                     </div>
                     <div className="row">
-                      <div class="row">
-                        <form class="col s12">
-                          <div class="row">
-                            <div class="input-field col s12">
+                      <div className="row">
+                        <form className="col s12">
+                          <div className="row">
+                            <div className="input-field col s12">
                               <textarea
                                 id="textarea2"
-                                class="materialize-textarea"
+                                className="materialize-textarea"
                                 data-length="120"></textarea>
                               <label for="autocomplete-input">Bio</label>
                             </div>

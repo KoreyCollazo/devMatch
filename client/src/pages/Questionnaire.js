@@ -74,7 +74,7 @@ const Questionnaire = () => {
           const question = questions[questionKey];
 
           return (
-            <li key={index}>
+            <li className="quiz-question" key={index}>
               {question.question}{' '}
               <ToggleButtonGroup
                 id={questionKey}
@@ -90,7 +90,12 @@ const Questionnaire = () => {
           );
         })}
       </ul>
-      <button onClick={() => setOpen(true)}>Save</button>
+      <button
+        className="btn btn-block btn-info btn-quiz"
+        style={{ cursor: 'pointer' }}
+        onClick={() => setOpen(true)}>
+        Save
+      </button>
       <Modal
         id="modal"
         open={isOpen}
