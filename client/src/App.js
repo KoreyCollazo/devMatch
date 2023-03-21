@@ -13,7 +13,7 @@ import Main from './pages/Main';
 import Footer from './components/Footer';
 // import VideoPlayer from './components/VideoCall/videoPlayer';
 import AboutMe from './pages/AboutMe';
-import Auth from './utils/auth';
+// import Auth from './utils/auth';
 import Profile from './pages/Profile';
 import { ContextProvider } from './components/SocketContext';
 import { UserContextProvider } from './components/UserContext';
