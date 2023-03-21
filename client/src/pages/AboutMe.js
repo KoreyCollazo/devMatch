@@ -88,7 +88,7 @@ const AboutMe = () => {
                 <div className="row">
                   <form className="col s12" onSubmit={handleFormSubmit}>
                     <div className="row">
-                      <div class="input-field col s6">
+                      {/* <div class="input-field col s6">
                         <input
                           className="form-input"
                           placeholder="Your first name"
@@ -97,16 +97,37 @@ const AboutMe = () => {
                           value={formState.firstName}
                           onChange={handleChange}
                         />
-                      </div>
+                      </div> */}
                       <div class="input-field col s6">
+                        <input
+                          type="text"
+                          id="autocomplete-input"
+                          class="autocomplete"
+                          value={formState.location}
+                          onChange={handleChange}
+                        />
+                        <label for="autocomplete-input">Enter your First Name</label>
+                      </div>
+                      {/* <div class="input-field col s6">
                         <input
                           className="form-input"
                           placeholder="Your last name"
+                         
                           name="lastName"
                           type="text"
                           value={formState.lastName}
                           onChange={handleChange}
                         />
+                      </div> */}
+                      <div class="input-field col s6">
+                        <input
+                          type="text"
+                          id="autocomplete-input"
+                          class="autocomplete"
+                          value={formState.location}
+                          onChange={handleChange}
+                        />
+                        <label for="autocomplete-input">Enter your last name</label>
                       </div>
                     </div>
                     <div className="row">
