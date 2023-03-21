@@ -102,7 +102,7 @@ const Questionnaire = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description">
         <div className="col s12 signup-modal">
-          <p>Submit was succussful</p>
+          <p>Submit was successful</p>
         </div>
       </Modal>
     </form>

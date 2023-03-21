@@ -18,6 +18,11 @@ export default function Header() {
             devMatch
           </Link><ul id="nav-mobile" class="right hide-on-med-and-down">
               <li>
+                <Link id="tab" to="/matches">
+                  Matches
+                </Link>
+              </li>
+              <li>
                 <Link id="tab" to="/profile">
                   Dashboard
                 </Link>
