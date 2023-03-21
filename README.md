@@ -11,10 +11,11 @@ individuals who understand the beauty of async functions and debuggers. The app 
 ## Usage
 License: https://opensource.org/licenses/MIT
 
-Heroku: Heroku-Link: 
+Heroku: Heroku-Link: https://devmatch.herokuapp.com/
 
 
-Screenshots: 
+Screenshots: ![Screenshot (117)](https://user-images.githubusercontent.com/112442942/226661098-1a4010cd-2110-43f3-aa14-118ca5519a0e.png)
+![Screenshot (118)](https://user-images.githubusercontent.com/112442942/226661104-2cb77baf-0b94-4848-9b01-a31b8006c0b9.png)
 
 ## Contributions:
 
@@ -26,6 +27,6 @@ Install MySQL to your computer. You will also need to have installed MySQL to yo
 
 ## Credits:
 
-Yulia Lavine, Ezinma nwankwo, Korey Callazo, Amber Standish
+Yulia Lavine, Ezinma Nwankwo, Korey Callazo, Amber Standish
 
 Github: https://github.com/KoreyCollazo/devMatch
