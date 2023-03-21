@@ -25,9 +25,9 @@ const Matches = () => {
     <>
     <ul>
       {data.getMatches.map((match) => (
-        <div class="row">
-          <div class="col s12 m5">
-            <div class="card-panel teal">
+        <div className="row">
+          <div className="col s12 m5">
+            <div className="card-panel teal">
               <li key={match._id}>
                 <h4>Email: {match.email}</h4>
                 <h5>{match.firstName && <div>{match.firstName}</div>}</h5>
@@ -41,7 +41,7 @@ const Matches = () => {
                   <div>Gender: {match.gender}</div>
                   <div>Location: {match.location}</div>
                   <div>Ethnicity: {match.ethnicity}</div>
-                  <div>Match Score: </div><button class="btn-floating btn-large waves-effect waves-light red"><div>{match.matchScore}</div>
+                  <div>Match Score: </div><button className="btn-floating btn-large waves-effect waves-light red"><div>{match.matchScore}</div>
                 </button>
               </li>
             </div>

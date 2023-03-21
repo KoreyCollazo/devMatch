@@ -74,10 +74,10 @@ const AboutMe = () => {
 
   // age function from https://stackoverflow.com/users/17447/naveen
   function getAge(dateString) {
-    var today = new Date();
-    var birthDate = new Date(dateString);
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
+    const today = new Date();
+    const birthDate = new Date(dateString);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
         age--;
     }
@@ -137,31 +137,31 @@ const AboutMe = () => {
                 <div>
                   <div className="row">
                     <form className="col s12" onSubmit={handleFormSubmit}>
-                      <div class="container">
-                        <div class="row">
-                          <form class="col s12" id="reg-form">
-                            <div class="row">
-                              <div class="input-field col s6">
+                      <div className="container">
+                        <div className="row">
+                          <form className="col s12" id="reg-form">
+                            <div className="row">
+                              <div className="input-field col s6">
                                 <input id="first_name" name="firstName" type="text" class="validate" required value={formState.firstName} onChange={handleChange} />
                                 <label for="first_name">First Name</label>
                               </div>
-                              <div class="input-field col s6">
+                              <div className="input-field col s6">
                                 <input id="last_name" name="lastName" type="text" class="validate" required value={formState.lastName} onChange={handleChange} />
                                 <label for="last_name">Last Name</label>
                               </div>
                             </div>
-                            <div class="row">
-                              <div class="input-field col s12">
+                            <div className="row">
+                              <div className="input-field col s12">
                                 <input id="email" name="email" type="email" class="validate" required value={formState.email} onChange={handleChange} />
                                 <label for="email">Email</label>
                               </div>
                             </div>
-                            <div class="row">
-                              <div class="input-field col s12">
+                            <div className="row">
+                              <div className="input-field col s12">
                                 <input
                                   id="password"
                                   type="password"
-                                  class="validate"
+                                  className="validate"
                                   minlength="6"
                                   required
                                   name="password"
