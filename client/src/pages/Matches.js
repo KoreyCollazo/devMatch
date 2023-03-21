@@ -31,8 +31,17 @@ const Matches = () => {
               <li key={match._id}>
                 <h4>Email: {match.email}</h4>
                 <h5>{match.firstName && <div>{match.firstName}</div>}</h5>
-                <button class="btn-floating btn-large waves-effect waves-light red">
-                  {match.matchScore}
+                
+                  {match.lastName && <div>{match.lastName}</div>}
+                  <div>{match.photo}</div>
+                  <div>Age: {match.age}</div>
+                  <div>Height: {match.height}</div>
+                  <div>Education: {match.education}</div>
+                  <div>Bio: {match.bio}</div>
+                  <div>Gender: {match.gender}</div>
+                  <div>Location: {match.location}</div>
+                  <div>Ethnicity: {match.ethnicity}</div>
+                  <div>Match Score: </div><button class="btn-floating btn-large waves-effect waves-light red"><div>{match.matchScore}</div>
                 </button>
               </li>
             </div>

@@ -9,7 +9,7 @@ const typeDefs = gql`
     gender: String
     email: String
     password: String
-    photos: String
+    photos: [String]
     bio: String
     education: String
     location: String
