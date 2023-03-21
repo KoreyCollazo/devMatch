@@ -31,7 +31,6 @@ const Matches = () => {
               <li key={match._id}>
                 <h4>Email: {match.email}</h4>
                 <h5>{match.firstName && <div>{match.firstName}</div>}</h5>
-                
                   {match.lastName && <div>{match.lastName}</div>}
                   <div>{match.photo}</div>
                   <div>Age: {match.age}</div>
