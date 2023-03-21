@@ -13,8 +13,6 @@ const Matches = () => {
   // If there is no `userId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(QUERY_GET_MATCHES);
 
-  // Use React Router's `<Navigate />` component to redirect to personal user page if username is yours
-
   if (Auth.loggedIn() && Auth.getUser().data._id === userId) {
     return <Navigate to="/profile" />;
   }
