@@ -4,7 +4,7 @@ import Peer from 'simple-peer';
 
 const SocketContext = createContext();
 
-let socket = io('http://localhost:3001');
+let socket = io('https://devmatch.herokuapp.com/');
 
 const ContextProvider = ({ children }) => {
   const [stream, setStream] = useState();
