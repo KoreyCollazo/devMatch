@@ -98,9 +98,9 @@ export default function Main() {
             onClose={() => setOpen(false)}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description">
-            <form onSubmit={handleFormSubmit}>
+            {/* <form onSubmit={handleFormSubmit}> */}
               <AboutMe />
-            </form>
+            {/* </form> */}
           </Modal>
         </div>
       </div>
