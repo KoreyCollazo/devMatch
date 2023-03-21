@@ -50,7 +50,7 @@ const Signup = () => {
           <div className="card-body">
             {data ? (
               <p>
-                Success! You may now head <Link to="/">back to the homepage.</Link>
+                Success! You may now head <Link to="/questionnaire">back to the homepage.</Link>
               </p>
             ) : (
               // added some fields to see if the sign up form would work
