@@ -41,7 +41,7 @@ const Questionnaire = () => {
       answer: false
     }
   });
-  const [saveAnswers, ] = useMutation(SAVE_ANSWERS);
+  const [saveAnswers] = useMutation(SAVE_ANSWERS);
 
   const handleChange = (e) =>
     setQuestions({
@@ -56,7 +56,7 @@ const Questionnaire = () => {
     e.preventDefault();
 
     try {
-       await saveAnswers({
+      await saveAnswers({
         variables: {
           answers: Object.keys(questions).map((questionKey) => questions[questionKey].answer)
         }
@@ -73,7 +73,7 @@ const Questionnaire = () => {
           const question = questions[questionKey];
 
           return (
-            <li key={index}>
+            <li className="quiz-question" key={index}>
               {question.question}{' '}
               <ToggleButtonGroup
                 id={questionKey}
@@ -89,16 +89,21 @@ const Questionnaire = () => {
           );
         })}
       </ul>
-      <button onClick={() => setOpen(true)}>Save</button>
+      <button
+        className="btn btn-block btn-info btn-quiz"
+        style={{ cursor: 'pointer' }}
+        onClick={() => setOpen(true)}>
+        Save
+      </button>
       <Modal
-            id="modal"
-            open={isOpen}
-            onClose={() => setOpen(false)}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description">
-              <div className="col s12 signup-modal">
-               <p>Submit was succussful</p>
-               </div>
+        id="modal"
+        open={isOpen}
+        onClose={() => setOpen(false)}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description">
+        <div className="col s12 signup-modal">
+          <p>Submit was succussful</p>
+        </div>
       </Modal>
     </form>
   );

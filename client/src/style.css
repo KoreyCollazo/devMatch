@@ -121,3 +121,17 @@
   border-right: 0.5mm solid #fff;
   font-size: 18px;
 }
+
+.quiz-question {
+  margin: auto;
+  width: 50%;
+  margin-top: 10px;
+  text-align: center;
+  border-bottom: 0.5mm dashed var(--grey);
+  font-size: 24px;
+}
+
+.btn-quiz {
+  margin: auto;
+  width: 50%!important;
+}
