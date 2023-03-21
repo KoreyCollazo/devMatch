@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import Select from 'react-select';
-import { Uploader } from 'uploader'
-
+import { Uploader } from 'uploader';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -24,12 +23,11 @@ const AboutMe = () => {
     email: '',
     password: '',
     photos: '',
-    bio: '',
+    bio: ''
   });
   const [addProfile, { error, data }] = useMutation(ADD_USER);
 
   const [dateValue, setDateValue] = useState(new Date());
-  
 
   const optionsGender = [
     { value: 'male', label: 'male' },
@@ -43,17 +41,16 @@ const AboutMe = () => {
     { value: 'self-taught', label: 'self-taught' }
   ];
 
-
   function uploadFiles() {
     // API key for upload-io
     const uploader = Uploader({
-      apiKey: 'public_FW25b2gBiUt9ZJeaMf76rGcekrMo',
+      apiKey: 'public_FW25b2gBiUt9ZJeaMf76rGcekrMo'
     });
 
     uploader
       .open({
         maxFileCount: 10,
-        mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
+        mimeTypes: ['image/jpeg', 'image/png', 'image/webp']
       })
       .then((files) => {
         if (files.length === 0) {
@@ -62,35 +59,31 @@ const AboutMe = () => {
           images = files.map((f) => f.fileUrl);
           setFormState({
             ...formState,
-            photos : images
-          })
+            photos: images
+          });
         }
       })
       .catch((err) => {
         console.error(err);
       });
   }
-  
 
   // age function from https://stackoverflow.com/users/17447/naveen
   function getAge(dateString) {
-    const today = new Date();
-    const birthDate = new Date(dateString);
+    let today = new Date();
+    let birthDate = new Date(dateString);
     let age = today.getFullYear() - birthDate.getFullYear();
-    const m = today.getMonth() - birthDate.getMonth();
+    let m = today.getMonth() - birthDate.getMonth();
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
+      age--;
     }
-    
-    return age;
-}
 
+    return age;
+  }
 
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
-    
-    
 
     setFormState({
       ...formState,
@@ -107,7 +100,7 @@ const AboutMe = () => {
 
     try {
       const { data } = await addProfile({
-        variables: { ...formState } 
+        variables: { ...formState }
       });
 
       Auth.login(data.addProfile.token);
@@ -131,7 +124,10 @@ const AboutMe = () => {
                 <button
                   className="btn btn-block btn-info"
                   style={{ cursor: 'pointer' }}
-                  type="submit" onClick={(()=>{uploadFiles()})}>
+                  type="submit"
+                  onClick={() => {
+                    uploadFiles();
+                  }}>
                   Upload Image
                 </button>
                 <div>
@@ -142,17 +138,41 @@ const AboutMe = () => {
                           <form className="col s12" id="reg-form">
                             <div className="row">
                               <div className="input-field col s6">
-                                <input id="first_name" name="firstName" type="text" class="validate" required value={formState.firstName} onChange={handleChange} />
+                                <input
+                                  id="first_name"
+                                  name="firstName"
+                                  type="text"
+                                  class="validate"
+                                  required
+                                  value={formState.firstName}
+                                  onChange={handleChange}
+                                />
                                 <label for="first_name">First Name</label>
                               </div>
                               <div className="input-field col s6">
-                                <input id="last_name" name="lastName" type="text" class="validate" required value={formState.lastName} onChange={handleChange} />
+                                <input
+                                  id="last_name"
+                                  name="lastName"
+                                  type="text"
+                                  class="validate"
+                                  required
+                                  value={formState.lastName}
+                                  onChange={handleChange}
+                                />
                                 <label for="last_name">Last Name</label>
                               </div>
                             </div>
                             <div className="row">
                               <div className="input-field col s12">
-                                <input id="email" name="email" type="email" class="validate" required value={formState.email} onChange={handleChange} />
+                                <input
+                                  id="email"
+                                  name="email"
+                                  type="email"
+                                  class="validate"
+                                  required
+                                  value={formState.email}
+                                  onChange={handleChange}
+                                />
                                 <label for="email">Email</label>
                               </div>
                             </div>
@@ -171,20 +191,16 @@ const AboutMe = () => {
                                 <label for="password">Password</label>
                               </div>
                             </div>
-                      
                           </form>
                         </div>
-                
                       </div>
-
-                     
 
                       <DatePicker selected={dateValue} onChange={(date) => setDateValue(date)} />
                       <span className="helper-text" data-error="wrong" data-success="right">
                         DOB
                       </span>
 
-                      <Select options={optionsGender} id="gender"/>
+                      <Select options={optionsGender} id="gender" />
 
                       <span
                         className="helper-text"
@@ -194,7 +210,7 @@ const AboutMe = () => {
                         Select your gender
                       </span>
 
-                      <Select options={optionsEdu} id="education"/>
+                      <Select options={optionsEdu} id="education" />
 
                       <span
                         name="education"
@@ -207,7 +223,7 @@ const AboutMe = () => {
                       </span>
 
                       <input
-                        name='location'
+                        name="location"
                         type="text"
                         id="autocomplete-input"
                         className="autocomplete"
@@ -217,7 +233,7 @@ const AboutMe = () => {
                       <label for="autocomplete-input">Enter your location</label>
 
                       <input
-                        name='height'
+                        name="height"
                         type="text"
                         id="autocomplete-input"
                         className="autocomplete"
@@ -227,7 +243,7 @@ const AboutMe = () => {
                       <label for="autocomplete-input">Enter your height</label>
 
                       <input
-                        name='ethnicity'
+                        name="ethnicity"
                         type="text"
                         id="autocomplete-input"
                         className="autocomplete"
@@ -243,10 +259,9 @@ const AboutMe = () => {
                               id="textarea2"
                               className="materialize-textarea"
                               data-length="120"
-                              name='bio'
+                              name="bio"
                               value={formState.bio}
-                              onChange={handleChange}
-                              ></textarea>
+                              onChange={handleChange}></textarea>
                             <label for="autocomplete-input">Bio</label>
                           </div>
                         </div>
