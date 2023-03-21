@@ -26,7 +26,7 @@ const AboutMe = () => {
     photos: '',
     bio: '',
   });
-  const [addProfile, { error, data }] = useMutation(ADD_USER);
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
   const [dateValue, setDateValue] = useState(new Date());
   
@@ -62,7 +62,7 @@ const AboutMe = () => {
           images = files.map((f) => f.fileUrl);
           setFormState({
             ...formState,
-            photos : images
+            photos : images.toString()
           })
         }
       })
@@ -71,6 +71,7 @@ const AboutMe = () => {
       });
   }
   
+ 
 
   // age function from https://stackoverflow.com/users/17447/naveen
   function getAge(dateString) {
@@ -103,14 +104,16 @@ const AboutMe = () => {
 
   // submit form
   const handleFormSubmit = async (event) => {
+    console.log(formState)
     event.preventDefault();
-
+    
     try {
-      const { data } = await addProfile({
-        variables: { ...formState } 
+      const { data } = await addUser({
+        variables: { ...formState }
+
       });
 
-      Auth.login(data.addProfile.token);
+      Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
@@ -139,7 +142,7 @@ const AboutMe = () => {
                     <form className="col s12" onSubmit={handleFormSubmit}>
                       <div class="container">
                         <div class="row">
-                          <form class="col s12" id="reg-form">
+                          <div class="col s12" id="reg-form">
                             <div class="row">
                               <div class="input-field col s6">
                                 <input id="first_name" name="firstName" type="text" class="validate" required value={formState.firstName} onChange={handleChange} />
@@ -172,7 +175,7 @@ const AboutMe = () => {
                               </div>
                             </div>
                       
-                          </form>
+                          </div>
                         </div>
                 
                       </div>
@@ -236,7 +239,7 @@ const AboutMe = () => {
                       />
                       <label for="autocomplete-input">Enter your ethnicity</label>
 
-                      <form className="col s12">
+                      <div className="col s12">
                         <div className="row">
                           <div className="input-field col s12">
                             <textarea
@@ -250,7 +253,7 @@ const AboutMe = () => {
                             <label for="autocomplete-input">Bio</label>
                           </div>
                         </div>
-                      </form>
+                      </div>
 
                       <button
                         className="btn btn-block btn-info"

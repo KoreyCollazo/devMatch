@@ -9,7 +9,7 @@ const typeDefs = gql`
     gender: String
     email: String
     password: String
-    photos: [String]
+    photos: String
     bio: String
     education: String
     location: String
@@ -51,6 +51,11 @@ const typeDefs = gql`
       location: String!
       email: String!
       password: String!
+      photos: String
+      bio: String
+      education: String
+      height: String
+      ethnicity: String
     ): Auth
     addMatch(userId: ID!, matchId: ID!): User!
     login(email: String!, password: String!): Auth
