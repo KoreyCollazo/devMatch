@@ -27,7 +27,7 @@ const ContextProvider = ({ children }) => {
     socket.on('get-users', (users) => {
       setOnlineUsers(users);
     });
-    socket = io('http://localhost:3001');
+    socket = io('https://devmatch.herokuapp.com/');
     socket.on('me', (id) => {
       setMe(id);
     });
