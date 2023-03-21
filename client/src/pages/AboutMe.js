@@ -107,7 +107,7 @@ const AboutMe = () => {
 
     try {
       const { data } = await addProfile({
-        variables: { ...formState } && console.log('Successfully created account')
+        variables: { ...formState } 
       });
 
       Auth.login(data.addProfile.token);

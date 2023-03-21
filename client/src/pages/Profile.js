@@ -4,7 +4,6 @@ import { useNavigate, Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import VideoCall from '../components/VideoCall';
 
-
 import { Link } from 'react-router-dom';
 
 import { QUERY_SINGLE_USER, QUERY_ME, QUERY_GET_MATCHES } from '../utils/queries';
@@ -12,15 +11,12 @@ import { QUERY_SINGLE_USER, QUERY_ME, QUERY_GET_MATCHES } from '../utils/queries
 import Auth from '../utils/auth';
 
 const Profile = () => {
-
   const navigate = useNavigate();
-    const onSubmit = async (event) => {
-       event.preventDefault();
-       navigate(`/about`);
-    }
-       
-    
-    
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    navigate(`/about`);
+  };
+
   const { userId } = useParams();
   console.log(userId);
 
@@ -78,26 +74,26 @@ const Profile = () => {
     );
   }
 
-  // added about me button just for testing
+  
   return (
-    // chat
+  
     <div className="row">
-        <div className="col s12 m4 l2 chat">
-          <h1> Chat </h1>
-          <VideoCall/>
-        </div>
+      <div className="col s12 m4 l2 chat">
+        <h1> VideoCall </h1>
+        <VideoCall />
+      </div>
 
-    {/* card */}
+      {/* card */}
 
       <div className="col s12 m8 l9">
         <div className="card">
-
-            <button onSubmit={onSubmit} className="waves-effect waves-light btn green" style={{ cursor: 'pointer' }}
-                  type="submit">
-              
-                About
-            
-            </button>
+          <button
+            onSubmit={onSubmit}
+            className="waves-effect waves-light btn green"
+            style={{ cursor: 'pointer' }}
+            type="submit">
+            About
+          </button>
           <div className="card-image">
             <img
               id="profile-picture"
@@ -119,9 +115,6 @@ const Profile = () => {
             <div id="buttons">
               <button id="dislike" className="waves-effect waves-light btn red" tab-index="1">
                 <span className="dislike-emoji">Nope</span>
-              </button>
-              <button id="letter" className="waves-effect waves-light btn orange" tab-index="2">
-                <span className="fa fa-instagram">Message</span>
               </button>
               <button id="like" className="waves-effect waves-light btn green" tab-index="1">
                 <span className="like-emoji">Yep</span>
