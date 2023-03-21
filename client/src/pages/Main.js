@@ -4,6 +4,7 @@ import Modal from '@mui/material/Modal';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import AboutMe from './AboutMe';
 
 export default function Main() {
   const [isOpen, setOpen] = useState(false);
@@ -92,43 +93,7 @@ export default function Main() {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description">
             <form onSubmit={handleFormSubmit}>
-              <div className="col s12 signup-modal">
-                <h4>Sign up</h4>
-                <div className="row">
-                  <div className="input-field hoverable col s12">
-                    <input
-                      className="form-input"
-                      name="email"
-                      type="email"
-                      value={formState.email}
-                      onChange={handleChange}
-                    />
-                    <label for="email">Email</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field hoverable col s12">
-                    <input
-                      className="form-input"
-                      name="password"
-                      type="password"
-                      value={formState.password}
-                      onChange={handleChange}
-                    />
-                    <label for="password">Password</label>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col s12 center-align">
-                    <button
-                      className="waves-effect waves-light btn-large"
-                      style={{ cursor: 'pointer' }}
-                      type="submit">
-                      Submit
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <AboutMe />
             </form>
           </Modal>
         </div>
