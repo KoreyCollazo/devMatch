@@ -9,6 +9,12 @@ import AboutMe from './AboutMe';
 export default function Main() {
   const [isOpen, setOpen] = useState(false);
   const [formState, setFormState] = useState({
+    firstName: '',
+    lastName: '',
+    age: 0,
+    gender: '',
+    education: '',
+    location: '',
     email: '',
     password: ''
   });
