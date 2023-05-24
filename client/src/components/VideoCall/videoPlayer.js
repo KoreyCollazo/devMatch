@@ -16,8 +16,6 @@ const VideoPlayer = () => {
       });
       
     
-    
-    
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [callEnded, dialing]);
 

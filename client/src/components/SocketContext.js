@@ -2,9 +2,10 @@ import React, { createContext, useState, useRef, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
 
+
 const SocketContext = createContext();
 
-let socket = io('https://devmatch.herokuapp.com/');
+let socket = io('http://localhost:3001');
 
 const ContextProvider = ({ children }) => {
   const [stream, setStream] = useState();
@@ -27,7 +28,7 @@ const ContextProvider = ({ children }) => {
     socket.on('get-users', (users) => {
       setOnlineUsers(users);
     });
-    socket = io('https://devmatch.herokuapp.com/');
+    socket = io('http://localhost:3001');
     socket.on('me', (id) => {
       setMe(id);
     });
@@ -41,13 +42,16 @@ const ContextProvider = ({ children }) => {
       setCallEnded(true);
       leaveCall();
     });
+  }, [userId, name]);
+  
     //handle receiving call
     socket.on('callUser', ({ from, name: callerName, signal }) => {
-      setDialing(true)
-      initVideo()
-      setCall({ isReceivingCall: true, from, name: callerName, signal });
-    });
-  }, [userId, name]);
+    console.log("getting a call")
+    setDialing(true)
+    initVideo()
+    setCall({ isReceivingCall: true, from, name: callerName, signal });
+
+  });
 
   //function for answer call
   const answerCall = () => {

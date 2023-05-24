@@ -22,19 +22,18 @@ const Profile = () => {
 
   const { userId } = useParams();
   
-  console.log(userId)
+
   // If there is no `userId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(userId ? QUERY_SINGLE_USER : QUERY_ME, {
     variables: { userId: userId }
   });
-  console.log(data)
   // const savedMatches = () => {
   //   if()
   // }
   const { data: matchData } = useQuery(QUERY_GET_MATCHES);
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_USER` query
   const user = data?.me || data?.singleUser || {};
-  console.log(matchData, 'undefined');
+ 
   
   const status = onlineUsers.find((o) => o.userId === user._id);
 
@@ -44,7 +43,7 @@ const Profile = () => {
     }
   }, [])
   
-  console.log(data)
+
   // Use React Router's `<Navigate />` component to redirect to personal user page if username is yours
   if (Auth.loggedIn() && Auth.getUser().data._id === userId) {
     return <Navigate to="/profile" />;
