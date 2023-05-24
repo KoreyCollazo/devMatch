@@ -48,5 +48,8 @@
         "socket.io-client": "^4.6.1",
         "subscriptions-transport-ws": "^0.11.0",
         "uploader": "^3.9.0"
-    }
+    },
+    "engines": {
+        "node": "16.9.x"
+      }
 }
