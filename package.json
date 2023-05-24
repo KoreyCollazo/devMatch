@@ -5,6 +5,7 @@
     "main": "server/seederes/seed.js",
     "scripts": {
         "start": "node server --ignore client",
+        "heroku-postbuild": "cd client && npm install && npm run build",
         "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
         "install": "cd server && npm i && cd ../client && npm i",
         "seed": "cd server && npm run seed",
@@ -48,5 +49,8 @@
         "socket.io-client": "^4.6.1",
         "subscriptions-transport-ws": "^0.11.0",
         "uploader": "^3.9.0"
-    }
+    },
+    "engines": {
+        "node": "16.9.x"
+      }
 }

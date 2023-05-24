@@ -14,13 +14,15 @@ const Options = ({ children }) => {
   //set id to call only if on another user's profile
   useEffect(() => {
     if (guest){
-      let guestObj = onlineUsers.find(o => o.userId === guest?.userId.slice(1))
-      setIdToCall(guestObj?.socketId)
+      if (onlineUsers){
+        let guestObj = onlineUsers.find(o => o.userId === guest.userId)
+        setIdToCall(guestObj?.socketId)
+      }
     }
-  }, [])
+  }, [onlineUsers, guest])
   
   setName(localStorage.getItem('firstName'))
-  console.log(call)
+  
  
   return (
     <div>
