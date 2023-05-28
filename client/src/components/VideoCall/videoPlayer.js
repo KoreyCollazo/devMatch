@@ -1,39 +1,35 @@
-/* eslint-disable jsx-a11y/heading-has-content */
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { SocketContext } from '../SocketContext';
 
 const VideoPlayer = () => {
-  const { name, callAccepted, myVideo, userVideo, callEnded, stream, setStream, call, dialing } =
+  const { name, callAccepted, userVideo, callEnded, stream, setStream, call, dialing, myVideo } =
     useContext(SocketContext);
 
-    
-  useEffect(() => {
-    
-      navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((currentStream) => {
-        setStream(currentStream);
-  
-        myVideo.current.srcObject = currentStream;
-      });
-      
-    
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [callEnded, dialing]);
+  const myVideoRef = useRef(); // Create a separate ref for the myVideo element
 
+  useEffect(() => {
+    navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((currentStream) => {
+      setStream(currentStream);
+      if (myVideoRef.current) {
+        myVideoRef.current.srcObject = currentStream; // Assign the stream to the video element
+      }
+    });
+  }, [callEnded, dialing, setStream]);
 
   return (
     <div>
       {/* client video */}
       {dialing && (
         <div>
-          <h2 value={name}></h2>
-          <video playsInline muted ref={myVideo} autoPlay />
+          <h2>{name}</h2>
+          <video playsInline muted ref={myVideoRef} autoPlay />
         </div>
       )}
 
       {/* guest video */}
       {callAccepted && !callEnded && stream && (
         <div>
-          <h2 value={call.name}></h2>
+          <h2>{call.name}</h2>
           <video playsInline ref={userVideo} autoPlay />
         </div>
       )}

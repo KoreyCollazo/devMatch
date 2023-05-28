@@ -18,6 +18,7 @@ export const QUERY_SINGLE_USER = gql`
       firstName
       bio
       age
+      photos
     }
   }
 `;

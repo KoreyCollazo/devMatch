@@ -13,7 +13,10 @@ import Auth from '../utils/auth';
 
 const Profile = () => {
   const { onlineUsers } = useContext(SocketContext);
-  const [ myProfile, setMyProfile ] = useState(false)
+  const [ myProfile, setMyProfile ] = useState(false);
+  const [ imgInt, setImgInt] = useState(0)
+  const [ photosLength, setPhotosLength] = useState(0)
+  const [ userStatus, setUserStatus ] = useState(false)
   const navigate = useNavigate();
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -34,15 +37,64 @@ const Profile = () => {
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_USER` query
   const user = data?.me || data?.singleUser || {};
  
+  useEffect(() => {
+    const status = onlineUsers.find((o) => o.userId === user._id);
+    if (status){
+      setUserStatus(true)
+    } else {
+      setUserStatus(false)
+    }
+  }, [onlineUsers, user._id])
   
-  const status = onlineUsers.find((o) => o.userId === user._id);
+  
 
   useEffect(() => {
-    if (window.location.pathname === "/profile"){
-      setMyProfile(true)
+    if (window.location.pathname === "/profile" && !myProfile) {
+      setMyProfile(true);
     }
-  }, [])
+  }, [myProfile]);
+
+
+  useEffect(() => {
+    let single = user.photos ? user.photos.split(',') : [];
+    if (single.length > 0) {
+      setPhotosLength(single.length - 1);
+    }
+  }, [user.photos]);
+
+  const firstPhoto = () => {
+    if (photosLength === 0 || !user.photos) {
+      if (user.photos){
+        return user.photos
+      } else{
+        return 'https://img.icons8.com/plasticine/12x/morty-smith.png';
+      }
+    }
+    let single = user.photos.split(',');
+    console.log(single)
+    if (single.length === 1) {
+      return single[0];
+    }
+    return single[imgInt];
+  };
   
+  const plusSlides = () => {
+    if (imgInt + 1 > photosLength ){
+      setImgInt(0)
+    } else {
+      setImgInt(imgInt + 1)
+    }
+  }
+
+  const subtractSlides = () => {
+    if (imgInt -1 < 0) {
+      setImgInt(photosLength)
+    } else {
+      setImgInt(imgInt - 1)
+    }
+  }
+
+  console.log(user)
 
   // Use React Router's `<Navigate />` component to redirect to personal user page if username is yours
   if (Auth.loggedIn() && Auth.getUser().data._id === userId) {
@@ -106,12 +158,14 @@ const Profile = () => {
             About
           </button>
           <div className="card-image">
-            <img
-              id="profile-picture"
-              alt="headshot"
-              src="https://img.icons8.com/plasticine/12x/morty-smith.png"
-            />
-            {status ? (
+            <img src={firstPhoto(user.photos)} alt="profile uploaded pic"/>
+            {photosLength > 0 && (
+              <div>
+                <button className="prev" onClick={() => {subtractSlides()}}>&#10094;</button>
+                <button className="next" onClick={() => {plusSlides()}}>&#10095;</button>
+              </div>
+            )}
+            {userStatus ? (
               <div className="btn-floating halfway-fab waves-effect waves-light green">
                 <i className="material-icons"></i>
               </div>
