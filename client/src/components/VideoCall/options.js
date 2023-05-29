@@ -17,11 +17,15 @@ const Options = ({ children }) => {
       if (onlineUsers){
         let guestObj = onlineUsers.find(o => o.userId === guest.userId)
         setIdToCall(guestObj?.socketId)
+        console.log(onlineUsers)
       }
     }
   }, [onlineUsers, guest])
   
-  setName(localStorage.getItem('firstName'))
+  useEffect(() => {
+    setName(localStorage.getItem('firstName'))
+  }, [])
+  
   
  
   return (
